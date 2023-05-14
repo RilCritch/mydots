@@ -1,5 +1,5 @@
 # RilCritch's dotfiles
-### Author: RilCritch (Riley Critchfield)
+#### Author: RilCritch (Riley Critchfield)
 
 ## Description
 These are my dotfiles for an archlinux system. I am using ArcoLinuxB AwesomeWM variant. These dotfiles will change drastically as I decide to overhaul my entire system. I plan to make backups full rices I make when I'm down with them. Im always tweaking my shit, so this repo is ever changing and evolving.
