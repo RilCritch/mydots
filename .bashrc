@@ -3,7 +3,11 @@
 export EDITOR='nvim'
 export VISUAL='nvim'
 export HISTCONTROL=ignoreboth:erasedups
-export PAGER='most'
+export PAGER='most' # default arcolinux option
+# export PAGER='less'
+# export PAGER='batman'
+
+# export PAGER=nvimpager
 
 #Ibus settings if you need them
 #type ibus-setup in terminal to change settings and start the daemon
@@ -45,6 +49,9 @@ if [[ $(ps --no-header -p $PPID -o comm) =~ yakuake|kitty ]]; then
 fi
 # }}}
 
+# use vim keybindings in bash
+# set -o vi
+
 #starship
 eval "$(starship init bash)"
 
@@ -52,7 +59,8 @@ eval "$(starship init bash)"
 alias matrix='cxxmatrix --frame-rate 45 --no-diffuse --preserve-background'
 
 #manpager
-# export MANPAGER="nvim -c 'set ft=man' -"
+# alias man="nvim -R -c 'set ft=man' -"
+export MANPAGER="most"
 
 #myshellscripts
 export PATH="$HOME/Documents/useful_command_info:$PATH"
@@ -107,7 +115,7 @@ alias ylg='lazygit --use-config-file "$HOME/.config/yadm/lazygit.yml,$HOME/.conf
 alias viewimg='kitty +kitten icat'
 
 #bat aliases
-# alias man='batman'
+alias man='batman'
 alias cat='bat'
 
 #list
