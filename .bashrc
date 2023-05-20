@@ -66,8 +66,6 @@ alias cs='colorscript -e'
 alias colors='colorscript -e 18'
 
 #pfetch config
-# export PF_SEP=":"
-# export PF_INFO="ascii title os host kernel uptime pkgs memory wm shell editor" everything
 export PF_INFO="ascii"
 export PF_COL3="3"
 
@@ -81,16 +79,6 @@ alias ru='sudo su'
 alias ee='exit'
 
 #config directories
-#   terminal - old
-# alias conf='cd $HOME/.config/'
-# alias nvimconf='cd $HOME/.config/nvim/lua/custom/'
-# alias awesomeconf='cd $HOME/.config/awesome/'
-# alias bpytopconf='cd $HOME/.config/bpytop/'
-# alias kittyconf='cd $HOME/.config/kitty/'
-# alias polybarconf='cd $HOME/.config/polybar/'
-# alias roficonf='cd $HOME/.config/rofi/'
-# alias yadmconf='cd $HOME/.config/yadm/'
-# alias rangerconf='cd $HOME/.config/ranger/'
 alias conf='cd $HOME/.config/'
 alias nvimconf='cd $HOME/.config/nvim/lua/custom/'
 alias awesomeconf='cd $HOME/.config/awesome/'
@@ -119,16 +107,10 @@ alias ylg='lazygit --use-config-file "$HOME/.config/yadm/lazygit.yml,$HOME/.conf
 alias viewimg='kitty +kitten icat'
 
 #bat aliases
-alias man='batman'
+# alias man='batman'
 alias cat='bat'
 
 #list
-#alias ls='ls --color=auto'
-#alias la='ls -a'
-#alias ll='ls -alFh'
-#alias l='ls'
-#alias l.="ls -A | egrep '^\.'"
-#alias listdir="ls -d */ > list"
 alias ls='lineacross | clr && exa --group-directories-first --icons && lineacross | clr'
 alias lsa='lineacross | clr && exa -a --group-directories-first --icons && lineacross | clr'
 
