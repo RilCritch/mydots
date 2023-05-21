@@ -1,0 +1,217 @@
+#!/usr/bin/bash
+
+# Bash aliases for RilCritch's bashrc
+#
+# author: RilCritch
+
+## terminal fun {{{
+
+# screen savers
+alias rmatrix='cxxmatrix --frame-rate 45 --no-diffuse --preserve-background'
+
+# pretty output
+alias cs='colorscript -e'
+alias line='lineacross | clr'
+alias spark='sparky | clr'
+
+# }}}
+
+## list - exa {{{
+
+# base
+alias l='exa --group-directories-first --icons'
+alias la='exa -a --group-directories-first --icons'
+
+# pretty
+alias ls='lineacross | clr && exa --group-directories-first --icons && lineacross | clr'
+alias lsa='lineacross | clr && exa -a --group-directories-first --icons && lineacross | clr'
+
+alias ll='lineacross | clr && exa -l --group-directories-first --grid --no-filesize --icons && lineacross | clr'
+alias lla='lineacross | clr && exa -la --group-directories-first --grid --no-filesize --icons && lineacross | clr'
+
+alias lst='lineacross | clr && exa -T -L=2 --icons && lineacross | clr'
+alias lsr='lineacross | clr && exa -R -L=2 --icons && lineacross | clr'
+
+# }}}
+
+## clear {{{
+
+# basic
+alias cc='clear'
+alias cca='clear &&'
+
+# info
+alias ccda='clear && pwd &&'
+
+# pretty
+alias c="clear && sparky | clr yellow"
+alias ca="clear && sparky | clr yellow &&"
+
+# }}}
+
+## directory navigation {{{
+
+# cd utils
+alias cb='cd -'
+
+# common dirs
+alias dotc="cd $HOME/mydots/"
+alias ccnf="cd $HOME/.config/"
+alias docs="cd $HOME/documents/"
+alias down="cd $HOME/downloads/"
+
+# configs
+alias conf="cd $HOME/mydots/config/"
+alias awec="cd $HOME/mydots/config/awesome/"
+alias bpyc="cd $HOME/mydots/config/bpytop/"
+alias kitc="cd $HOME/mydots/config/kitty/"
+alias polc="cd $HOME/mydots/config/polybar/"
+alias rofc="cd $HOME/mydots/config/rofi"
+alias nvic="cd $HOME/mydots/config/nvim/custom/"
+alias basc="cd $HOME/mydots/bashconf/"
+
+# scripts
+alias scripts="cd $HOME/mydots/scripts/"
+
+# wallpapers
+alias wapa="cd $HOME/mydots/wallpapers/"
+
+# }}}
+
+## packages {{{
+
+# pacman
+alias pacman='pacman --color auto'
+alias spss='sudo pacman -Ss' # search for pkgs
+alias sps='sudo pacman -S' # isntall specified pkgs
+alias spr='sudo pacman -R' # remove a pkg, safer
+alias sprs='sudo pacman -Rs' # remove pkgs and depencies, can be dangerous
+alias spqo='sudo pacman -Qo' # determines which pkgs owns a specific file
+alias psyu='sudo pacman -Syu' # update only standard pkgs
+alias psyyu='sudo pacman -Syyu' # refresh pkg list and update standard pkgs
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' #remove orphan pkgs
+
+# yay
+alias yss='yay -Ss' # search for AUR pkgs
+alias ysua='yay -Sua' # update only AUR pkgs
+alias ysyu='yay -Syu' # update standard and AUR pkgs
+
+# info
+alias listpkg='sudo pacman -Q' # list standard packages
+alias listorph='sudo pacman -Qtd' # list orphaned pkgs
+alias listaur='sudo pacman -Qm' # list AUR pkgs
+alias listpkgsize="expac -H M '%m\t%n' | sort -h | nl" # reads out pkgs and their sizes
+
+# }}}
+
+## file editing/viewing {{{
+
+# neovim
+alias nv='nvim'
+alias vim='nvim'
+alias vi='nvim'
+
+# viewing text
+alias cat='ccat'
+alias bat='bat --theme ansi'
+
+# manpager
+alias man='batman'
+
+# grep - colorize
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# images
+alias vimg='kitty +kitten icat'
+
+# edit files
+alias eb="$EDITOR $HOME/mydots/.bashrc"
+
+# }}}
+
+## searching {{{
+
+# fzf
+alias fzf="fzf --header-first --reverse --color=16 --prompt='▶ ' --pointer='󱦰'" # defualts to make fzf look better
+
+# find
+alias sfn='sudo find/ -name' # search entire system for specified file
+alias fzfall="find / -type f 2>/dev/null | fzf --preview 'bat --style=numbers --color=always {}' --header 'All Files' --header-first --reverse" # fzf all files
+
+# }}}
+
+## system info {{{
+
+# hardware
+alias hw='hwinfo --short' # list all hardware
+
+# disk
+alias df='df -h' # disk usage
+
+# memory
+alias fre='free -mt' # memory usage
+
+# processes
+alias psa="ps auxf" # list all processes
+alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e" # search for processes
+
+# audio
+alias audio="pactl info | grep 'Server Name'" # shceck what audio server is used
+
+# desktops
+alias xd="\ls /usr/share/xsessions" #list installed xorg desktops
+alias xdw="\ls /usr/share/wayland-sessions" #list installed wayland desktops
+
+# issue checking
+alias microcode='grep . /sys/devices/system/cpu/vulnerabilities/*' #check vulnerabilities
+alias jctl="journalctl -p 3 -xb" #view error message from journalctl
+alias lcalamares="bat /var/log/Calamares.log" # check calamares logs
+alias lpacman="bat /var/log/pacman.log" # check pacmanlogs
+alias lxorg="bat /var/log/Xorg.0.log" # check xorg logs
+alias lxorgo="bat /var/log/Xorg.0.log.old" # check old xorg logs
+alias sysfailed="systemctl list-units --failed" #check failed systemctl
+
+# }}}
+
+## acrolinux {{{
+
+# applications
+alias adt="arcolinux-desktop-trasher"
+alias abl="arcolinux-betterlockscreen"
+alias agm="arcolinux-get-mirrors"
+alias amr="arcolinux-mirrorlist-rank-info"
+alias aom="arcolinux-osbeck-as-mirror"
+alias ars="arcolinux-reflector-simple"
+alias atm="arcolinux-tellme"
+alias avs="arcolinux-vbox-share"
+alias awa="arcolinux-welcome-app"
+
+# fixes
+alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
+alias keyfix="/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
+alias key-fix="/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
+alias keys-fix="/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
+alias fixkey="/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
+alias fixkeys="/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
+alias fix-key="/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
+alias fix-keys="/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
+alias fix-pacman-conf="/usr/local/bin/arcolinux-fix-pacman-conf"
+alias fix-pacman-keyserver="/usr/local/bin/arcolinux-fix-pacman-gpg-conf"
+alias fix-grub="/usr/local/bin/arcolinux-fix-grub"
+alias fixgrub="/usr/local/bin/arcolinux-fix-grub"
+
+# }}} 
+
+## shells {{{
+
+# bash
+alias csb='clear && source ~/.bashrc'
+
+# switching
+alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
+alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
+alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
+
+# }}}
