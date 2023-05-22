@@ -126,16 +126,19 @@ alias bat='bat --theme ansi'
 # manpager
 alias man='batman'
 
-# grep - colorize
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-
 # images
 alias vimg='kitty +kitten icat'
 
 # edit files
-alias eb="$EDITOR $HOME/mydots/.bashrc"
+alias ebash="$EDITOR $HOME/mydots/.bashrc"
+alias ezsh="$EDITOR ~/.zshrc"
+alias efish="$EDITOR ~/.config/fish/config.fish"
+alias epacman="sudo $EDITOR /etc/pacman.conf"
+alias egrub="sudo $EDITOR /etc/default/grub"
+alias ecgrub="sudo $EDITOR /boot/grub/grub.cfg"
+alias esddm="sudo $EDITOR /etc/sddm.conf"
+alias ehostname="sudo $EDITOR /etc/hostname"
+
 
 # }}}
 
@@ -148,9 +151,21 @@ alias fzf="fzf --header-first --reverse --color=16 --prompt='â–¶ ' --pointer='ó±
 alias sfn='sudo find/ -name' # search entire system for specified file
 alias fzfall="find / -type f 2>/dev/null | fzf --preview 'bat --style=numbers --color=always {}' --header 'All Files' --header-first --reverse" # fzf all files
 
+# grep
+
+# grep - colorize
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias rg="rg --sort path" # search content with ripgrep
+
 # }}}
 
 ## system info {{{
+
+#shutdown or reboot
+alias ssn="sudo shutdown now" # system util
+alias sr="reboot" # system util
 
 # hardware misc
 alias hw='hwinfo --short' # list all hardware
@@ -212,6 +227,18 @@ alias fix-grub="/usr/local/bin/arcolinux-fix-grub"
 alias fixgrub="/usr/local/bin/arcolinux-fix-grub"
 
 # }}} 
+
+## downloading {{{
+
+#youtube download
+alias yta-aac="yt-dlp --extract-audio --audio-format aac"
+alias yta-best="yt-dlp --extract-audio --audio-format best"
+alias yta-wav="yt-dlp --extract-audio --audio-format best"
+alias yta-flac="yt-dlp --extract-audio --audio-format flac"
+alias yta-mp3="yt-dlp --extract-audio --audio-format mp3"
+alias ytv-best="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4"
+
+# }}}
 
 ## shells {{{
 
