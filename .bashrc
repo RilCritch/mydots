@@ -52,13 +52,6 @@ fi
 #starship
 eval "$(starship init bash)"
 
-#common dirs
-# alias trash='cd $HOME/.local/share/Trash/files/ && clear && lsa'
-alias trash='ranger $HOME/.local/share/Trash/files/'
-
-#utility
-alias scr='xdpyinfo | grep dimensions'
-
 # show the list of packages that need this package - depends mpv as example
 function_depends() {
 	search=$(echo "$1")
@@ -66,13 +59,6 @@ function_depends() {
 }
 
 alias depends='function_depends'
-
-#pacman unlock
-alias unlock="sudo rm /var/lib/pacman/db.lck"
-alias rmpacmanlock="sudo rm /var/lib/pacman/db.lck"
-
-#arcolinux logout unlock
-alias rmlogoutlock="sudo rm /tmp/arcologout.lock"
 
 # paru as aur helper - updates everything
 alias pksyua="paru -Syu --noconfirm"
@@ -217,6 +203,7 @@ alias pamac-unlock="sudo rm /var/tmp/pamac/dbs/db.lock"
 alias personal='cp -Rf /personal/* ~'
 
 [[ -f $HOME/mydots/bashconf/bashaliases ]] && . $HOME/mydots/bashconf/bashaliases
+[[ -f $HOME/mydots/bashconf/bashenvvars ]] && . $HOME/mydots/bashconf/bashenvvars
 
 #Generic color list
 {

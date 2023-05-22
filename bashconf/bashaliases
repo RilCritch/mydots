@@ -61,6 +61,7 @@ alias dotc="cd $HOME/mydots/"
 alias ccnf="cd $HOME/.config/"
 alias docs="cd $HOME/documents/"
 alias down="cd $HOME/downloads/"
+alias trash="cd $HOME/.local/share/Trash/files/"
 
 # configs
 alias conf="cd $HOME/mydots/config/"
@@ -90,13 +91,18 @@ alias spr='sudo pacman -R' # remove a pkg, safer
 alias sprs='sudo pacman -Rs' # remove pkgs and depencies, can be dangerous
 alias spqo='sudo pacman -Qo' # determines which pkgs owns a specific file
 alias psyu='sudo pacman -Syu' # update only standard pkgs
-alias psyyu='sudo pacman -Syyu' # refresh pkg list and update standard pkgs
+alias update='sudo pacman -Syyu' # refresh pkg list and update standard pkgs
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' #remove orphan pkgs
 
 # yay
 alias yss='yay -Ss' # search for AUR pkgs
 alias ysua='yay -Sua' # update only AUR pkgs
 alias ysyu='yay -Syu' # update standard and AUR pkgs
+
+# paru
+alias pass='paru -Ss' # search for aur pkgs
+alias pasua='paru -Sua' #update only AUR pkgs
+alias updateall='paru -Syu' # updates standard and AUR pkgs
 
 # info
 alias listpkg='sudo pacman -Q' # list standard packages
@@ -146,8 +152,9 @@ alias fzfall="find / -type f 2>/dev/null | fzf --preview 'bat --style=numbers --
 
 ## system info {{{
 
-# hardware
+# hardware misc
 alias hw='hwinfo --short' # list all hardware
+alias screenres='xdpyinfo | grep dimensions'
 
 # disk
 alias df='df -h' # disk usage
