@@ -114,8 +114,8 @@ ex() {
 	fi
 }
 
-[[ -f $HOME/mydots/bashconf/bashaliases ]] && . $HOME/mydots/bashconf/bashaliases
-[[ -f $HOME/mydots/bashconf/bashenvvars ]] && . $HOME/mydots/bashconf/bashenvvars
+[[ -f $HOME/mydots/bashconf/aliases ]] && . $HOME/mydots/bashconf/aliases
+[[ -f $HOME/mydots/bashconf/envvars ]] && . $HOME/mydots/bashconf/envvars
 
 #Generic color list
 {
