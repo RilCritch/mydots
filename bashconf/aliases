@@ -57,11 +57,30 @@ alias ca="clear && sparky | clr yellow &&"
 alias cb='cd -'
 
 # common dirs
-alias dotc="cd $HOME/mydots/"
-alias ccnf="cd $HOME/.config/"
-alias docs="cd $HOME/documents/"
-alias down="cd $HOME/downloads/"
-alias trash="cd $HOME/.local/share/Trash/files/"
+alias rc="cd $HOME \
+  && clear && termtitle 'Ril Critch' yellow blueL blue \
+  && exa -l --group-directories-first --icons --grid \
+  && lineacross | clr blueL"
+alias dotc="cd $HOME/mydots/ \
+  && clear && termtitle 'Dot Files' yellow whiteL blue\
+  && exa -la --group-directories-first --icons --grid \
+  && lineacross | clr"
+alias ccnf="cd $HOME/.config/ \
+  && clear && termtitle 'Sys Configs' whiteL whiteL blue \
+  && exa -a --group-directories-first --icons --grid \
+  && lineacross | clr"
+alias docs="cd $HOME/documents/ \
+  && clear && termtitle Documents whiteL whiteL blue \
+  && exa -la --group-directories-first --icons --grid \
+  && lineacross | clr"
+alias down="cd $HOME/downloads/ \
+  && clear && termtitle Installed whiteL whiteL blue \
+  && exa -la --group-directories-first --icons --grid \
+  && lineacross | clr"
+alias trash="cd $HOME/.local/share/Trash/files/ \
+  && clear && termtitle Trash whiteL whiteL blue \
+  && exa -la --group-directories-first --icons --grid \
+  && lineacross | clr"
 
 # configs
 alias conf="cd $HOME/mydots/config/"
