@@ -131,6 +131,12 @@ alias listpkgsize="expac -H M '%m\t%n' | sort -h | nl" # reads out pkgs and thei
 
 # }}}
 
+## linux customizations {{{
+
+alias okolors='/home/rc/mydots/applications/okolors'
+
+# }}}
+
 ## file editing/viewing {{{
 
 # neovim
