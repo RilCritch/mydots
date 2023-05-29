@@ -131,9 +131,10 @@ alias listpkgsize="expac -H M '%m\t%n' | sort -h | nl" # reads out pkgs and thei
 
 # }}}
 
-## linux customizations {{{
+## linux customization {{{
 
-alias okolors='/home/rc/mydots/applications/okolors'
+# application for generating a color palette from images
+alias okolors='/home/rc/mydots/applications/okolors -n 3 -l 10,30,50,70 -s l'
 
 # }}}
 

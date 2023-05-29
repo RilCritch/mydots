@@ -34,7 +34,7 @@ up () {
 
 # EXtractor for all kinds of archives
 # usage: ex <file>
-ex() {
+ex () {
 	if [ -f $1 ]; then
 		case $1 in
       *.tar.bz2) tar xf $1 ;;
@@ -56,4 +56,15 @@ ex() {
 	else
 		echo "'$1' is not a valid file"
 	fi
+}
+
+# get a color palette for an image
+palette () {
+  img=$1
+
+  # hex values
+  ~/mydots/applications/okolors -n 3 -l 10,30,50,70 -s l $img
+
+  # swatch
+  ~/mydots/applications/okolors -n 3 -l 10,30,50,70 -s l -o swatch $img
 }
