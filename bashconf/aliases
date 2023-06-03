@@ -134,6 +134,15 @@ alias wapa="cd $HOME/mydots/wallpapers/ \
 
 # }}}
 
+## applications {{{
+
+# lazygit
+alias lg="lazygit"
+alias lgmd="lazygit -p $HOME/mydots/"
+alias lgnv="lazygit -p $HOME/mydots/config/nvim/custom/"
+
+# }}}
+
 ## packages {{{
 
 # pacman
