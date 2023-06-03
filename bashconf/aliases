@@ -189,7 +189,7 @@ alias rg="rg --sort path" # search content with ripgrep
 
 ## system info {{{
 
-#shutdown or reboot
+# shutdown or reboot
 alias ssn="sudo shutdown now" # system util
 alias sr="reboot" # system util
 
@@ -225,6 +225,13 @@ alias sysfailed="systemctl list-units --failed" #check failed systemctl
 
 # }}}
 
+## window managers {{{
+
+# qtile
+alias qc="qtile check"
+
+# }}}
+
 ## acrolinux {{{
 
 # applications
@@ -256,7 +263,7 @@ alias fixgrub="/usr/local/bin/arcolinux-fix-grub"
 
 ## downloading {{{
 
-#youtube download
+# youtube download
 alias yta-aac="yt-dlp --extract-audio --audio-format aac"
 alias yta-best="yt-dlp --extract-audio --audio-format best"
 alias yta-wav="yt-dlp --extract-audio --audio-format best"
