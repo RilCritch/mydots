@@ -74,7 +74,7 @@ alias docs="cd $HOME/documents/ \
   && exa -la --group-directories-first --icons --grid \
   && lineacross | clr"
 alias down="cd $HOME/downloads/ \
-  && clear && termtitle Installed whiteL whiteL blue \
+  && clear && termtitle Downaloads whiteL whiteL blue \
   && exa -la --group-directories-first --icons --grid \
   && lineacross | clr"
 alias trash="cd $HOME/.local/share/Trash/files/ \
