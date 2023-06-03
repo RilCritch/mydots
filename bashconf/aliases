@@ -121,10 +121,16 @@ alias qtic="cd $HOME/mydots/config/qtile/ \
   && lineacross | clr"
 
 # scripts
-alias scripts="cd $HOME/mydots/scripts/"
+alias scripts="cd $HOME/mydots/scripts/ \
+  && clear && termtitle 'Scripts' whiteL whiteL blue \
+  && exa -la --group-directories-first --icons --grid \
+  && lineacross | clr"
 
 # wallpapers
-alias wapa="cd $HOME/mydots/wallpapers/"
+alias wapa="cd $HOME/mydots/wallpapers/ \
+  && clear && termtitle 'Wallpapers' whiteL whiteL blue \
+  && exa -la --group-directories-first --icons --grid \
+  && lineacross | clr"
 
 # }}}
 
