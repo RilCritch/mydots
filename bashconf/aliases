@@ -156,7 +156,7 @@ alias man='batman'
 alias vimg='kitty +kitten icat'
 
 # edit files
-alias ebash="$EDITOR $HOME/mydots/.bashrc"
+alias ebash="$EDITOR $HOME/mydots/bashconf/.bashrc"
 alias ezsh="$EDITOR ~/.zshrc"
 alias efish="$EDITOR ~/.config/fish/config.fish"
 alias epacman="sudo $EDITOR /etc/pacman.conf"
@@ -167,6 +167,14 @@ alias ehostname="sudo $EDITOR /etc/hostname"
 
 
 # }}}
+
+## error logs {{{
+
+# applications
+alias qtilelogs="cd $HOME/.local/share/qtile/"
+
+# }}}
+
 
 ## searching {{{
 
