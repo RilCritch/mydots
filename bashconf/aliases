@@ -58,11 +58,11 @@ alias cb='cd -'
 
 # common dirs
 alias rc="cd $HOME \
-  && clear && termtitle 'Ril Critch' yellow blueL blue \
+  && clear && termtitle 'Ril Critch' yellow whiteL blue \
   && exa -l --group-directories-first --icons --grid \
-  && lineacross | clr blueL"
+  && lineacross | clr"
 alias dotc="cd $HOME/mydots/ \
-  && clear && termtitle 'Dot Files' yellow whiteL blue\
+  && clear && termtitle 'Dot Files' whiteL whiteL blue \
   && exa -la --group-directories-first --icons --grid \
   && lineacross | clr"
 alias ccnf="cd $HOME/.config/ \
@@ -83,14 +83,42 @@ alias trash="cd $HOME/.local/share/Trash/files/ \
   && lineacross | clr"
 
 # configs
-alias conf="cd $HOME/mydots/config/"
-alias awec="cd $HOME/mydots/config/awesome/"
-alias bpyc="cd $HOME/mydots/config/bpytop/"
-alias kitc="cd $HOME/mydots/config/kitty/"
-alias polc="cd $HOME/mydots/config/polybar/"
-alias rofc="cd $HOME/mydots/config/rofi"
-alias nvic="cd $HOME/mydots/config/nvim/custom/"
-alias basc="cd $HOME/mydots/bashconf/"
+alias conf="cd $HOME/mydots/config/ \
+  && clear && termtitle 'Configs' whiteL whiteL blue \
+  && exa -la --group-directories-first --icons --grid \
+  && lineacross | clr"
+alias awec="cd $HOME/mydots/config/awesome/ \
+  && clear && smtermtitle 'Awesome' whiteL blue n \
+  && exa -la --group-directories-first --icons --grid \
+  && lineacross | clr"
+alias bpyc="cd $HOME/mydots/config/bpytop/ \
+  && clear && smtermtitle 'Bpytop' whiteL blue \
+  && exa -la --group-directories-first --icons --grid \
+  && lineacross | clr"
+alias kitc="cd $HOME/mydots/config/kitty/ \
+  && clear && smtermtitle 'Kitty' whiteL blue \
+  && exa -la --group-directories-first --icons --grid \
+  && lineacross | clr"
+alias polc="cd $HOME/mydots/config/polybar/ \
+  && clear && smtermtitle 'Polybar' whiteL blue \
+  && exa -la --group-directories-first --icons --grid \
+  && lineacross | clr"
+alias rofc="cd $HOME/mydots/config/rofi \
+  && clear && smtermtitle 'Rofi' whiteL blue n \
+  && exa -la --group-directories-first --icons --grid \
+  && lineacross | clr"
+alias nvic="cd $HOME/mydots/config/nvim/custom/ \
+  && clear && smtermtitle 'Neovim' whiteL blue n \
+  && exa -la --group-directories-first --icons --grid \
+  && lineacross | clr"
+alias basc="cd $HOME/mydots/bashconf/ \
+  && clear && smtermtitle 'Bash Conf' whiteL blue \
+  && exa -la --group-directories-first --icons --grid \
+  && lineacross | clr"
+alias qtic="cd $HOME/mydots/config/qtile/ \
+  && clear && smtermtitle 'Qtile' whiteL blue \
+  && exa -la --group-directories-first --icons --grid \
+  && lineacross | clr"
 
 # scripts
 alias scripts="cd $HOME/mydots/scripts/"
@@ -174,7 +202,6 @@ alias ehostname="sudo $EDITOR /etc/hostname"
 alias qtilelogs="cd $HOME/.local/share/qtile/"
 
 # }}}
-
 
 ## searching {{{
 
