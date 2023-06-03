@@ -53,7 +53,7 @@ lineacross | clr $lineacrosscolor
 sparky | clr $sparkycolor
 lineacross | clr $lineacrosscolor
 
-figlet -w $(tput cols) -ck "${title}" | clr $figletcolor
+figlet -w $(tput cols) -c "${title}" | clr $figletcolor
 
 lineacross | clr $lineacrosscolor
 sparky | clr $sparkycolor
