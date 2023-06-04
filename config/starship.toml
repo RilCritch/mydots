@@ -185,7 +185,7 @@ format = '([\[$all_status$ahead_behind\]]($style) )'
 [git_branch]
 # style = 'bright-yellow'
 style = 'blue'
-format = '[$symbol$branch(:$remote_branch)]($style):(bright-white) '
+format = '[$symbol$branch(:$remote_branch)]($style)[:](bright-white) '
 
 [git_metrics]
 disabled = false
