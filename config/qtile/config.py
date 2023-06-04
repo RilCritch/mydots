@@ -83,9 +83,7 @@ keys = [
     # System info
     # Keybindings - the command works now I just need to figure out how to spawn it in a floating window
     Key([mod, "shift"], "q", 
-        lazy.spawn(terminal,
-                   '--class=floating',
-                   "-e qtile cmd-obj -o cmd -f display_kb | python -c 'import sys; print(eval(sys.stdin.read()))'"
+        lazy.spawn('kitty --class=floating --hold -e /home/rc/mydots/scripts/qtilekeys'
                    ), 
         desc="Show keybindings"
         ),
