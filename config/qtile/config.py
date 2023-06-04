@@ -64,39 +64,31 @@ keys = [
     Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod, "control"], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-    Key([mod], "space", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod], "space", lazy.next_layout(), desc="Toggle between layouts"),
 
     # Launch applications
     ## Rofi
     Key([mod], "r", lazy.spawn("rofi -show run"), desc="Launch rofi run"),
     Key([mod, "shift"], "r", lazy.spawn("rofi -show drun"), desc="Launch rofi drun"),
-    ## Qtile run command
-    # Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     ## Firefox
     Key([mod, "shift"], "b", lazy.spawn("firefox"), desc="Launch firefox"),
     ## Terminal
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     ## Power manager
     Key([mod, 'shift'], "p", lazy.spawn("xfce4-power-manager -c"), desc="Launch xfce power manager"),
-    ## Show keybindings
-    # Keybindings - the command works now I just need to figure out how to spawn it in a floating window
-    Key([mod, "shift"], "s", lazy.spawn("qtile cmd-obj -o cmd -f display_kb | python -c 'import sys; print(eval(sys.stdin.read()))'"), desc="Show keybindings"),
 
-    # Extras that Qtile has as default that may come in handy in the future
-    # Toggle between split and unsplit sides of stack.
-    # Split = all windows displayed
-    # Unsplit = 1 window displayed, like Max layout, but still with
-    # multiple stack panes
-    # Key(
-    #     [mod, "shift"],
-    #     "Return",
-    #     lazy.layout.toggle_split(),
-    #     desc="Toggle between split and unsplit sides of stack",
-    # ),
-    # Toggle between different layouts as defined below
+    # System info
+    # Keybindings - the command works now I just need to figure out how to spawn it in a floating window
+    Key([mod, "shift"], "q", 
+        lazy.spawn(terminal,
+                   '--class=floating',
+                   "-e qtile cmd-obj -o cmd -f display_kb | python -c 'import sys; print(eval(sys.stdin.read()))'"
+                   ), 
+        desc="Show keybindings"
+        ),
     ]
 
 groups = [Group(i) for i in "123456789"]
@@ -263,6 +255,7 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
+        Match(wm_class="floating"),
         ],
     **layout_theme,
     )
