@@ -189,7 +189,7 @@ format = '[$symbol$branch(:$remote_branch)]($style):(bright-white) '
 
 [git_metrics]
 disabled = false
-format = '[\(](bright-white)[+$added]($added_style)[/](bright-white)[-$deleted]($deleted_style)[\)](bright-white) '
+format = '([\(](bright-white)[+$added]($added_style)[/](bright-white)[-$deleted]($deleted_style)[\)](bright-white) )'
 
 [cmd_duration]
 show_milliseconds = false
