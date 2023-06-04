@@ -79,9 +79,11 @@ keys = [
     Key([mod, "shift"], "b", lazy.spawn("firefox"), desc="Launch firefox"),
     ## Terminal
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    ## Power manager
+    Key([mod, 'shift'], "p", lazy.spawn("xfce4-power-manager -c"), desc="Launch xfce power manager"),
     ## Show keybindings
-    # Keybindings - first one is what chatgpt gave me and it doesnt do shit
-    # Key([mod, "shift"], "s", lazy.spawn("qtile -cmd -o cmd -f show_keybindings"), desc="Show keybindings"),
+    # Keybindings - the command works now I just need to figure out how to spawn it in a floating window
+    Key([mod, "shift"], "s", lazy.spawn("qtile cmd-obj -o cmd -f display_kb | python -c 'import sys; print(eval(sys.stdin.read()))'"), desc="Show keybindings"),
 
     # Extras that Qtile has as default that may come in handy in the future
     # Toggle between split and unsplit sides of stack.
