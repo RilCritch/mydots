@@ -143,6 +143,12 @@ alias lgnv="lazygit -p $HOME/mydots/config/nvim/custom/"
 
 # }}}
 
+## script utilities {{{
+
+
+
+# }}}
+
 ## packages {{{
 
 # pacman
