@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+#
+# A very simple script that allows kitty instance to stay open after i run a script
+# 
+# Usage: Requires input of command/s in the form of a string
+#
+# Dependencies: my scripts: clr, colors, and lineacross
+#
+# author: RilCritch 
+
+# error message
+errmessage () {
+  echo "Incorrect usage..." | clr red
+  lineacross
+
+  echo "Usage of cmdrunandwait:"
+  echo " - Requires user input in the form of a command/s as a string."
+  echo " - The script expects only one input, so ensure you only send one string."
+  lineacross
+
+  echo "Example: "
+  echo " - Proper usage:  cmdrunandwait 'ls && pwd'" | clr green
+  echo " - Impoper usage: cmdrunandwait 'ls' 'pwd'" | clr red
+  lineacross
+}
+
+cmd=$1
+
+# run command if there is only one argument
+if [ -z "$1" ] || [ -n "$2" ];
+then
+  errmessage
+  exit 1
+else
+  lineacross | clr
+  eval $cmd
+  lineacross | clr
+fi
+
+# wait for user to quit
+read -p "Press enter to close..."
