@@ -111,6 +111,10 @@ alias nvic="cd $HOME/mydots/config/nvim/custom/ \
   && clear && smtermtitle 'Neovim' whiteL blue n \
   && exa -la --group-directories-first --icons --grid \
   && lineacross | clr"
+alias chac="cd $HOME/.config/nvim/lua/core/ \
+  && clear && smtermtitle 'NvChadCore' whiteL blue n \
+  && exa -la --group-directories-first --icons --grid \
+  && lineacross | clr"
 alias basc="cd $HOME/mydots/bashconf/ \
   && clear && smtermtitle 'Bash Conf' whiteL blue \
   && exa -la --group-directories-first --icons --grid \
