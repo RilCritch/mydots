@@ -54,11 +54,11 @@ keys = [
 
     # System info
     # Keybindings - the command works now I just need to figure out how to spawn it in a floating window
-    Key([mod, "shift"], "q", 
-        lazy.spawn('kitty --class=floating --hold -e /home/rc/mydots/scripts/qtilekeys'
-                   ), 
-        desc="Show keybindings"
-        ),
+    # Key([mod, "shift"], "q", 
+    #     lazy.spawn('kitty --class=floating --hold -e /home/rc/mydots/scripts/qtilekeys'
+    #                ), 
+    #     desc="Show keybindings"
+    #     ),
     ]
 
 groups = [Group(i) for i in "123456789"]
@@ -98,8 +98,8 @@ scratchpad_layout = {
 
 # Scratchpads
 groups.append(ScratchPad("scratchpad", [
-    DropDown("term", "kitty --class=scratch", width = 0.8, height = 0.8, x = 0.1, y = 0.1), # example
-    # DropDown("term", "kitty --class=scratch", {"width": 0.8, "height": 0.8, "x": 0.1, "y": 0.1, "opacity": 1}),
+    DropDown("term", "kitty --class=scratch", width = 0.8, height = 0.8, x = 0.1, y = 0.1),
+    DropDown("qtile keybindings", "kitty --class=scratch --hold -e /home/rc/mydots/scripts/qtilekeys", width = 0.8, height = 0.8, x = 0.1, y = 0.1),
     ]))
 
 # Scratchpad keybindings
@@ -108,6 +108,10 @@ keys.extend(
         Key([mod, 'shift'], 'f',
             lazy.group['scratchpad'].dropdown_toggle('term'),
             desc="Launch terminal scratchpad",
+            ),
+        Key([mod, 'shift'], 'q',
+            lazy.group['scratchpad'].dropdown_toggle('qtile keybindings'),
+            desc="Launch qtile keybindings",
             ),
     ])
     
