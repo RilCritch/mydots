@@ -88,18 +88,35 @@ for i in groups:
         )
 
 # Sratchpad layout
-scratchpad_layout = {
-        "width": 0.8,
-        "height": 0.8,
-        "x": 0.1,
-        "y": 0.1,
-        "opacity": 1
-    }
+# scratchpad_layout = {
+#         "width": 0.8,
+#         "height": 0.8,
+#         "x": 0.1,
+#         "y": 0.1,
+#         "opacity": 1
+#     }
 
 # Scratchpads
 groups.append(ScratchPad("scratchpad", [
-    DropDown("term", "kitty --class=scratch", width = 0.8, height = 0.8, x = 0.1, y = 0.1),
-    DropDown("qtile keybindings", "kitty --class=scratch --hold -e /home/rc/mydots/scripts/qtilekeys", width = 0.8, height = 0.8, x = 0.1, y = 0.1),
+    DropDown("term", 
+             "kitty --class=scratch", 
+             width = 0.8, 
+             height = 0.8, 
+             x = 0.1, 
+             y = 0.1),
+    DropDown("qtile keybindings", 
+             "kitty --class=scratch --hold -e /home/rc/mydots/scripts/qtilekeys", 
+             width = 0.8, 
+             height = 0.8, 
+             x = 0.1, 
+             y = 0.1),
+    DropDown("qute keybindings", 
+             # lazy.spawn("qutebrowser qute://help/img/cheatsheet-big.png"), 
+             ["/usr/bin/qutebrowser"], 
+             width = 0.8, 
+             height = 0.8, 
+             x = 0.1, 
+             y = 0.1),
     ]))
 
 # Scratchpad keybindings
@@ -112,6 +129,10 @@ keys.extend(
         Key([mod, 'shift'], 'q',
             lazy.group['scratchpad'].dropdown_toggle('qtile keybindings'),
             desc="Launch qtile keybindings",
+            ),
+        Key([mod, 'shift'], 't',
+            lazy.group['scratchpad'].dropdown_toggle('qute keybindings'),
+            desc="Launch qutebrowser keybindings",
             ),
     ])
     
