@@ -145,6 +145,10 @@ alias lg="lazygit"
 alias lgmd="lazygit -p $HOME/mydots/"
 alias lgnv="lazygit -p $HOME/mydots/config/nvim/custom/"
 
+# wally - zsa keyboard flasher
+alias wally="wally-cli"
+alias wal="wally-cli"
+
 # }}}
 
 ## script utilities {{{
