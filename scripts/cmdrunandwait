@@ -41,4 +41,4 @@ else
 fi
 
 # wait for user to quit
-read -p "Press enter to close..."
+# read -p "Press enter to close..."
