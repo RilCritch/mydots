@@ -151,6 +151,17 @@ alias wal="wally-cli"
 
 # }}}
 
+## programming {{{
+
+# python
+alias venv="virtualenv"
+alias py="python"
+
+# deactivate venv
+alias dct="deactivate"
+
+# }}}
+
 ## script utilities {{{
 
 

@@ -70,3 +70,10 @@ palette () {
   # swatch
   ~/mydots/applications/okolors -k 10 -w 0.01 -n 3 -l 10,30,50,70 -s l -o swatch $img
 }
+
+# function for sourcing a python environment
+pysrc () {
+  envname=$1
+  
+  source $envname/bin/activate
+}
