@@ -204,6 +204,16 @@ style = 'bright-white'
 symbol = '[ ](blue)'
 style = 'bright-white'
 format = '[〜](bright-white) [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+detect_files = ['.python-version', 
+                  'Pipfile', 
+                  '__init__.py', 
+                  'pyproject.toml', 
+                  'requirements.txt', 
+                  'setup.py', 
+                  'tox.ini',
+                  'pyvenv.cfg'
+]
+# detect_folders = ['']
 
 [lua]
 symbol = '[󰢱 ](blue)'
