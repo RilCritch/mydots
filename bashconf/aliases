@@ -274,6 +274,7 @@ alias screenres='xdpyinfo | grep dimensions'
 
 # disk
 alias df='df -h' # disk usage
+alias du='du -sh' # simple disk usage on a specified file or dir
 
 # memory
 alias fre='free -mt' # memory usage
