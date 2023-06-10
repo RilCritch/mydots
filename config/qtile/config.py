@@ -18,47 +18,47 @@ from libqtile.lazy import lazy
 
 ## general keybindings {{{
 
-mod = "mod4"
+super = "mod4"
 terminal = "kitty"
 
 keys = [
     # Switch between windows
-    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "n", lazy.layout.next(), desc="Move window focus to other window"),
-    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Make focused window fullscreen"),
+    Key([super], "h", lazy.layout.left(), desc="Move focus to left"),
+    Key([super], "l", lazy.layout.right(), desc="Move focus to right"),
+    Key([super], "j", lazy.layout.down(), desc="Move focus down"),
+    Key([super], "k", lazy.layout.up(), desc="Move focus up"),
+    Key([super], "n", lazy.layout.next(), desc="Move window focus to other window"),
+    Key([super], "f", lazy.window.toggle_fullscreen(), desc="Make focused window fullscreen"),
     
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+    Key([super, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
+    Key([super, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    Key([super, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
+    Key([super, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
-    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
-    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([mod, "control"], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-    Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod], "space", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([super, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
+    Key([super, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
+    Key([super, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
+    Key([super, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
+    Key([super, "control"], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+    Key([super, "control"], "r", lazy.reload_config(), desc="Reload the config"),
+    Key([super, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([super, "shift"], "c", lazy.window.kill(), desc="Kill focused window"),
+    Key([super], "space", lazy.next_layout(), desc="Toggle between layouts"),
 
     # Launch applications
     ## Rofi
-    Key([mod], "r", lazy.spawn("rofi -show run"), desc="Launch rofi run"),
-    Key([mod, "shift"], "r", lazy.spawn("rofi -show drun"), desc="Launch rofi drun"),
+    Key([super], "r", lazy.spawn("rofi -show run"), desc="Launch rofi run"),
+    Key([super, "shift"], "r", lazy.spawn("rofi -show drun"), desc="Launch rofi drun"),
     ## Firefox
-    Key([mod, "shift"], "b", lazy.spawn("firefox"), desc="Launch firefox"),
+    Key([super, "shift"], "b", lazy.spawn("firefox"), desc="Launch firefox"),
     ## Terminal
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([super], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     ## Power manager
-    Key([mod, 'shift'], "p", lazy.spawn("xfce4-power-manager -c"), desc="Launch xfce power manager"),
+    Key([super, 'shift'], "p", lazy.spawn("xfce4-power-manager -c"), desc="Launch xfce power manager"),
 
     # System info
     # Keybindings - the command works now I just need to figure out how to spawn it in a floating window
@@ -123,14 +123,14 @@ for i in groups:
         [
             # mod1 + letter of group = switch to group
             Key(
-                [mod],
+                [super],
                 i.name,
                 lazy.group[i.name].toscreen(),
                 desc="Switch to group {}".format(i.name),
                 ),
             # mod1 + shift + letter of group = switch to & move focused window to group
             Key(
-                [mod, "shift"],
+                [super, "shift"],
                 i.name,
                 lazy.window.togroup(i.name, switch_group=True),
                 desc="Switch to & move focused window to group {}".format(i.name),
@@ -158,13 +158,13 @@ for i in groups:
 # Scratchpads
 groups.append(ScratchPad("scratchpad", [
     DropDown("term", 
-             "kitty --class=scratch", 
+             terminal + " --class=scratch", 
              width = 0.8, 
              height = 0.8, 
              x = 0.1, 
              y = 0.1),
     DropDown("qtile keybindings", 
-             "kitty --class=scratch --hold -e /home/rc/mydots/scripts/qtilekeys", 
+             terminal + " --class=scratch --hold -e /home/rc/mydots/scripts/qtilekeys", 
              width = 0.8, 
              height = 0.8, 
              x = 0.1, 
@@ -181,15 +181,15 @@ groups.append(ScratchPad("scratchpad", [
 # Scratchpad keybindings
 keys.extend( 
     [
-        Key([mod, 'shift'], 'f',
+        Key([super, 'shift'], 'f',
             lazy.group['scratchpad'].dropdown_toggle('term'),
             desc="Launch terminal scratchpad",
             ),
-        Key([mod, 'shift'], 'q',
+        Key([super, 'shift'], 'q',
             lazy.group['scratchpad'].dropdown_toggle('qtile keybindings'),
             desc="Launch qtile keybindings",
             ),
-        Key([mod, 'shift'], 't',
+        Key([super, 'shift'], 't',
             lazy.group['scratchpad'].dropdown_toggle('qute keybindings'),
             desc="Launch qutebrowser keybindings",
             ),
@@ -302,9 +302,9 @@ screens = [
 
 # Drag floating layouts.
 mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front()),
+    Drag([super], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
+    Drag([super], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
+    Click([super], "Button2", lazy.window.bring_to_front()),
     ]
 
 # }}}
