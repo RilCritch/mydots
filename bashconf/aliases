@@ -149,6 +149,9 @@ alias lgnv="lazygit -p $HOME/mydots/config/nvim/custom/"
 alias wally="wally-cli"
 alias wal="wally-cli"
 
+# glow - markdown renderer for terminal
+alias gl="glow"
+
 # }}}
 
 ## programming {{{
