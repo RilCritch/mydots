@@ -1,7 +1,5 @@
 # vim:fileencoding=utf-8:foldmethod=marker
 
-## library imports {{{
-
 import importlib
 import os
 import re
@@ -12,66 +10,33 @@ from typing import List
 from libqtile import bar, layout, widget, hook, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
-# from libqtile.utils import guess_terminal
 
-# }}}
+from modules.keys import window_keys, system_keys, app_keys
 
-## general keybindings {{{
-
-super = "mod4"
-shift = "shift"
-alt = "mod1"
-control = "control"
-terminal = "kitty"
-
-keys = [
-    # Switch between windows
-    Key([super], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key([super], "l", lazy.layout.right(), desc="Move focus to right"),
-    Key([super], "j", lazy.layout.down(), desc="Move focus down"),
-    Key([super], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([super], "n", lazy.layout.next(), desc="Move window focus to other window"),
-    Key([super], "f", lazy.window.toggle_fullscreen(), desc="Make focused window fullscreen"),
+# keybindings 
+keys = []
+keys.extend(window_keys)
+keys.extend(system_keys)
+keys.extend(app_keys)
     
-    # Move windows between left/right columns or move up/down in current stack.
-    # Moving out of range in Columns layout will create new column.
-    Key([super, shift], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([super, shift], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
-    Key([super, shift], "j", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([super, shift], "k", lazy.layout.shuffle_up(), desc="Move window up"),
-    
-    # Grow windows. If current window is on the edge of screen and direction
-    # will be to screen edge - window would shrink.
-    Key([super, control], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([super, control], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
-    Key([super, control], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([super, control], "k", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([super, control], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-    Key([super, control], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([super, control], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([super, shift], "c", lazy.window.kill(), desc="Kill focused window"),
-    Key([super], "space", lazy.next_layout(), desc="Toggle between layouts"),
+## layouts {{{
+layout_theme = {
+    "margin": 12,
+    "border_width": 3,
+    "border_focus": "#ecd28b",
+    "border_normal": "#0c0e0f"
+    }
 
-    # Launch applications
-    ## Rofi
-    Key([super], "r", lazy.spawn("rofi -show run"), desc="Launch rofi run"),
-    Key([super, shift], "r", lazy.spawn("rofi -show drun"), desc="Launch rofi drun"),
-    ## Firefox
-    Key([super, shift], "b", lazy.spawn("firefox"), desc="Launch firefox"),
-    ## Terminal
-    Key([super], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    ## Power manager
-    Key([super, shift], "p", lazy.spawn("xfce4-power-manager -c"), desc="Launch xfce power manager"),
-
-    # System info
-    # Keybindings - the command works now I just need to figure out how to spawn it in a floating window
-    # Key([mod, "shift"], "q", 
-    #     lazy.spawn('kitty --class=floating --hold -e /home/rc/mydots/scripts/qtilekeys'
-    #                ), 
-    #     desc="Show keybindings"
-    #     ),
+layouts = [
+    layout.Columns(**layout_theme), # favorite
+    layout.Max(**layout_theme),
+    layout.MonadTall(**layout_theme),
+    layout.MonadWide(**layout_theme),
+    # layout.RatioTile(),
+    # layout.Tile(),
+    # layout.TreeTab(),
+    # layout.VerticalTile(),
     ]
-
 # }}}
 
 ## groups/workspaces {{{
@@ -148,7 +113,6 @@ for i in groups:
 # }}}
 
 ## Scratchpads {{{
-
 # Sratchpad layout
 # scratchpad_layout = {
 #         "width": 0.8,
@@ -158,7 +122,7 @@ for i in groups:
 #         "opacity": 1
 #     }
 
-# Scratchpads
+# Scratchpads 
 groups.append(ScratchPad("scratchpad", [
     DropDown("term", 
              terminal + " --class=scratch", 
@@ -197,30 +161,15 @@ keys.extend(
             desc="Launch qutebrowser keybindings",
             ),
     ])
-
 # }}}
-    
-## layouts {{{
 
-layout_theme = {
-    "margin": 12,
-    "border_width": 3,
-    "border_focus": "#ecd28b",
-    "border_normal": "#0c0e0f"
-    }
-
-layouts = [
-    layout.Columns(**layout_theme), # favorite
-    layout.Max(**layout_theme),
-    layout.MonadTall(**layout_theme),
-    layout.MonadWide(**layout_theme),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
+# mouse bindings
+# Drag floating layouts.
+mouse = [
+    Drag([super], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
+    Drag([super], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
+    Click([super], "Button2", lazy.window.bring_to_front()),
     ]
-
-# }}}
 
 ## qtile bar {{{
 
@@ -301,35 +250,13 @@ screens = [
 
 # }}}
 
-## mouse bindings {{{
-
-# Drag floating layouts.
-mouse = [
-    Drag([super], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
-    Drag([super], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
-    Click([super], "Button2", lazy.window.bring_to_front()),
-    ]
-
-# }}}
-
-## startup {{{
-
-# Startup stuff -- need to move to a startup script
-# @hook.subscribe.startup_once
-# def autostart():
-#     qtile.cmd_spawn('nitrogen --restore')
-#     qtile.cmd_spawn('nm-applet')
-#     qtile.cmd_spawn('pamac-tray')
-#     qtile.cmd_spawn('xbindkeys')
+# startup
 @hook.subscribe.startup_once
 def start_once():
     home = os.path.expanduser('~')
     subprocess.call([home + '/.config/qtile/scripts/autostart.sh'])
 
-# }}}
-
-## floating layout {{{
-
+# floating layout {{{
 floating_layout = layout.Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
@@ -344,11 +271,9 @@ floating_layout = layout.Floating(
         ],
     **layout_theme,
     )
-
 # }}}
 
-## configuration variables {{{
-
+# configuration options
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
 # follow_mouse_focus = True -- figure out a way to toggle between settings
@@ -375,5 +300,3 @@ wl_input_rules = None
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
-
-# }}}
