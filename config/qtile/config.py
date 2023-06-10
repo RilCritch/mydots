@@ -1,3 +1,7 @@
+# vim:fileencoding=utf-8:foldmethod=marker
+
+## library imports {{{
+
 import importlib
 import os
 import re
@@ -9,6 +13,10 @@ from libqtile import bar, layout, widget, hook, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 # from libqtile.utils import guess_terminal
+
+# }}}
+
+## general keybindings {{{
 
 mod = "mod4"
 terminal = "kitty"
@@ -61,8 +69,55 @@ keys = [
     #     ),
     ]
 
-groups = [Group(i) for i in "123456789"]
+# }}}
 
+## groups/workspaces {{{
+
+# Setting up group names, labels, and default layouts
+# groups = [Group(i) for i in "123456789"]
+groups = []
+
+group_names = ["1", # 1 - misc stuff
+               "2", # 2 - misc stuff
+               "3", # 3 - misc stuff
+               "4", # 4 - browser 
+               "5", # 5 - wm config
+               "6", # 6 - nvim config
+               "7", # 7 - coding
+               "8", # 8 - music
+               "9"] # 9 - discord
+
+group_labels = ["󰾟  1", # 1 - misc stuff 
+                "󰾟  2", # 2 - misc stuff
+                "󰾟  3", # 3 - misc stuff
+                "󰾔  4", # 4 - browser  
+                "󰵆  5", # 5 - wm config
+                "󰏬  6", # 6 - nvim config
+                "󰈚  7", # 7 - coding
+                "󰋌  8", # 8 - music
+                "󰬋  9"] # 9 - discord
+
+group_layouts = ["Columns", # 1 - misc stuff 
+                 "Columns", # 2 - misc stuff
+                 "Columns", # 3 - misc stuff
+                 "Columns", # 4 - browser 
+                 "Columns", # 5 - qtile config
+                 "Columns", # 6 - nvim config
+                 "Columns", # 7 - coding
+                 "Columns", # 8 - music
+                 "Columns"] # 9 - discord
+
+# adding group names, labels, and layouts to group object
+for i in range(len(group_names)):
+    groups.append(
+        Group(
+            name = group_names[i],
+            layout = group_layouts[i].lower(),
+            label = group_labels[i],
+        )
+    )
+
+# key bindings for groups
 for i in groups:
     keys.extend(
         [
@@ -86,6 +141,10 @@ for i in groups:
             #     desc="move focused window to group {}".format(i.name)),
             ]
         )
+
+# }}}
+
+## Scratchpads {{{
 
 # Sratchpad layout
 # scratchpad_layout = {
@@ -135,7 +194,10 @@ keys.extend(
             desc="Launch qutebrowser keybindings",
             ),
     ])
+
+# }}}
     
+## layouts {{{
 
 layout_theme = {
     "margin": 12,
@@ -154,6 +216,10 @@ layouts = [
     # layout.TreeTab(),
     # layout.VerticalTile(),
     ]
+
+# }}}
+
+## qtile bar {{{
 
 widget_defaults = dict(
     # font="sans",
@@ -186,16 +252,20 @@ screens = [
                 widget.GroupBox(
                     highlight_method='line',
                     hide_unused=True,
-                    highlight_color=['#0c0e0f', 
-                                     '#505253'],
-                    this_current_screen_border='#505253',
+                    # highlight_color=['#0c0e0f', 
+                    #                  '#505253',
+                    #                  '#505253',
+                    #                  '#0c0e0f'],
+                    highlight_color='#343637',
+                    # this_current_screen_border='#ecd28b',
                     inactive='#505253',
                     active='#edeff0',
+                    # fontshadow='#0c0e0f',
                     font="JetBrainsMono Nerd Font Bold",
                     block_highlight_text_color='#ecd28b',
-                    borderwidth=2,
+                    borderwidth=0,
                     # margin=5,
-                    padding=10,
+                    padding=1,
                     fontsize=16,
                     ),
                 widget.Sep(**sep_theme),
@@ -226,12 +296,20 @@ screens = [
     ),
 ]
 
+# }}}
+
+## mouse bindings {{{
+
 # Drag floating layouts.
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
     Click([mod], "Button2", lazy.window.bring_to_front()),
     ]
+
+# }}}
+
+## startup {{{
 
 # Startup stuff -- need to move to a startup script
 # @hook.subscribe.startup_once
@@ -245,11 +323,10 @@ def start_once():
     home = os.path.expanduser('~')
     subprocess.call([home + '/.config/qtile/scripts/autostart.sh'])
 
-dgroups_key_binder = None
-dgroups_app_rules = []  # type: list
-follow_mouse_focus = True
-bring_front_click = False
-cursor_warp = False
+# }}}
+
+## floating layout {{{
+
 floating_layout = layout.Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
@@ -264,6 +341,17 @@ floating_layout = layout.Floating(
         ],
     **layout_theme,
     )
+
+# }}}
+
+## configuration variables {{{
+
+dgroups_key_binder = None
+dgroups_app_rules = []  # type: list
+# follow_mouse_focus = True -- figure out a way to toggle between settings
+follow_mouse_focus = False
+bring_front_click = False
+cursor_warp = False
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
@@ -284,3 +372,5 @@ wl_input_rules = None
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
+
+# }}}
