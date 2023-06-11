@@ -47,7 +47,7 @@ then
 fi
 
 # output
-lineacross | clr $lineacrosscolor
+# lineacross | clr $lineacrosscolor
 
 figlet -w $(tput cols) -c "${title}" -f small $seperate | clr $figletcolor
 
