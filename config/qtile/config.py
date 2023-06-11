@@ -11,154 +11,39 @@ from libqtile import bar, layout, widget, hook, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 
-from modules.layouts import layout_theme, base_layouts
+from modules.layouts import layout_theme, base_layouts, base_float_rules
+
 from modules.settings import SUPER, SHIFT, ALT, CONTROL
 from modules.settings import TERMINAL, BROWSER
-from modules.keys import window_keys, system_keys, app_keys
 
-# keybindings 
+from modules.keys import window_keys, system_keys, app_keys
+from modules.groups_q import main_groups, group_keys
+from modules.scratchpads_q import spads, spad_keys
+from modules.mice import mouse_float
+
+# main keybindings 
 keys = []
 keys.extend(window_keys)
 keys.extend(system_keys)
 keys.extend(app_keys)
     
-# layouts
+# main layouts
 layouts = base_layouts
 
 # mouse bindings
-# Drag floating layouts.
-mouse = [
-    Drag([SUPER], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
-    Drag([SUPER], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
-    Click([SUPER], "Button2", lazy.window.bring_to_front()),
-    ]
+mouse = []
+mouse.extend(mouse_float)
 
-## groups/workspaces {{{
-
-# Setting up group names, labels, and default layouts
-# groups = [Group(i) for i in "123456789"]
+# main groups
 groups = []
-
-group_names = ["1", # 1 - misc stuff
-               "2", # 2 - misc stuff
-               "3", # 3 - misc stuff
-               "4", # 4 - browser 
-               "5", # 5 - wm config
-               "6", # 6 - nvim config
-               "7", # 7 - coding
-               "8", # 8 - music
-               "9"] # 9 - discord
-
-group_labels = ["󰾟  1", # 1 - misc stuff 
-                "󰾟  2", # 2 - misc stuff
-                "󰾟  3", # 3 - misc stuff
-                "󰾔  4", # 4 - browser  
-                "󰵆  5", # 5 - wm config
-                "󰏬  6", # 6 - nvim config
-                "󰈚  7", # 7 - coding
-                "󰋌  8", # 8 - music
-                "󰬋  9"] # 9 - discord
-
-group_layouts = ["Columns", # 1 - misc stuff 
-                 "Columns", # 2 - misc stuff
-                 "Columns", # 3 - misc stuff
-                 "Columns", # 4 - browser 
-                 "Columns", # 5 - qtile config
-                 "Columns", # 6 - nvim config
-                 "Columns", # 7 - coding
-                 "Columns", # 8 - music
-                 "Columns"] # 9 - discord
-
-# adding group names, labels, and layouts to group object
-for i in range(len(group_names)):
-    groups.append(
-        Group(
-            name = group_names[i],
-            layout = group_layouts[i].lower(),
-            label = group_labels[i],
-        )
-    )
-
-# key bindings for groups
-for i in groups:
-    keys.extend(
-        [
-            # mod1 + letter of group = switch to group
-            Key(
-                [SUPER],
-                i.name,
-                lazy.group[i.name].toscreen(),
-                desc="Switch to group {}".format(i.name),
-                ),
-            # mod1 + shift + letter of group = switch to & move focused window to group
-            Key(
-                [SUPER, SHIFT],
-                i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
-                ),
-            # Or, use below if you prefer not to switch to that group.
-            # # mod1 + shift + letter of group = move focused window to group
-            # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-            #     desc="move focused window to group {}".format(i.name)),
-            ]
-        )
-
-# }}}
-
-## Scratchpads {{{
-# Sratchpad layout
-# scratchpad_layout = {
-#         "width": 0.8,
-#         "height": 0.8,
-#         "x": 0.1,
-#         "y": 0.1,
-#         "opacity": 1
-#     }
+groups.extend(main_groups)
+keys.extend(group_keys)
 
 # Scratchpads 
-groups.append(ScratchPad("scratchpad", [
-    DropDown("term", 
-             TERMINAL + " --class=scratch", 
-             width = 0.8, 
-             height = 0.8, 
-             x = 0.1, 
-             y = 0.1),
-    DropDown("qtile keybindings", 
-             TERMINAL + " --class=scratch --hold -e /home/rc/mydots/scripts/qtilekeys", 
-             width = 0.8, 
-             height = 0.8, 
-             x = 0.1, 
-             y = 0.1),
-    # DropDown("qute", 
-    #          # lazy.spawn("qutebrowser qute://help/img/cheatsheet-big.png"), 
-    #          ["qutebrowser"], 
-    #          width = 0.8, 
-    #          height = 0.8, 
-    #          x = 0.1, 
-    #          y = 0.1),
-    ]))
-
-# Scratchpad keybindings
-keys.extend( 
-    [
-        Key([SUPER, SHIFT], 'f',
-            lazy.group['scratchpad'].dropdown_toggle('term'),
-            desc="Launch terminal scratchpad",
-            ),
-        Key([SUPER, SHIFT], 'q',
-            lazy.group['scratchpad'].dropdown_toggle('qtile keybindings'),
-            desc="Launch qtile keybindings",
-            ),
-        # Key([SUPER, SHIFT], 't', -- need to figure out issue
-        #     lazy.group['scratchpad'].dropdown_toggle('qute'),
-        #     desc="Launch qutebrowser",
-        #     ),
-    ])
-# }}}
+groups.append(ScratchPad("scratchpad", spads))
+keys.extend(spad_keys)
 
 ## qtile bar {{{
-
 widget_defaults = dict(
     # font="sans",
     font="JetBrainsMono Nerd Font",
@@ -233,24 +118,24 @@ screens = [
         ),
     ),
 ]
-
 # }}}
 
 # floating layout {{{
-floating_layout = layout.Floating(
-    float_rules = [
-        # Run the utility of `xprop` to see the wm class and name of an X client.
-        *layout.Floating.default_float_rules,
-        Match(wm_class="confirmreset"),  # gitk
-        Match(wm_class="makebranch"),  # gitk
-        Match(wm_class="maketag"),  # gitk
-        Match(wm_class="ssh-askpass"),  # ssh-askpass
-        Match(title="branchdialog"),  # gitk
-        Match(title="pinentry"),  # GPG key password entry
-        # Match(wm_class="qutebrowser"),
-        ],
-    **layout_theme,
-)
+floating_layout = layout.Floating(base_float_rules, **layout_theme)
+# floating_layout = layout.Floating(
+#     float_rules = [
+#         # Run the utility of `xprop` to see the wm class and name of an X client.
+#         *layout.Floating.default_float_rules,
+#         Match(wm_class="confirmreset"),  # gitk
+#         Match(wm_class="makebranch"),  # gitk
+#         Match(wm_class="maketag"),  # gitk
+#         Match(wm_class="ssh-askpass"),  # ssh-askpass
+#         Match(title="branchdialog"),  # gitk
+#         Match(title="pinentry"),  # GPG key password entry
+#         # Match(wm_class="qutebrowser"),
+#         ],
+#     **layout_theme,
+# )
 # }}}
 
 # startup
