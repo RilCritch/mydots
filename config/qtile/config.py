@@ -11,7 +11,8 @@ from libqtile import bar, layout, widget, hook, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 
-from modules.keys import window_keys, system_keys, app_keys
+from modules.keys import window_keys, system_keys, app_keys, super, shift, alt, control, terminal, browser
+from modules.layouts import layout_theme, base_layouts
 
 # keybindings 
 keys = []
@@ -19,25 +20,16 @@ keys.extend(window_keys)
 keys.extend(system_keys)
 keys.extend(app_keys)
     
-## layouts {{{
-layout_theme = {
-    "margin": 12,
-    "border_width": 3,
-    "border_focus": "#ecd28b",
-    "border_normal": "#0c0e0f"
-    }
+# layouts
+layouts = base_layouts
 
-layouts = [
-    layout.Columns(**layout_theme), # favorite
-    layout.Max(**layout_theme),
-    layout.MonadTall(**layout_theme),
-    layout.MonadWide(**layout_theme),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
+# mouse bindings
+# Drag floating layouts.
+mouse = [
+    Drag([super], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
+    Drag([super], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
+    Click([super], "Button2", lazy.window.bring_to_front()),
     ]
-# }}}
 
 ## groups/workspaces {{{
 
@@ -136,13 +128,13 @@ groups.append(ScratchPad("scratchpad", [
              height = 0.8, 
              x = 0.1, 
              y = 0.1),
-    DropDown("qute keybindings", 
-             # lazy.spawn("qutebrowser qute://help/img/cheatsheet-big.png"), 
-             ["/usr/bin/qutebrowser"], 
-             width = 0.8, 
-             height = 0.8, 
-             x = 0.1, 
-             y = 0.1),
+    # DropDown("qute", 
+    #          # lazy.spawn("qutebrowser qute://help/img/cheatsheet-big.png"), 
+    #          ["qutebrowser"], 
+    #          width = 0.8, 
+    #          height = 0.8, 
+    #          x = 0.1, 
+    #          y = 0.1),
     ]))
 
 # Scratchpad keybindings
@@ -156,20 +148,12 @@ keys.extend(
             lazy.group['scratchpad'].dropdown_toggle('qtile keybindings'),
             desc="Launch qtile keybindings",
             ),
-        Key([super, shift], 't',
-            lazy.group['scratchpad'].dropdown_toggle('qute keybindings'),
-            desc="Launch qutebrowser keybindings",
-            ),
+        # Key([super, shift], 't', -- need to figure out issue
+        #     lazy.group['scratchpad'].dropdown_toggle('qute'),
+        #     desc="Launch qutebrowser",
+        #     ),
     ])
 # }}}
-
-# mouse bindings
-# Drag floating layouts.
-mouse = [
-    Drag([super], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
-    Drag([super], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
-    Click([super], "Button2", lazy.window.bring_to_front()),
-    ]
 
 ## qtile bar {{{
 
@@ -250,15 +234,9 @@ screens = [
 
 # }}}
 
-# startup
-@hook.subscribe.startup_once
-def start_once():
-    home = os.path.expanduser('~')
-    subprocess.call([home + '/.config/qtile/scripts/autostart.sh'])
-
 # floating layout {{{
 floating_layout = layout.Floating(
-    float_rules=[
+    float_rules = [
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
         Match(wm_class="confirmreset"),  # gitk
@@ -268,10 +246,17 @@ floating_layout = layout.Floating(
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
         Match(wm_class="floating"),
+        # Match(wm_class="qutebrowser"),
         ],
     **layout_theme,
-    )
+)
 # }}}
+
+# startup
+@hook.subscribe.startup_once
+def start_once():
+    home = os.path.expanduser('~')
+    subprocess.call([home + '/.config/qtile/scripts/autostart.sh'])
 
 # configuration options
 dgroups_key_binder = None

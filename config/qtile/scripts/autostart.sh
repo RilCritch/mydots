@@ -50,7 +50,7 @@ run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #######################
 
 # look and feel #######
-run picom --experimental-backends --config /home/rc/.config/qtile/configs/picom.conf
+run picom --experimental-backends --config /home/rc/.config/qtile/specconfigs/picom.conf
 run nitrogen --restore
 # run conky -c /home/rc/.config/awesome/conky/systemoverview.config
 
