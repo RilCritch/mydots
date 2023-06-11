@@ -11,8 +11,10 @@ from libqtile import bar, layout, widget, hook, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 
-from modules.keys import window_keys, system_keys, app_keys, super, shift, alt, control, terminal, browser
 from modules.layouts import layout_theme, base_layouts
+from modules.settings import SUPER, SHIFT, ALT, CONTROL
+from modules.settings import TERMINAL, BROWSER
+from modules.keys import window_keys, system_keys, app_keys
 
 # keybindings 
 keys = []
@@ -26,9 +28,9 @@ layouts = base_layouts
 # mouse bindings
 # Drag floating layouts.
 mouse = [
-    Drag([super], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
-    Drag([super], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
-    Click([super], "Button2", lazy.window.bring_to_front()),
+    Drag([SUPER], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
+    Drag([SUPER], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
+    Click([SUPER], "Button2", lazy.window.bring_to_front()),
     ]
 
 ## groups/workspaces {{{
@@ -83,14 +85,14 @@ for i in groups:
         [
             # mod1 + letter of group = switch to group
             Key(
-                [super],
+                [SUPER],
                 i.name,
                 lazy.group[i.name].toscreen(),
                 desc="Switch to group {}".format(i.name),
                 ),
             # mod1 + shift + letter of group = switch to & move focused window to group
             Key(
-                [super, shift],
+                [SUPER, SHIFT],
                 i.name,
                 lazy.window.togroup(i.name, switch_group=True),
                 desc="Switch to & move focused window to group {}".format(i.name),
@@ -117,13 +119,13 @@ for i in groups:
 # Scratchpads 
 groups.append(ScratchPad("scratchpad", [
     DropDown("term", 
-             terminal + " --class=scratch", 
+             TERMINAL + " --class=scratch", 
              width = 0.8, 
              height = 0.8, 
              x = 0.1, 
              y = 0.1),
     DropDown("qtile keybindings", 
-             terminal + " --class=scratch --hold -e /home/rc/mydots/scripts/qtilekeys", 
+             TERMINAL + " --class=scratch --hold -e /home/rc/mydots/scripts/qtilekeys", 
              width = 0.8, 
              height = 0.8, 
              x = 0.1, 
@@ -140,15 +142,15 @@ groups.append(ScratchPad("scratchpad", [
 # Scratchpad keybindings
 keys.extend( 
     [
-        Key([super, shift], 'f',
+        Key([SUPER, SHIFT], 'f',
             lazy.group['scratchpad'].dropdown_toggle('term'),
             desc="Launch terminal scratchpad",
             ),
-        Key([super, shift], 'q',
+        Key([SUPER, SHIFT], 'q',
             lazy.group['scratchpad'].dropdown_toggle('qtile keybindings'),
             desc="Launch qtile keybindings",
             ),
-        # Key([super, shift], 't', -- need to figure out issue
+        # Key([SUPER, SHIFT], 't', -- need to figure out issue
         #     lazy.group['scratchpad'].dropdown_toggle('qute'),
         #     desc="Launch qutebrowser",
         #     ),

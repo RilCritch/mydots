@@ -2,110 +2,100 @@
 
 # This file holds keybindings for qtile excluding special cases
 # These special cases include keybindings for groups, scratchpads, and mouse
+import importlib
 
 from libqtile.config import Key
 from libqtile.lazy import lazy
 
+from settings import SUPER, SHIFT, ALT, CONTROL, TERMINAL, BROWSER
 
-# keybind variables
-## mod keys
-super = "mod4"
-shift = "shift"
-alt = "mod1"
-control = "control"
-
-## applications
-terminal = "kitty"
-browser = "firefox"
-
-# windows
 window_keys = [
 # {{{
     # window focus
     Key(
-        [super], "h", 
+        [SUPER], "h", 
         lazy.layout.left(), 
         desc="Move focus to left",
     ),
     Key(
-        [super], "l", 
+        [SUPER], "l", 
         lazy.layout.right(), 
         desc="Move focus to right",
     ),
     Key(
-        [super], "j", 
+        [SUPER], "j", 
         lazy.layout.down(), 
         desc="Move focus down",
     ),
     Key(
-        [super], "k", 
+        [SUPER], "k", 
         lazy.layout.up(), 
         desc="Move focus up",
     ),
     Key(
-        [super], "n", 
+        [SUPER], "n", 
         lazy.layout.next(), 
         desc="Move to next window",
     ),
     # window move
     Key(
-        [super, shift], "h", 
+        [SUPER, SHIFT], "h", 
         lazy.layout.shuffle_left(), 
         desc="Move window to the left",
     ),
     Key(
-        [super, shift], "l", 
+        [SUPER, SHIFT], "l", 
         lazy.layout.shuffle_right(), 
         desc="Move window to the right",
     ),
     Key(
-        [super, shift], "j", 
+        [SUPER, SHIFT], "j", 
         lazy.layout.shuffle_down(), 
         desc="Move window down",
     ),
     Key(
-        [super, shift], "k", 
+        [SUPER, SHIFT], "k", 
         lazy.layout.shuffle_up(), 
         desc="Move window up",
     ),
     # window manipulation
     Key(
-        [super, control], "h", 
+        [SUPER, CONTROL], "h", 
         lazy.layout.grow_left(), 
         desc="Grow window to the left",
     ),
     Key(
-        [super, control], "l", 
+        [SUPER, CONTROL], "l", 
         lazy.layout.grow_right(), 
         desc="Grow window to the right",
     ),
     Key(
-        [super, control], "j", 
+        [SUPER, CONTROL], "j", 
         lazy.layout.grow_down(), 
         desc="Grow window down",
     ),
     Key(
-        [super, control], "k", 
+        [SUPER, CONTROL], "k", 
         lazy.layout.grow_up(), 
         desc="Grow window up"
     ),
     Key(
-        [super, control], "n", 
+        [SUPER, CONTROL], "n", 
         lazy.layout.normalize(), 
         desc="Reset all window sizes",
     ),
     Key(
-        [super, shift], "c", 
+        [SUPER, SHIFT], "c", 
         lazy.window.kill(), 
         desc="Kill focused window",
     ),
     Key(
-        [super], "f", 
+        [SUPER], "f", 
         lazy.window.toggle_fullscreen(), 
         desc="Make focused window fullscreen",
     ),
     Key(
-        [super], "space", 
+        [SUPER], "space", 
         lazy.next_layout(), 
         desc="Change to next window",
     ),
@@ -117,28 +107,28 @@ system_keys = [
 # {{{
     # qtile
     Key(
-        [super, control], "r", 
+        [SUPER, CONTROL], "r", 
         lazy.reload_config(), 
         desc="Reload the config",
     ),
     Key(
-        [super, control], "q", 
+        [SUPER, CONTROL], "q", 
         lazy.shutdown(), 
         desc="Shutdown Qtile",
     ),
     # system management
     Key(
-        [super, control], "p", 
+        [SUPER, CONTROL], "p", 
         lazy.spawn("xfce4-power-manager -c"), 
         desc="Launch xfce power manager",
     ),
     Key(
-        [super, control], "x", 
+        [SUPER, CONTROL], "x", 
         lazy.spawn("archlinux-logout"), 
         desc="Logout popup",
     ),
     Key(
-        [super, control], "a", 
+        [SUPER, CONTROL], "a", 
         lazy.spawn("archlinux-tweak-tool"), 
         desc="Logout popup",
     ),
@@ -150,27 +140,27 @@ app_keys = [
 # {{{    
     # rofi
     Key(
-        [super], "r", 
+        [SUPER], "r", 
         lazy.spawn("rofi -show run"), 
         desc="Launch rofi run",
     ),
     Key(
-        [super, shift], "r", 
+        [SUPER, SHIFT], "r", 
         lazy.spawn("rofi -show drun"), 
         desc="Launch rofi drun",
     ),
     # browser
     Key(
-        [super], "b", 
+        [SUPER], "b", 
         lazy.spawn("qutebrowser"), 
         desc="Launch qutebrowser",
     ),
     Key(
-        [super, shift], "b", 
-        lazy.spawn(browser), 
+        [SUPER, SHIFT], "b", 
+        lazy.spawn(BROWSER), 
         desc="Launch browser",
     ),
     # terminal
-    Key([super], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([SUPER], "Return", lazy.spawn(TERMINAL), desc="Launch TERMINAL"),
 ]
 # }}}

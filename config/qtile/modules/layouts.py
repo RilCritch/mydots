@@ -13,7 +13,7 @@ layout_theme = {
 
 # defining layouts that are available on my system - eventually I will create dicts for each layout
 base_layouts = [
-    layout.Columns(**layout_theme), # favorite
+    layout.Columns(**layout_theme, insert_position=1), # favorite
     layout.Max(**layout_theme),
     layout.MonadTall(**layout_theme),
     layout.MonadWide(**layout_theme),
