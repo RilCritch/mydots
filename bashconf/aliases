@@ -159,6 +159,7 @@ alias gl="glow"
 # python
 alias venv="virtualenv"
 alias py="python"
+alias rmpyc="rm -r __pycache__/"
 
 # deactivate venv
 alias dct="deactivate"
