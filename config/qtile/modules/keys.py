@@ -90,9 +90,14 @@ window_keys = [
         desc="Kill focused window",
     ),
     Key(
-        [SUPER], "f", 
+        [SUPER, SHIFT], "f", 
         lazy.window.toggle_fullscreen(), 
         desc="Make focused window fullscreen",
+    ),
+    Key(
+        [SUPER], "f", 
+        lazy.window.toggle_floating(), 
+        desc="Make focused window floating",
     ),
     Key(
         [SUPER], "space", 
