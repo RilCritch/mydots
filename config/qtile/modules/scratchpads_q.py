@@ -53,8 +53,8 @@ spads = [
     scratchgen( # basic terminal
         "term",
         SCRATCHTERM,
-        0.8,
-        0.8,
+        0.95,
+        0.6,
         None,
         None,
         True,
@@ -63,11 +63,11 @@ spads = [
     scratchgen( # runs command that prints qtile keybindings
         "qtilekeys",
         SCRATCHTERM + " --hold -e /home/rc/mydots/scripts/qtilekeys",
-        0.8,
-        0.8,
+        0.95,
+        0.45,
         None,
         None,
-        False,
+        True,
     ),
     # scratchgen( # qutebrowser; not working correctly need to difure out the issue 
     #     "qutebrowser",
