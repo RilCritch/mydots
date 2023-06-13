@@ -1,21 +1,14 @@
 # vim:fileencoding=utf-8:foldmethod=marker
 
-import importlib
 import os
-import re
-import socket
 import subprocess
-from typing import List
 
-from libqtile import bar, layout, widget, hook, qtile
-from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
-from libqtile.lazy import lazy
+from libqtile import layout, hook
+from libqtile.config import Screen, ScratchPad
+
+from modules.settings import *
 
 from modules.layouts import layout_theme, base_layouts, base_float_rules
-
-from modules.settings import SUPER, SHIFT, ALT, CONTROL
-from modules.settings import TERMINAL, BROWSER
-
 from modules.keys import window_keys, system_keys, app_keys
 from modules.groups_q import main_groups, group_keys
 from modules.scratchpads_q import spads, spad_keys
@@ -63,22 +56,22 @@ def start_once():
     subprocess.call([home + '/.config/qtile/scripts/autostart.sh'])
 
 # configuration options
-dgroups_key_binder = None
-dgroups_app_rules = []  # type: list
+# dgroups_key_binder = None
+# dgroups_app_rules = []  # type: list
 # follow_mouse_focus = True -- figure out a way to toggle between settings
-follow_mouse_focus = False
-bring_front_click = False
-cursor_warp = False
-auto_fullscreen = True
-focus_on_window_activation = "smart"
-reconfigure_screens = True
+# follow_mouse_focus = False
+# bring_front_click = False
+# cursor_warp = False
+# auto_fullscreen = True
+# focus_on_window_activation = "smart"
+# reconfigure_screens = True
 
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
-auto_minimize = True
+# auto_minimize = True
 
 # When using the Wayland backend, this can be used to configure input devices.
-wl_input_rules = None
+# wl_input_rules = None
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
@@ -88,4 +81,4 @@ wl_input_rules = None
 #
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
-wmname = "LG3D"
+# wmname = "LG3D"

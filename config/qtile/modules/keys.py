@@ -102,7 +102,12 @@ window_keys = [
     Key(
         [SUPER], "space", 
         lazy.next_layout(), 
-        desc="Change to next window",
+        desc="Switch to next layout",
+    ),
+    Key(
+        [SUPER, SHIFT], "space", 
+        lazy.prev_layout(), 
+        desc="Switch to previous layout",
     ),
 ]
 # }}}

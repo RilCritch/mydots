@@ -60,6 +60,9 @@ def init_bot_widgets():
             icon_size=15,
         ),
         widget.Spacer(),
+        widget.Sep(**sep_theme),
+        widget.CurrentLayout(),
+        widget.Sep(**sep_theme),
         widget.CurrentLayoutIcon(),
     ]
     return widgets
