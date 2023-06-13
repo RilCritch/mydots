@@ -219,7 +219,6 @@ alias vi='nvim'
 
 # viewing text
 alias cat='ccat'
-alias bat='bat --theme ansi'
 
 # manpager
 alias man='batman'
