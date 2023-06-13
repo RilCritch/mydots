@@ -36,7 +36,7 @@ then
   exit 1
 else
   eval $lineacross | $clr
-  eval $cmd
+  eval $cmd | ccat
   eval $lineacross | $clr
 fi
 
