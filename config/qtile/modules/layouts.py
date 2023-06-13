@@ -19,20 +19,20 @@ base_layouts = [
     layout.Max(**layout_theme),
     layout.MonadTall(**layout_theme),
     layout.MonadWide(**layout_theme),
-    # testing
-    layout.Bsp(**layout_theme),
-    layout.Floating(**layout_theme),
-    layout.Matrix(**layout_theme),
-    layout.Matrix(**layout_theme),
-    layout.MonadThreeCol(**layout_theme),
-    layout.RatioTile(**layout_theme),
-    layout.Slice(**layout_theme),
-    layout.Spiral(**layout_theme),
-    layout.Stack(**layout_theme),
-    layout.Tile(**layout_theme),
-    layout.TreeTab(**layout_theme),
-    layout.VerticalTile(**layout_theme),
-    layout.Zoomy(**layout_theme),
+    # need to look into
+    # layout.TreeTab(**layout_theme), # interesting, look into configuration
+    # layout.MonadThreeCol(**layout_theme), # great for ultrawide
+    # layout.Bsp(**layout_theme), # interesting for ultrawide
+    # layout.Stack(**layout_theme), # may find useful for something
+    # no use case for/ don't like right now
+    # layout.VerticalTile(**layout_theme), # great for vertical monitor - if i end up using one again
+    # layout.Tile(**layout_theme), # its okay
+    # layout.Spiral(**layout_theme), # dont like it
+    # layout.Matrix(**layout_theme), # i dont get it
+    # layout.Slice(**layout_theme), # no use case for me
+    # layout.RatioTile(**layout_theme), # wouldn't use
+    # layout.Floating(**layout_theme), # mid as fuck
+    # layout.Zoomy(**layout_theme), # weird but kind of like tabs. Much worse version of treetab
     ]
 
 # floating layout shit
