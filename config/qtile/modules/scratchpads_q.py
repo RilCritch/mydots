@@ -69,6 +69,15 @@ spads = [
         None,
         True,
     ),
+    scratchgen( # runs command that prints qtile keybindings
+        "nvim",
+        SCRATCHTERM + "-e nvim",
+        0.95,
+        0.90,
+        None,
+        None,
+        True,
+    ),
     # scratchgen( # qutebrowser; not working correctly need to difure out the issue 
     #     "qutebrowser",
     #     "qutebrowser",
@@ -85,12 +94,17 @@ spad_keys = [
     Key(
         [SUPER, SHIFT], 'f',
         lazy.group['scratchpad'].dropdown_toggle('term'),
-        desc="Launch terminal scratchpad",
+        desc="Launch terminal scratch",
     ),
     Key(
         [SUPER, SHIFT], 'q',
         lazy.group['scratchpad'].dropdown_toggle('qtilekeys'),
-        desc="Launch qtile keybindings",
+        desc="Launch qtile keybindings scratch",
+    ),
+    Key(
+        [SUPER, SHIFT], 'n',
+        lazy.group['scratchpad'].dropdown_toggle('nvim'),
+        desc="Launch nvim scratch",
     ),
     # Key(
     #     [SUPER, SHIFT], 't', -- need to figure out issue
