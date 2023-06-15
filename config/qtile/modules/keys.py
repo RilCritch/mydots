@@ -124,7 +124,7 @@ system_keys = [
     Key(
         [SUPER, CONTROL], "q", 
         lazy.shutdown(), 
-        desc="Shutdown Qtile",
+        desc="Shutdown qtile",
     ),
     # system management
     Key(
@@ -171,6 +171,6 @@ app_keys = [
         desc="Launch browser",
     ),
     # terminal
-    Key([SUPER], "Return", lazy.spawn(TERMINAL), desc="Launch TERMINAL"),
+    Key([SUPER], "Return", lazy.spawn(TERMINAL), desc="Launch terminal"),
 ]
 # }}}
