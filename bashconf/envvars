@@ -17,6 +17,6 @@ export XDG_CACHE_HOME="$HOME/.cache"
 
 ## applications {{{
 
-export BAT_THEME="TwoDark"
+export BAT_THEME=""
 
 # }}}
