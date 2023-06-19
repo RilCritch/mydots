@@ -20,3 +20,10 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export BAT_THEME=""
 
 # }}}
+
+## window managers {{{
+
+# qtile
+PYTHONTRACEMALLOC=1
+
+# }}}
