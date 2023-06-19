@@ -23,10 +23,10 @@ columns_opts = {
     "insert_position": 1,
 }
 
-# max_opts = {
-#
-# }
-#
+max_opts = {
+    "margin": [7, 25, 7, 25]
+}
+
 # monadtall_opts = {
 #
 # }
@@ -77,7 +77,7 @@ treetab_opts = {
 base_layouts = [
     # ones i use
     layout.Columns(**layout_theme, **columns_opts), # favorite
-    layout.Max(**layout_theme),
+    layout.Max(**max_opts),
     layout.MonadTall(**layout_theme),
     layout.MonadWide(**layout_theme),
     # need to look into
