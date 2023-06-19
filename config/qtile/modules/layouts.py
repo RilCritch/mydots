@@ -1,9 +1,15 @@
 # vim:fileencoding=utf-8:foldmethod=marker
+import importlib
 
 from libqtile import layout
-from libqtile.config import Match
+from libqtile.config import Match, Key
+from libqtile.lazy import lazy
 
-# Default layout theme for every layout
+# importlib.reload(lazy)
+
+from settings import SUPER, SHIFT, ALT, CONTROL, TERMINAL, BROWSER
+
+# default layout theme for every layout
 layout_theme = {
     "margin": 7,
     "border_width": 3,
@@ -36,7 +42,6 @@ treetab_opts = {
     "section_fontsize": 15,
     "font_shadow": None,
     "panel_width": 350,
-    "border_width": 4,
     # colors
     "active_bg": '#6791C9',
     "active_fg": '#0c0e0f',
@@ -53,7 +58,7 @@ treetab_opts = {
         'Editor',
     ],
     # spacing
-    "level_shift": 8, # don't know what it does
+    "level_shift": 24, # don't know what it does
     "margin_left": 6, # don't know what it does
     "margin_y": 6, # don't know what it does
     "padding_left": 0,
@@ -76,7 +81,7 @@ base_layouts = [
     layout.MonadTall(**layout_theme),
     layout.MonadWide(**layout_theme),
     # need to look into
-    layout.TreeTab(**treetab_opts), # interesting, look into configuration
+    layout.TreeTab(**layout_theme, **treetab_opts), # interesting, look into configuration
     # layout.MonadThreeCol(**layout_theme), # great for ultrawide
     # layout.Bsp(**layout_theme), # interesting for ultrawide
     # layout.Stack(**layout_theme), # may find useful for something
@@ -102,4 +107,18 @@ base_float_rules = [
     Match(title="branchdialog"),  # gitk
     Match(title="pinentry"),  # GPG key password entry
     Match(wm_class="floating"),
+]
+
+# layout specific keys
+treetab_keys = [
+    Key(
+        [SUPER], "period",
+        lazy.layout.section_up(),
+        desc="Move window up a section in tree tab",
+    ),
+    Key(
+        [SUPER], "comma",
+        lazy.layout.section_down(),
+        desc="Move window down a section in tree tab",
+    ),
 ]

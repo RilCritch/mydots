@@ -37,25 +37,34 @@ window_keys = [
         lazy.layout.next(), 
         desc="Move to next window",
     ),
+    Key(
+        [SUPER], "m", 
+        lazy.layout.previous(), 
+        desc="Move to previous window",
+    ),
     # window move
     Key(
         [SUPER, SHIFT], "h", 
         lazy.layout.shuffle_left(), 
+        lazy.layout.move_left(),
         desc="Move window to the left",
     ),
     Key(
         [SUPER, SHIFT], "l", 
         lazy.layout.shuffle_right(), 
+        lazy.layout.move_right(),
         desc="Move window to the right",
     ),
     Key(
         [SUPER, SHIFT], "j", 
         lazy.layout.shuffle_down(), 
+        lazy.layout.move_down(),
         desc="Move window down",
     ),
     Key(
         [SUPER, SHIFT], "k", 
         lazy.layout.shuffle_up(), 
+        lazy.layout.move_up(),
         desc="Move window up",
     ),
     # window manipulation

@@ -7,8 +7,8 @@ from libqtile import layout, hook
 from libqtile.config import Screen, ScratchPad
 
 from modules.settings import *
-
-from modules.layouts import layout_theme, base_layouts, base_float_rules
+ 
+from modules.layouts import layout_theme, base_layouts, base_float_rules, treetab_keys
 from modules.keys import window_keys, system_keys, app_keys
 from modules.groups_q import main_groups, group_keys
 from modules.scratchpads_q import spads, spad_keys
@@ -23,6 +23,7 @@ keys.extend(app_keys)
     
 # main layouts
 layouts = base_layouts
+keys.extend(treetab_keys)
 
 # mouse bindings
 mouse = []
