@@ -3,24 +3,29 @@
 from libqtile import layout
 from libqtile.config import Match
 
-# temporary variables that I need to move to common file
+# Default layout theme for every layout
 layout_theme = {
     "margin": 7,
     "border_width": 3,
     "border_focus": "#ecd28b",
     "border_normal": "#0c0e0f",
     "border_on_single": True
-    }
+}
+
+# specific layout options
+columns_opts = {
+    "insert_position": 1
+}
 
 # defining layouts that are available on my system - eventually I will create dicts for each layout
 base_layouts = [
     # ones i use
-    layout.Columns(**layout_theme, insert_position=1), # favorite
+    layout.Columns(**layout_theme, **columns_opts), # favorite
     layout.Max(**layout_theme),
     layout.MonadTall(**layout_theme),
     layout.MonadWide(**layout_theme),
     # need to look into
-    # layout.TreeTab(**layout_theme), # interesting, look into configuration
+    layout.TreeTab(**layout_theme), # interesting, look into configuration
     # layout.MonadThreeCol(**layout_theme), # great for ultrawide
     # layout.Bsp(**layout_theme), # interesting for ultrawide
     # layout.Stack(**layout_theme), # may find useful for something
