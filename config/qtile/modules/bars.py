@@ -2,8 +2,6 @@
 
 from libqtile import bar, widget
 
-# ease
-
 # defaults
 widget_defaults = dict(
     # font="sans",
@@ -59,6 +57,10 @@ def init_bot_widgets():
         widget.Systray(
             icon_size=15,
         ),
+        widget.Spacer(),
+        widget.Sep(**sep_theme),
+        widget.CapsNumLockIndicator(),
+        widget.Sep(**sep_theme),
         widget.Spacer(),
         widget.Sep(**sep_theme),
         widget.CurrentLayout(),
