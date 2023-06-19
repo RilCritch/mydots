@@ -9,12 +9,63 @@ layout_theme = {
     "border_width": 3,
     "border_focus": "#ecd28b",
     "border_normal": "#0c0e0f",
-    "border_on_single": True
+    "border_on_single": True,
 }
 
 # specific layout options
 columns_opts = {
-    "insert_position": 1
+    "insert_position": 1,
+}
+
+# max_opts = {
+#
+# }
+#
+# monadtall_opts = {
+#
+# }
+#
+# monadwide_opts = {
+#
+# }
+
+treetab_opts = {
+    # sizes
+    "font": "JetBrainsMono Nerd Font",
+    "fontsize": 13,
+    "section_fontsize": 15,
+    "font_shadow": None,
+    "panel_width": 350,
+    "border_width": 4,
+    # colors
+    "active_bg": '#6791C9',
+    "active_fg": '#0c0e0f',
+    "inactive_bg": '#343637',
+    "inactive_fg": '#edeff0',
+    "urgent_bg": '#df5b61',
+    "urgent_fg": '#edeff0',
+    "bg_color": '#0c0e0f',
+    "section_fg": '#ecd28b',
+    # sections
+    "sections": [
+        'Browser',
+        'Terminal',
+        'Editor',
+    ],
+    # spacing
+    "level_shift": 8, # don't know what it does
+    "margin_left": 6, # don't know what it does
+    "margin_y": 6, # don't know what it does
+    "padding_left": 0,
+    "padding_x": 0,
+    "padding_y": 4,
+    "vspace": 3,
+    "section_left": 4,
+    "section_padding": 4,
+    "section_top": 10,
+    # behavior
+    "place_right": False,
+    "previous_on_rm": True,
 }
 
 # defining layouts that are available on my system - eventually I will create dicts for each layout
@@ -25,7 +76,7 @@ base_layouts = [
     layout.MonadTall(**layout_theme),
     layout.MonadWide(**layout_theme),
     # need to look into
-    layout.TreeTab(**layout_theme), # interesting, look into configuration
+    layout.TreeTab(**treetab_opts), # interesting, look into configuration
     # layout.MonadThreeCol(**layout_theme), # great for ultrawide
     # layout.Bsp(**layout_theme), # interesting for ultrawide
     # layout.Stack(**layout_theme), # may find useful for something
@@ -38,7 +89,7 @@ base_layouts = [
     # layout.RatioTile(**layout_theme), # wouldn't use
     # layout.Floating(**layout_theme), # mid as fuck
     # layout.Zoomy(**layout_theme), # weird but kind of like tabs. Much worse version of treetab
-    ]
+]
 
 # floating layout shit
 base_float_rules = [
@@ -51,5 +102,4 @@ base_float_rules = [
     Match(title="branchdialog"),  # gitk
     Match(title="pinentry"),  # GPG key password entry
     Match(wm_class="floating"),
-    
 ]
