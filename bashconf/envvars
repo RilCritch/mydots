@@ -24,6 +24,6 @@ export BAT_THEME=""
 ## window managers {{{
 
 # qtile
-PYTHONTRACEMALLOC=1
+PYTHONTRACEMALLOC=""
 
 # }}}
