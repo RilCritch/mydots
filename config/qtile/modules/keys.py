@@ -99,7 +99,7 @@ window_keys = [
         desc="Kill focused window",
     ),
     Key(
-        [SUPER, SHIFT], "f", 
+        [SUPER, CONTROL], "f", 
         lazy.window.toggle_fullscreen(), 
         desc="Make focused window fullscreen",
     ),

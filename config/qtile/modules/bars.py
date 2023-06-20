@@ -61,7 +61,7 @@ def init_bot_widgets():
         widget.Sep(**sep_theme),
         widget.CapsNumLockIndicator(),
         widget.Sep(**sep_theme),
-        # widget.Spacer(),
+        widget.Spacer(),
         widget.Sep(**sep_theme),
         widget.CurrentLayout(),
         widget.Sep(**sep_theme),

@@ -24,7 +24,7 @@ columns_opts = {
 }
 
 max_opts = {
-    "margin": [7, 25, 7, 25]
+    # "margin": [7, 25, 7, 25]
 }
 
 # monadtall_opts = {
