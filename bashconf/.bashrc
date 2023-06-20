@@ -33,6 +33,10 @@ if [ -d "$HOME/scripts" ]; then
 	PATH="$HOME/scripts:$PATH"
 fi
 
+if [ -d "$HOME/.cargo/bin" ]; then
+	PATH="$HOME/.cargo/bin:$PATH"
+fi
+
 #ignore upper and lowercase when TAB completion
 bind "set completion-ignore-case on"
 
