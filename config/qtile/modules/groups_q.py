@@ -19,15 +19,15 @@ group_names = [
 ]
 
 group_labels = [
-    "󰾟  1", # 1 - misc stuff 
-    "󰾟  2", # 2 - misc stuff
-    "󰾟  3", # 3 - misc stuff
-    "󰾔  4", # 4 - browser  
-    "󰵆  5", # 5 - wm config
-    "󰏬  6", # 6 - nvim config
-    "󰈚  7", # 7 - coding
-    "󰋌  8", # 8 - music
-    "󰬋  9", # 9 - discord
+    "1", # 1 - misc stuff 
+    "2", # 2 - misc stuff
+    "3", # 3 - misc stuff
+    "4", # 4 - browser  
+    "5", # 5 - wm config
+    "6", # 6 - nvim config
+    "7", # 7 - coding
+    "8", # 8 - music
+    "9", # 9 - discord
 ]
 
 group_layouts = [

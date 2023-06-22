@@ -104,6 +104,16 @@ window_keys = [
         desc="Make focused window fullscreen",
     ),
     Key(
+        [SUPER], "Down", 
+        lazy.window.toggle_minimize(), 
+        desc="Make focused window fullscreen",
+    ),
+    Key(
+        [SUPER], "Up", 
+        lazy.window.toggle_maximize(), 
+        desc="Make focused window fullscreen",
+    ),
+    Key(
         [SUPER], "f", 
         lazy.window.toggle_floating(), 
         desc="Make focused window floating",
