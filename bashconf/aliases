@@ -152,6 +152,9 @@ alias wal="wally-cli"
 # glow - markdown renderer for terminal
 alias gl="glow"
 
+# neovim
+alias rmswap="rm $HOME/.local/state/nvim/swap/*"
+
 # }}}
 
 ## programming {{{
