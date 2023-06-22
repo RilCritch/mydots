@@ -253,12 +253,11 @@ alias qtilelogs="cd $HOME/.local/share/qtile/"
 
 # fzf
 alias fzf="fzf --header-first --reverse --color=16 --prompt='▶ ' --pointer='󱦰'" # defualts to make fzf look better
+alias fzfonts="fc-list | fzf"
+alias fzfall="find / -type f 2>/dev/null | fzf --preview 'bat --style=numbers --color=always {}' --header 'All Files' --header-first --reverse" # fzf all files
 
 # find
 alias sfn='sudo find/ -name' # search entire system for specified file
-alias fzfall="find / -type f 2>/dev/null | fzf --preview 'bat --style=numbers --color=always {}' --header 'All Files' --header-first --reverse" # fzf all files
-
-# grep
 
 # grep - colorize
 alias grep='grep --color=auto'
