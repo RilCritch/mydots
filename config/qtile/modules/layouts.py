@@ -13,7 +13,7 @@ from settings import SUPER, SHIFT, ALT, CONTROL, TERMINAL, BROWSER
 layout_theme = {
     "margin": 7,
     "margin_on_single": 20,
-    "border_width": 3,
+    "border_width": 2,
     # "border_focus": "#ecd28b",
     "border_focus": '#78b892',
     "border_normal": "#0c0e0f",
