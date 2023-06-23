@@ -14,9 +14,10 @@ widget_defaults = dict(
 )
 
 sep_theme = {
-    "linewidth": 1,
-    "padding": 10,
+    "linewidth": 2,
+    "padding": 6,
     "foreground": '#505253',
+    # "foreground": ['#e6c465','#ecd28b'],
     "size_percent": 100,
 }
 
@@ -24,28 +25,50 @@ sep_theme = {
 def init_top_widgets():
     widgets = [
         widget.TextBox(
-            fmt=" 󰌠 ",
-            fontsize=26,
-            padding=0,
+            fmt="󰌠",
+            font="Mononoki Nerd Font mono",
+            fontsize=36,
+            padding=7,
             foreground=['#4277bd', '#6791C9'],
+            # foreground=['#e6c465','#ecd28b'],
             mouse_callbacks={
                 "Button1": lazy.spawn("rofi -show run"), # eventually change to rofi script that has fave apps
             },
-        ),
-        widget.TextBox(
-            fmt="Qtile ",
-            foreground=['#e6c465','#ecd28b'],
-            mouse_callbacks={
-                "Button1": lazy.spawn("rofi -show run"), # eventually change to rofi script that has fave apps
-            },
+            decorations=[
+                PowerLineDecoration(size=7),
+            ],
         ),
         widget.Clock(
             format=" %m/%d/%y ",
+            foreground="#edeff0",
+            background='#1f2122',
+            decorations=[
+                PowerLineDecoration(size=7),
+            ],
+        ),
+        widget.Clock(
+            format=" %I:%M ",
             background='#343637',
+            decorations=[
+                PowerLineDecoration(size=7),
+            ],
         ),
         widget.Spacer(
-            length=6,
+            # background = "edeff0",
+            length = 1,
+            decorations=[
+                PowerLineDecoration(size=7),
+            ],
         ),
+        widget.Spacer(
+            background = "#343637",
+            length = 1,
+            decorations=[
+                PowerLineDecoration(size=7),
+            ],
+        ),
+        widget.Spacer(length=6),
+        # widget.Sep(**sep_theme),
         widget.GroupBox(
             highlight_method='block',
             # hide_unused=True,
@@ -55,23 +78,29 @@ def init_top_widgets():
             font="Mononoki Nerd Font mono",
             block_highlight_text_color='#0c0e0f',
             borderwidth=1,
-            this_current_screen_border=['#4277bd', '#6791C9'],
+            # this_current_screen_border=['#4277bd', '#6791C9'],
+            this_current_screen_border=['#e6c465', '#ecd28b'],
             margin_x=0,
             padding_x=6,
             padding_y=-3,
             fontsize=33,
             spacing=4,
         ),
-        widget.Spacer(
-            length=6,
-        ),
-        widget.Clock(
-            format=" %I:%M ",
-            background='#343637',
-        ),
-        widget.Spacer(
-            length=6,
-        ),
+        # widget.Spacer(
+        #     # background = "edeff0",
+        #     length = 1,
+        #     decorations=[
+        #         PowerLineDecoration(size=7),
+        #     ],
+        # ),
+        # widget.Spacer(
+        #     background = "#343637",
+        #     length = 1,
+        #     decorations=[
+        #         PowerLineDecoration(size=7),
+        #     ],
+        # ),
+        widget.Spacer(length=6),
         widget.TaskList(
             icon_size = 0,
             font = "Tinos Bold",
@@ -96,11 +125,12 @@ def init_top_widgets():
             markup_maximized="<span foreground='#78b892'>{}</span>",
             markup_minimized="<span foreground='#7d7f80' strikethrough='true'>{}</span>",
         ),
+        widget.Spacer(length=6),
         widget.CurrentLayoutIcon(
             scale=0.90,
             use_mask=True,
-            foreground=['#4277bd', '#6791C9'],
-
+            # foreground=['#4277bd', '#6791C9'],
+            foreground=['#e6c465','#ecd28b'],
         ),
     ]
     return widgets
