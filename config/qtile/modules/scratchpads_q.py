@@ -71,7 +71,7 @@ spads = [
     ),
     scratchgen( # runs command that prints qtile keybindings
         "nvim",
-        SCRATCHTERM + "-e nvim",
+        SCRATCHTERM + "-e nvim /home/rc/",
         0.95,
         0.90,
         None,
