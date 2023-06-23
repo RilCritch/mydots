@@ -78,6 +78,15 @@ spads = [
         None,
         True,
     ),
+    scratchgen(
+        "nitrogen",
+        "nitrogen",
+        0.95,
+        0.90,
+        None,
+        None,
+        True,
+    ),
     # scratchgen( # qutebrowser; not working correctly need to difure out the issue 
     #     "qutebrowser",
     #     "qutebrowser",
@@ -105,6 +114,11 @@ spad_keys = [
         [SUPER, SHIFT], 'n',
         lazy.group['scratchpad'].dropdown_toggle('nvim'),
         desc="Launch nvim scratch",
+    ),
+    Key(
+        [SUPER, SHIFT], 'w',
+        lazy.group['scratchpad'].dropdown_toggle('nitrogen'),
+        desc="Launch nitrogen scratch",
     ),
     # Key(
     #     [SUPER, SHIFT], 't', -- need to figure out issue

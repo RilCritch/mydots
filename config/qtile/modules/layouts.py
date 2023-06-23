@@ -12,8 +12,10 @@ from settings import SUPER, SHIFT, ALT, CONTROL, TERMINAL, BROWSER
 # default layout theme for every layout
 layout_theme = {
     "margin": 7,
+    "margin_on_single": 20,
     "border_width": 3,
-    "border_focus": "#ecd28b",
+    # "border_focus": "#ecd28b",
+    "border_focus": '#78b892',
     "border_normal": "#0c0e0f",
     "border_on_single": True,
 }
@@ -50,7 +52,7 @@ treetab_opts = {
     "urgent_bg": '#df5b61',
     "urgent_fg": '#edeff0',
     "bg_color": '#0c0e0f',
-    "section_fg": '#ecd28b',
+    "section_fg": '#78b892',
     # sections
     "sections": [
         'Browser',
