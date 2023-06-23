@@ -46,8 +46,8 @@ alias cca='clear &&'
 alias ccda='clear && pwd &&'
 
 # pretty
-alias c="clear && sparky | clr yellow && line | clr"
-alias ca="clear && sparky | clr yellow &&" 
+alias c="clear && sparky | clr green && line | clr"
+alias ca="clear && sparky | clr green &&" 
 
 # }}}
 
@@ -58,7 +58,7 @@ alias cb='cd -'
 
 # common dirs
 alias rc="cd $HOME \
-  && clear && termtitle 'Ril Critch' yellow whiteL blue \
+  && clear && termtitle 'Ril Critch' whiteL whiteL blue \
   && exa -l --group-directories-first --icons --grid \
   && lineacross | clr"
 alias dotc="cd $HOME/mydots/ \
