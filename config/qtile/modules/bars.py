@@ -18,7 +18,6 @@ sep_theme = {
     "linewidth": 1,
     "padding": 10,
     "foreground": '#505253',
-    # "background": '#ecd28b',
     "size_percent": 100,
 }
 
@@ -30,18 +29,14 @@ def init_top_widgets():
             fmt=" 󰌠 ",
             fontsize=26,
             padding=0,
-            foreground=['#284971', '#6791C9'],
-            # background='#',
+            foreground=['#4277bd', '#6791C9'],
             mouse_callbacks={
                 "Button1": lazy.spawn("rofi -show run"), # eventually change to rofi script that has fave apps
             },
         ),
         widget.TextBox(
             fmt="Qtile ",
-            foreground='#ecd28b',
-            # fontsize=17,
-            # background='#27292a',
-            # font="JetBrainsMono Nerd Font Bold",
+            foreground=['#e6c465','#ecd28b'],
             mouse_callbacks={
                 "Button1": lazy.spawn("rofi -show run"), # eventually change to rofi script that has fave apps
             },
@@ -61,23 +56,16 @@ def init_top_widgets():
             length=6,
         ),
         widget.GroupBox(
-            # highlight_method='block',
-            hide_unused=True,
+            highlight_method='block',
+            # hide_unused=True,
             highlight_color='#0c0e0f',
-            inactive='#343637',
-            active='#505253',
-            # font="Monokai Nerd Font Semi Bold",
+            inactive='#484a4b',
+            active='#284871',
             font="Mononoki Nerd Font mono",
-            # font="monospace",
-            # block_highlight_text_color=['#6e5511', '#ecd28b', '#ecd28b'],
-            # block_highlight_text_color=['#284971', '#6791C9'],
-            block_highlight_text_color='#6791C9',
-            borderwidth=2,
-            # center_aligned=False,
-            # this_current_screen_border=['#284971', '#6791C9'],
-            this_current_screen_border='#6791C9',
+            block_highlight_text_color='#0c0e0f',
+            borderwidth=1,
+            this_current_screen_border=['#4277bd', '#6791C9'],
             margin_x=0,
-            # margin_y=0,
             padding_x=6,
             padding_y=-3,
             fontsize=33,
@@ -91,7 +79,6 @@ def init_top_widgets():
             font = "Tinos Bold",
             fontsize=12,
             foreground = "#edeff0",
-            # background = "#161819",
             borderwidth = 2,
             border = '#484a4b',
             unfocused_border='#1f2122',
@@ -114,8 +101,7 @@ def init_top_widgets():
         widget.CurrentLayoutIcon(
             scale=0.90,
             use_mask=True,
-            # foreground=["#6791c9"],
-            foreground=['#284971', '#6791C9'],
+            foreground=['#4277bd', '#6791C9'],
 
         ),
     ]

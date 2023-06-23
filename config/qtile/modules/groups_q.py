@@ -31,15 +31,15 @@ group_labels = [
 ]
 
 group_layouts = [
-    "columns", # 1 - misc stuff 
-    "columns", # 2 - misc stuff
-    "columns", # 3 - misc stuff
-    "columns", # 4 - browser 
-    "columns", # 5 - qtile config
-    "columns", # 6 - nvim config
-    "columns", # 7 - coding
-    "columns", # 8 - music
-    "max", # 9 - discord
+    "columns", 
+    "columns",
+    "columns",
+    "columns",
+    "columns",
+    "columns",
+    "max",
+    "max",
+    "max",
 ]
 
 # set up main group list
