@@ -132,11 +132,11 @@ def init_top_widgets():
         widget.Spacer(length=3),
         # widget.Sep(**sep_theme),
         widget.CurrentLayoutIcon(
-            scale=0.90,
+            # scale=0.90,
             use_mask=True,
-            # foreground=['#4277bd', '#6791C9'],
+            foreground=['#4277bd', '#6791C9'],
             # foreground=['#e6c465','#ecd28b'],
-            foreground=['#58a779', '#78b892'],
+            # foreground=['#58a779', '#78b892'],
         ),
     ]
     return widgets
