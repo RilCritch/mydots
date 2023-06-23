@@ -7,9 +7,8 @@ from libqtile.lazy import lazy
 
 # defaults
 widget_defaults = dict(
-    # font="sans",
     font="JetBrainsMono Nerd Font",
-    fontsize=14,
+    fontsize=15,
     padding=4,
     foreground='#edeff0',
 )
@@ -20,7 +19,6 @@ sep_theme = {
     "foreground": '#505253',
     "size_percent": 100,
 }
-
 
 # widgets
 def init_top_widgets():
@@ -42,14 +40,7 @@ def init_top_widgets():
             },
         ),
         widget.Clock(
-            format=" %m/%d/%y",
-            background=['#1f2122'],
-            decorations=[
-                PowerLineDecoration(path='forward_slash', size=20),
-            ],
-        ),
-        widget.Clock(
-            format="%I:%M ",
+            format=" %m/%d/%y ",
             background='#343637',
         ),
         widget.Spacer(
@@ -72,7 +63,14 @@ def init_top_widgets():
             spacing=4,
         ),
         widget.Spacer(
-            length=4,
+            length=6,
+        ),
+        widget.Clock(
+            format=" %I:%M ",
+            background='#343637',
+        ),
+        widget.Spacer(
+            length=6,
         ),
         widget.TaskList(
             icon_size = 0,
