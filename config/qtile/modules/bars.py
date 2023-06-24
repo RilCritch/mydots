@@ -87,20 +87,6 @@ def init_top_widgets():
             fontsize=33,
             spacing=4,
         ),
-        # widget.Spacer(
-        #     # background = "edeff0",
-        #     length = 1,
-        #     decorations=[
-        #         PowerLineDecoration(size=7),
-        #     ],
-        # ),
-        # widget.Spacer(
-        #     background = "#343637",
-        #     length = 1,
-        #     decorations=[
-        #         PowerLineDecoration(size=7),
-        #     ],
-        # ),
         widget.Spacer(length=6),
         # widget.Sep(**sep_theme),
         widget.TaskList(
@@ -147,12 +133,6 @@ def init_bot_widgets():
         widget.Systray(
             icon_size=15,
         ),
-        # widget.Sep(**sep_theme),
-        # widget.WindowName(
-        #     fontsize=12,
-        #     empty_group_string="RilCritch's PC",
-        #     foreground="#6791C9"
-        # ),
         widget.Spacer(),
         # widget.Sep(**sep_theme),
         widget.CapsNumLockIndicator(font='Tinos bold', fontsize=12),
