@@ -204,6 +204,10 @@ alias listorph='sudo pacman -Qtd' # list orphaned pkgs
 alias listaur='sudo pacman -Qm' # list AUR pkgs
 alias listpkgsize="expac -H M '%m\t%n' | sort -h | nl" # reads out pkgs and their sizes
 
+# python
+alias pxi='pipx install'
+alias pxs='pypisearch'
+
 # }}}
 
 ## linux customization {{{

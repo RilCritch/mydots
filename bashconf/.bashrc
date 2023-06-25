@@ -72,3 +72,9 @@ shopt -s expand_aliases # expand aliases
 	c8='[38m'
 	cR='[m'
 }
+
+# Created by `pipx` on 2023-06-25 22:48:45
+export PATH="$PATH:/home/rc/.local/bin"
+
+# adding pipx autocompletion
+eval "$(register-python-argcomplete pipx)"
