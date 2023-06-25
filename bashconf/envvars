@@ -24,6 +24,12 @@ export BAT_THEME=""
 ## window managers {{{
 
 # qtile
-PYTHONTRACEMALLOC=""
+
+# }}}
+
+## programming {{{
+
+# python
+export WORKON_HOME="$HOME/documents/programming/pyenvs"
 
 # }}}
