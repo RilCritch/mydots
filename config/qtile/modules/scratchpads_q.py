@@ -53,8 +53,8 @@ spads = [
     scratchgen( # basic terminal
         "term",
         SCRATCHTERM,
-        0.95,
-        0.6,
+        0.985,
+        0.263,
         None,
         None,
         True,
@@ -86,6 +86,17 @@ spads = [
         None,
         None,
         True,
+    ),
+    scratchgen(
+        "moonlanderlayout",
+        "evince /home/rc/documents/hardware/moonlander/MoonlanderLayout6-25-23.pdf",
+        # SCRATCHTERM + " --hold -e mupdf /home/rc/documents/hardware/moonlander/MoonlanderLayout6-25-23.pdf",
+        0.95,
+        0.90,
+        None,
+        None,
+        True,
+        # "floating",
     ),
     # scratchgen( # qutebrowser; not working correctly need to difure out the issue 
     #     "qutebrowser",
@@ -119,6 +130,11 @@ spad_keys = [
         [SUPER, SHIFT], 'w',
         lazy.group['scratchpad'].dropdown_toggle('nitrogen'),
         desc="Launch nitrogen scratch",
+    ),
+    Key(
+        [SUPER, SHIFT], 'z',
+        lazy.group['scratchpad'].dropdown_toggle('moonlanderlayout'),
+        desc="Launch moonlander layoutpdf",
     ),
     # Key(
     #     [SUPER, SHIFT], 't', -- need to figure out issue
