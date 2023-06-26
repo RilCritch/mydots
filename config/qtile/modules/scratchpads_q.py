@@ -4,6 +4,9 @@ from libqtile.config import DropDown, Key, Match
 from libqtile.lazy import lazy
 
 from settings import SUPER, SHIFT, TERMINAL
+    
+from confutils import window_info
+
 
 # functions for generating dropdown -- code from: https://github.com/ViperX7/qtile_config/blob/main/q_scratchpads.py
 def scratchgen(name, spawn, h, w, x=None, y=None, autohide=False, res="", opacity=1):
@@ -54,7 +57,7 @@ spads = [
         "term",
         SCRATCHTERM,
         0.985,
-        0.263,
+        window_info.calculate_size_percent(1350),
         None,
         None,
         True,
@@ -63,8 +66,8 @@ spads = [
     scratchgen( # runs command that prints qtile keybindings
         "qtilekeys",
         SCRATCHTERM + " --hold -e /home/rc/mydots/scripts/qtilekeys",
-        0.95,
-        0.45,
+        0.985,
+        window_info.calculate_size_percent(1100),
         None,
         None,
         True,
@@ -72,8 +75,8 @@ spads = [
     scratchgen( # runs command that prints qtile keybindings
         "nvim",
         SCRATCHTERM + "-e nvim /home/rc/",
-        0.95,
-        0.90,
+        0.985,
+        window_info.calculate_size_percent(1350),
         None,
         None,
         True,
@@ -81,8 +84,8 @@ spads = [
     scratchgen(
         "nitrogen",
         "nitrogen",
-        0.95,
-        0.90,
+        0.985,
+        window_info.calculate_size_percent(2250),
         None,
         None,
         True,
@@ -91,8 +94,8 @@ spads = [
         "moonlanderlayout",
         "evince /home/rc/documents/hardware/moonlander/MoonlanderLayout6-25-23.pdf",
         # SCRATCHTERM + " --hold -e mupdf /home/rc/documents/hardware/moonlander/MoonlanderLayout6-25-23.pdf",
-        0.95,
-        0.90,
+        0.985,
+        window_info.calculate_size_percent(2000),
         None,
         None,
         True,
