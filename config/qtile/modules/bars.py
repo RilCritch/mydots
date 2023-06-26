@@ -8,7 +8,7 @@ from libqtile.lazy import lazy
 # defaults
 widget_defaults = dict(
     font="JetBrainsMono Nerd Font",
-    fontsize=15,
+    fontsize=16,
     padding=4,
     foreground='#edeff0',
 )
@@ -27,13 +27,41 @@ def init_top_widgets():
         widget.TextBox(
             fmt="󰌠",
             font="Mononoki Nerd Font mono",
-            fontsize=36,
-            padding=7,
+            fontsize=39,
+            padding=8,
             foreground=['#4277bd', '#6791C9'],
             # foreground=['#e6c465','#ecd28b'],
             mouse_callbacks={
                 "Button1": lazy.spawn("rofi -show run"), # eventually change to rofi script that has fave apps
             },
+            decorations=[
+                PowerLineDecoration(size=7),
+            ],
+        ),
+        # Arrow
+        widget.Spacer(
+            background = "#1f2122",
+            length = 1,
+            decorations=[
+                PowerLineDecoration(size=7),
+            ],
+        ), # end arrow
+        # Arrow
+        widget.Spacer(
+            length = 1,
+            decorations=[
+                PowerLineDecoration(size=7),
+            ],
+        ),
+        widget.Spacer(
+            background = "#1f2122",
+            length = 1,
+            decorations=[
+                PowerLineDecoration(size=7),
+            ],
+        ),# end arrow
+        widget.Spacer(
+            length = 1,
             decorations=[
                 PowerLineDecoration(size=7),
             ],
@@ -61,7 +89,7 @@ def init_top_widgets():
             ],
         ),
         widget.Spacer(
-            background = "#343637",
+            background = "#1f2122",
             length = 1,
             decorations=[
                 PowerLineDecoration(size=7),
@@ -75,7 +103,7 @@ def init_top_widgets():
             ],
         ),
         widget.Spacer(
-            background = "#343637",
+            background = "#1f2122",
             length = 1,
             decorations=[
                 PowerLineDecoration(size=7),
