@@ -31,12 +31,12 @@ group_labels = [
 ]
 
 group_layouts = [
-    "columns", 
-    "columns",
-    "columns",
-    "columns",
-    "columns",
-    "columns",
+    "monadthreecol", 
+    "monadthreecol", 
+    "monadthreecol", 
+    "monadthreecol", 
+    "monadthreecol", 
+    "monadthreecol", 
     "max",
     "max",
     "max",

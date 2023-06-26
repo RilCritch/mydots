@@ -11,18 +11,19 @@ from settings import SUPER, SHIFT, ALT, CONTROL, TERMINAL, BROWSER
 
 # default layout theme for every layout
 layout_theme = {
-    "margin": 7,
+    "margin": 12,
     "margin_on_single": 20,
     "border_width": 2,
     # "border_focus": "#ecd28b",
     "border_focus": '#78b892',
-    "border_normal": "#0c0e0f",
+    "border_normal": ['#374041','#505253'],
     "border_on_single": True,
 }
 
 # specific layout options
 columns_opts = {
     "insert_position": 1,
+    "num_columns": 3,
 }
 
 max_opts = {
@@ -84,7 +85,7 @@ base_layouts = [
     layout.MonadWide(**layout_theme),
     # need to look into
     layout.TreeTab(**layout_theme, **treetab_opts), # interesting, look into configuration
-    # layout.MonadThreeCol(**layout_theme), # great for ultrawide
+    layout.MonadThreeCol(**layout_theme), # great for ultrawide
     # layout.Bsp(**layout_theme), # interesting for ultrawide
     # layout.Stack(**layout_theme), # may find useful for something
     # no use case for/ don't like right now

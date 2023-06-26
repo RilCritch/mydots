@@ -81,11 +81,13 @@ window_keys = [
     Key(
         [SUPER, CONTROL], "j", 
         lazy.layout.grow_down(), 
+        lazy.layout.shrink(),
         desc="Grow window down",
     ),
     Key(
         [SUPER, CONTROL], "k", 
         lazy.layout.grow_up(), 
+        lazy.layout.grow(),
         desc="Grow window up"
     ),
     Key(

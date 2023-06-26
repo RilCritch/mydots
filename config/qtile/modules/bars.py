@@ -14,9 +14,9 @@ widget_defaults = dict(
 )
 
 sep_theme = {
-    "linewidth": 2,
-    "padding": 6,
-    "foreground": '#505253',
+    "linewidth": 1,
+    "padding": 0,
+    "foreground": '#343637',
     # "foreground": ['#e6c465','#ecd28b'],
     "size_percent": 100,
 }
@@ -53,8 +53,8 @@ def init_top_widgets():
                 PowerLineDecoration(size=7),
             ],
         ),
+        # Arrow
         widget.Spacer(
-            # background = "edeff0",
             length = 1,
             decorations=[
                 PowerLineDecoration(size=7),
@@ -66,9 +66,22 @@ def init_top_widgets():
             decorations=[
                 PowerLineDecoration(size=7),
             ],
+        ), # end arrow
+        # Arrow
+        widget.Spacer(
+            length = 1,
+            decorations=[
+                PowerLineDecoration(size=7),
+            ],
         ),
+        widget.Spacer(
+            background = "#343637",
+            length = 1,
+            decorations=[
+                PowerLineDecoration(size=7),
+            ],
+        ),# end arrow
         widget.Spacer(length=6),
-        # widget.Sep(**sep_theme),
         widget.GroupBox(
             highlight_method='block',
             # hide_unused=True,
