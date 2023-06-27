@@ -27,9 +27,11 @@ def init_top_widgets():
         widget.TextBox(
             fmt="󰌠",
             font="Mononoki Nerd Font mono",
-            fontsize=39,
+            fontsize=42,
             padding=8,
-            foreground=['#4277bd', '#6791C9'],
+            # foreground=['#4277bd', '#6791C9'],
+            background = ['#4277bd', '#6791C9'],
+            foreground = '#0c0e0f',
             # foreground=['#e6c465','#ecd28b'],
             mouse_callbacks={
                 "Button1": lazy.spawn("rofi -show run"), # eventually change to rofi script that has fave apps
@@ -39,13 +41,15 @@ def init_top_widgets():
             ],
         ),
         # Arrow
-        widget.Spacer(
-            background = "#1f2122",
-            length = 1,
-            decorations=[
-                PowerLineDecoration(size=7),
-            ],
-        ), # end arrow
+        # widget.Spacer(
+        #     # background = "#1f2122",
+        #     background = ['#58a779', '#78b892'],
+        #     # background=['#e6c465','#ecd28b'],
+        #     length = 1,
+        #     decorations=[
+        #         PowerLineDecoration(size=7),
+        #     ],
+        # ), # end arrow
         # Arrow
         widget.Spacer(
             length = 1,
@@ -53,35 +57,67 @@ def init_top_widgets():
                 PowerLineDecoration(size=7),
             ],
         ),
-        widget.Spacer(
-            background = "#1f2122",
-            length = 1,
-            decorations=[
-                PowerLineDecoration(size=7),
-            ],
-        ),# end arrow
-        widget.Spacer(
-            length = 1,
-            decorations=[
-                PowerLineDecoration(size=7),
-            ],
+        # widget.Spacer(
+        #     # background = "#1f2122",
+        #     background = ['#4277bd', '#6791C9'],
+        #     length = 1,
+        #     decorations=[
+        #         PowerLineDecoration(size=7),
+        #     ],
+        # ),# end arrow
+        # widget.Spacer(
+        #     length = 1,
+        #     decorations=[
+        #         PowerLineDecoration(size=7),
+        #     ],
+        # ),
+        widget.Spacer(length=6, background = "#1f2122"),
+        widget.TextBox(
+            fmt = "",
+            font = "Mononoki Nerd Font mono",
+            fontsize = 30,
+            foreground = "#ecd28b",
+            background = "#1f2122"
         ),
         widget.Clock(
-            format=" %m/%d/%y ",
+            format="%m/%d/%y ",
             foreground="#edeff0",
             background='#1f2122',
             decorations=[
                 PowerLineDecoration(size=7),
             ],
         ),
+        widget.Spacer(length=6, background = "#343637"),
+        widget.TextBox(
+            fmt = "",
+            font = "Mononoki Nerd Font mono",
+            fontsize = 30,
+            foreground = "#6791c9",
+            background = "#343637"
+        ),
         widget.Clock(
-            format=" %I:%M ",
+            format="%I:%M ",
             background='#343637',
             decorations=[
                 PowerLineDecoration(size=7),
             ],
         ),
-        # Arrow
+        widget.Spacer(length=9, background = "#1f2122"),
+        widget.TextBox(
+            fmt = "󰓃",
+            font = "Mononoki Nerd Font mono",
+            fontsize = 27,
+            foreground = "#78b892",
+            background = "#1f2122",
+        ),
+        widget.Volume(
+            background = "#1f2122",
+            fmt = "{} ",
+            decorations=[
+                PowerLineDecoration(size=7),
+            ],
+
+        ),
         widget.Spacer(
             length = 1,
             decorations=[
@@ -89,13 +125,53 @@ def init_top_widgets():
             ],
         ),
         widget.Spacer(
-            background = "#1f2122",
+            length=3, 
+            background = ['#4277bd', '#6791C9'],
+
+            decorations=[
+                PowerLineDecoration(size=7),
+            ],
+        ),
+        widget.Spacer(
             length = 1,
             decorations=[
                 PowerLineDecoration(size=7),
             ],
-        ), # end arrow
+        ),
         # Arrow
+        widget.Spacer(length = 12, background = "#1f2122"),
+        widget.Spacer(length = 8),
+        widget.Spacer(length=1, background = ['#58a779', '#78b892']),
+        widget.CurrentLayoutIcon(
+            scale=0.85,
+            use_mask=True,
+            foreground = "#0c0e0f",
+            # foreground = ['#4277bd', '#6791C9'],
+            # foreground = ['#e6c465','#ecd28b'],
+            background = ['#58a779', '#78b892'],
+        ),
+        widget.Spacer(
+            length=1, 
+            background = ['#58a779', '#78b892'],
+            decorations=[
+                PowerLineDecoration(size=7),
+            ],
+        ),
+        widget.Spacer(
+            length = 1,
+            decorations=[
+                PowerLineDecoration(size=7),
+            ],
+        ),
+        widget.CurrentLayout(
+            # background = "#343637",
+            background = "#1f2122",
+            fmt = " {} ",
+            decorations=[
+                PowerLineDecoration(size=7),
+            ],
+            fontsize = 14,
+        ),
         widget.Spacer(
             length = 1,
             decorations=[
@@ -103,12 +179,23 @@ def init_top_widgets():
             ],
         ),
         widget.Spacer(
-            background = "#1f2122",
+            length=3, 
+            background = ['#58a779', '#78b892'],
+
+            decorations=[
+                PowerLineDecoration(size=7),
+            ],
+        ),
+         widget.Spacer(
             length = 1,
             decorations=[
                 PowerLineDecoration(size=7),
             ],
-        ),# end arrow
+        ),
+        # Arrow
+        widget.Spacer(length = 12, background = "#1f2122"),
+        widget.Spacer(length = 6),
+        widget.Spacer(length = 6, background = "#343637"),
         widget.Spacer(length=6),
         widget.GroupBox(
             highlight_method='block',
@@ -129,6 +216,29 @@ def init_top_widgets():
             spacing=4,
         ),
         widget.Spacer(length=6),
+        widget.Spacer(length = 6, background = "#343637"),
+        widget.Spacer(length=6),
+        widget.Spacer(
+            length = 12, 
+            background = "#1f2122",
+            decorations = [
+                PowerLineDecoration(path = "arrow_right", size = 7),
+            ],
+        ),
+        widget.Spacer(
+            length=1,
+            decorations = [
+                PowerLineDecoration(path = "arrow_right", size = 7),
+            ],
+        ),
+        widget.Spacer(
+            length = 3, 
+            background = ['#58a779', '#78b892'],
+            decorations = [
+                PowerLineDecoration(path = "arrow_right", size = 7),
+            ],
+        ),
+        widget.Spacer(length=6),
         # widget.Sep(**sep_theme),
         widget.TaskList(
             icon_size = 0,
@@ -140,8 +250,8 @@ def init_top_widgets():
             # border = '#484a4b',
             border = ['#58a779', '#78b892'],
             unfocused_border=['#374041','#505253'],
-            margin = 0,
-            padding = 9,
+            margin = 1,
+            padding = 10,
             spacing=6,
             # highlight_method = "block",
             title_width_method = "uniform",
@@ -156,15 +266,15 @@ def init_top_widgets():
             markup_maximized="<span foreground='#ecd28b'>{}</span>",
             markup_minimized="<span foreground='#7d7f80' strikethrough='true'>{}</span>",
         ),
-        widget.Spacer(length=3),
+        widget.Spacer(length=6),
         # widget.Sep(**sep_theme),
-        widget.CurrentLayoutIcon(
-            # scale=0.90,
-            use_mask=True,
-            foreground=['#4277bd', '#6791C9'],
-            # foreground=['#e6c465','#ecd28b'],
-            # foreground=['#58a779', '#78b892'],
-        ),
+        # widget.CurrentLayoutIcon( ## put powerbutton here to do something related to loging out
+        #     # scale=0.90,
+        #     use_mask=True,
+        #     foreground=['#4277bd', '#6791C9'],
+        #     # foreground=['#e6c465','#ecd28b'],
+        #     # foreground=['#58a779', '#78b892'],
+        # ),
     ]
     return widgets
 
@@ -185,7 +295,7 @@ def init_bot_widgets():
 top_widgets = init_top_widgets()
 top_bar = bar.Bar(
     top_widgets,
-    33,
+    36,
     background='#0c0e0f',
     opacity=0.8,
     border_width=[3, 0, 3, 0], 
