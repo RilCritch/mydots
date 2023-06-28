@@ -31,7 +31,7 @@ function run {
 
 run nm-applet
 run pamac-tray
-run volumeicon
+# run volumeicon
 # run blueberry-tray
 
 #######################
