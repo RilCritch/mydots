@@ -109,6 +109,7 @@ base_float_rules = [
     Match(wm_class="ssh-askpass"),  # ssh-askpass
     Match(title="branchdialog"),  # gitk
     Match(title="pinentry"),  # GPG key password entry
+    Match(wm_class='archlinux-logout'),
     Match(wm_class="floating"),
 ]
 

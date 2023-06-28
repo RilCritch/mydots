@@ -74,7 +74,7 @@ spads = [
     ),
     scratchgen( # runs command that prints qtile keybindings
         "nvim",
-        SCRATCHTERM + "-e nvim /home/rc/",
+        SCRATCHTERM + "-e nvim",
         0.985,
         window_info.calculate_size_percent(1350),
         None,
@@ -137,7 +137,7 @@ spad_keys = [
     Key(
         [SUPER, SHIFT], 'z',
         lazy.group['scratchpad'].dropdown_toggle('moonlanderlayout'),
-        desc="Launch moonlander layoutpdf",
+        desc="Launch moonlander layout pdf",
     ),
     # Key(
     #     [SUPER, SHIFT], 't', -- need to figure out issue
