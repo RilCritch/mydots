@@ -123,6 +123,10 @@ alias qtic="cd $HOME/mydots/config/qtile/ \
   && clear && smtermtitle 'Qtile' whiteL blue \
   && exa -la --group-directories-first --icons --grid \
   && lineacross | clr"
+alias note="cd $HOME/documents/notes/ \
+  && clear && smtermtitle 'Notes' whiteL blue \
+  && exa -aT --group-directories-first --icons \
+  && lineacross | clr"
 
 # scripts
 alias scripts="cd $HOME/mydots/scripts/ \
