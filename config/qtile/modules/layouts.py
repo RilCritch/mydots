@@ -27,7 +27,15 @@ columns_opts = {
 }
 
 max_opts = {
-    # "margin": [7, 25, 7, 25]
+    "margin": [12, 1350, 12, 1350],
+    "border_width": 2,
+    "border_focus": '#78b892',
+    "border_normal": ['#374041','#505253'],
+}
+
+three_col_opts = {
+    "single_margin": [12, 1350, 12, 1350],
+    "ratio": 0.45,
 }
 
 # monadtall_opts = {
@@ -85,7 +93,7 @@ base_layouts = [
     layout.MonadWide(**layout_theme),
     # need to look into
     layout.TreeTab(**layout_theme, **treetab_opts), # interesting, look into configuration
-    layout.MonadThreeCol(**layout_theme), # great for ultrawide
+    layout.MonadThreeCol(**layout_theme, **three_col_opts), # great for ultrawide
     # layout.Bsp(**layout_theme), # interesting for ultrawide
     # layout.Stack(**layout_theme), # may find useful for something
     # no use case for/ don't like right now

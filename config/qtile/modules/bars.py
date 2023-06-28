@@ -43,37 +43,12 @@ def init_top_widgets():
                 PowerLineDecoration(size=powerlinesize),
             ],
         ),
-        # Arrow
-        # widget.Spacer(
-        #     # background = "#1f2122",
-        #     background = ['#58a779', '#78b892'],
-        #     # background=['#e6c465','#ecd28b'],
-        #     length = 1,
-        #     decorations=[
-        #         PowerLineDecoration(size=powerlinesize),
-        #     ],
-        # ), # end arrow
-        # Arrow
         widget.Spacer(
             length = 1,
             decorations=[
                 PowerLineDecoration(size=powerlinesize),
             ],
         ),
-        # widget.Spacer(
-        #     # background = "#1f2122",
-        #     background = ['#4277bd', '#6791C9'],
-        #     length = 1,
-        #     decorations=[
-        #         PowerLineDecoration(size=powerlinesize),
-        #     ],
-        # ),# end arrow
-        # widget.Spacer(
-        #     length = 1,
-        #     decorations=[
-        #         PowerLineDecoration(size=powerlinesize),
-        #     ],
-        # ),
         widget.Spacer(length=6, background = "#1f2122"),
         widget.TextBox(
             fmt = "",
@@ -154,7 +129,8 @@ def init_top_widgets():
             ],
         ),
         # Arrow
-        widget.Spacer(length = 12, background = "#1f2122"),
+        # widget.Spacer(length = 24, background = "#343637"),
+        widget.Spacer(length = 24, background = ["#4277bd", "#6791c9"]),
         widget.Spacer(length = 6),
         widget.Spacer(length=1, background = ['#58a779', '#78b892']),
         widget.CurrentLayoutIcon(
@@ -186,9 +162,6 @@ def init_top_widgets():
                 PowerLineDecoration(size=powerlinesize),
             ],
             fontsize = 14,
-            max_chars = 9,
-            scroll = True,
-            scroll_fixed_width = True,
         ),
         widget.Spacer(
             length = 1,
@@ -211,7 +184,8 @@ def init_top_widgets():
             ],
         ),
         # Arrow
-        widget.Spacer(length = 12, background = "#1f2122"),
+        # widget.Spacer(length = 12, background = "#1f2122"),
+        widget.Spacer(length = 24, background = ['#58a779', '#78b892']),
         widget.Spacer(length = 6),
         # widget.Spacer(length = 6, background = ['#58a779', '#78b892']),
         widget.Spacer(length = 6, background = ['#4277bd', '#6791C9']),
@@ -240,8 +214,8 @@ def init_top_widgets():
         widget.Spacer(length = 6, background = ['#4277bd', '#6791C9']),
         widget.Spacer(length=6),
         widget.Spacer(
-            length = 12, 
-            background = "#1f2122",
+            length = 24, 
+            background = ['#58a779', '#78b892'],
             decorations = [
                 PowerLineDecoration(path = "arrow_right", size = powerlinesize),
             ],
@@ -307,10 +281,7 @@ def init_top_widgets():
                 PowerLineDecoration(size=powerlinesize),
             ],
         ),
-        widget.Spacer(
-            length = 12, 
-            background = "#1f2122",
-        ),
+        widget.Spacer(length = 24, background = ['#58a779', '#78b892']),
         widget.Spacer(length = 6),
         widget.Spacer(length = 6, background = ['#4277bd', '#6791C9']),
         widget.Spacer(length = 6),
@@ -322,8 +293,9 @@ def init_top_widgets():
         widget.Spacer(length = 6, background = ['#4277bd', '#6791C9']),
         widget.Spacer(length = 6),
         widget.Spacer(
-            length = 12, 
-            background = "#1f2122",
+            length = 24, 
+            # background = "#1f2122",
+            background = ['#58a779', '#78b892'],
             decorations = [
                 PowerLineDecoration(path = "arrow_right", size = powerlinesize),
             ],
