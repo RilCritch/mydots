@@ -225,7 +225,7 @@ alias okolors='/home/rc/mydots/applications/okolors -n 3 -l 10,30,50,70 -s l'
 
 # neovim
 alias nv='nvim'
-alias vim='nvim'
+alias vim='vim'
 alias vi='nvim'
 
 # viewing text
