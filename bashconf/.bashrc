@@ -77,4 +77,4 @@ shopt -s expand_aliases # expand aliases
 export PATH="$PATH:/home/rc/.local/bin"
 
 # adding pipx autocompletion
-eval "$(register-python-argcomplete pipx)"
+#eval "$(register-python-argcomplete pipx)"
