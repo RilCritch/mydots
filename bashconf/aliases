@@ -150,8 +150,8 @@ alias notesv="cd $HOME/documents/notes/ \
   && lineacross | clr"
 
 # scripts
-alias scripts="cd $HOME/mydots/scripts/ && clear && sparky | clr && lineacross | clr"
-alias scriptsv="cd $HOME/mydots/scripts/ \
+alias myscr="cd $HOME/mydots/scripts/ && clear && sparky | clr && lineacross | clr"
+alias myscrv="cd $HOME/mydots/scripts/ \
   && clear && termtitle 'Scripts' whiteL whiteL blue \
   && exa -la --group-directories-first --icons --grid \
   && lineacross | clr"
