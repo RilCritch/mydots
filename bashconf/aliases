@@ -56,86 +56,109 @@ alias ca="clear && sparky | clr green &&"
 # cd utils
 alias cb='cd -'
 
-# common dirs
-alias rc="cd $HOME \
+# common dirs - clean
+alias rc="cd $HOME && clear && sparky | clr && lineacross | clr"
+alias dots="cd $HOME/mydots/ && clear && sparky | clr && lineacross | clr"
+alias scnf="cd $HOME/.config/ && clear && sparky | clr && lineacross | clr"
+alias docs="cd $HOME/documents/ && clear && sparky | clr && lineacross | clr"
+alias down="cd $HOME/downloads/ && clear && sparky | clr && lineacross | clr"
+alias trsh="cd $HOME/.local/share/Trash/files/ && clear && sparky | clr && lineacross | clr"
+
+# common dirs - verbose
+alias rcv="cd $HOME \
   && clear && termtitle 'Ril Critch' whiteL whiteL blue \
   && exa -l --group-directories-first --icons --grid \
   && lineacross | clr"
-alias dotc="cd $HOME/mydots/ \
+alias dotsv="cd $HOME/mydots/ \
   && clear && termtitle 'Dot Files' whiteL whiteL blue \
   && exa -la --group-directories-first --icons --grid \
   && lineacross | clr"
-alias ccnf="cd $HOME/.config/ \
+alias scnfv="cd $HOME/.config/ \
   && clear && termtitle 'Sys Configs' whiteL whiteL blue \
   && exa -a --group-directories-first --icons --grid \
   && lineacross | clr"
-alias docs="cd $HOME/documents/ \
+alias docsv="cd $HOME/documents/ \
   && clear && termtitle Documents whiteL whiteL blue \
   && exa -la --group-directories-first --icons --grid \
   && lineacross | clr"
-alias down="cd $HOME/downloads/ \
+alias downv="cd $HOME/downloads/ \
   && clear && termtitle Downloads whiteL whiteL blue \
   && exa -la --group-directories-first --icons --grid \
   && lineacross | clr"
-alias trash="cd $HOME/.local/share/Trash/files/ \
+alias trshv="cd $HOME/.local/share/Trash/files/ \
   && clear && termtitle Trash whiteL whiteL blue \
   && exa -la --group-directories-first --icons --grid \
   && lineacross | clr"
 
-# configs
-alias conf="cd $HOME/mydots/config/ \
+# configs - clean
+alias conf="cd $HOME/mydots/config/ && clear && sparky | clr && lineacross | clr"
+alias awec="cd $HOME/mydots/config/awesome/ && clear && sparky | clr && lineacross | clr"
+alias bpyc="cd $HOME/mydots/config/bpytop/ && clear && sparky | clr && lineacross | clr"
+alias kitc="cd $HOME/mydots/config/kitty/ && clear && sparky | clr && lineacross | clr"
+alias polc="cd $HOME/mydots/config/polybar/ && clear && sparky | clr && lineacross | clr"
+alias rofc="cd $HOME/mydots/config/rofi/ && clear && sparky | clr && lineacross | clr"
+alias nvic="cd $HOME/mydots/config/nvim/lua/custom/ && clear && sparky | clr && lineacross | clr"
+alias chac="cd $HOME/mydots/config/nvim/lua/ && clear && sparky | clr && lineacross | clr"
+alias basc="cd $HOME/mydots/bashconf/ && clear && sparky | clr && lineacross | clr"
+alias qtic="cd $HOME/mydots/config/qtile/ && clear && sparky | clr && lineacross | clr"
+alias notes="cd $HOME/documents/notes/ && clear && sparky | clr && lineacross | clr"
+
+# configs - verbose
+alias confv="cd $HOME/mydots/config/ \
   && clear && termtitle 'Configs' whiteL whiteL blue \
   && exa -la --group-directories-first --icons --grid \
   && lineacross | clr"
-alias awec="cd $HOME/mydots/config/awesome/ \
+alias awecv="cd $HOME/mydots/config/awesome/ \
   && clear && smtermtitle 'Awesome' whiteL blue n \
   && exa -la --group-directories-first --icons --grid \
   && lineacross | clr"
-alias bpyc="cd $HOME/mydots/config/bpytop/ \
+alias bpycv="cd $HOME/mydots/config/bpytop/ \
   && clear && smtermtitle 'Bpytop' whiteL blue \
   && exa -la --group-directories-first --icons --grid \
   && lineacross | clr"
-alias kitc="cd $HOME/mydots/config/kitty/ \
+alias kitcv="cd $HOME/mydots/config/kitty/ \
   && clear && smtermtitle 'Kitty' whiteL blue \
   && exa -la --group-directories-first --icons --grid \
   && lineacross | clr"
-alias polc="cd $HOME/mydots/config/polybar/ \
+alias polcv="cd $HOME/mydots/config/polybar/ \
   && clear && smtermtitle 'Polybar' whiteL blue \
   && exa -la --group-directories-first --icons --grid \
   && lineacross | clr"
-alias rofc="cd $HOME/mydots/config/rofi \
+alias rofcv="cd $HOME/mydots/config/rofi/ \
   && clear && smtermtitle 'Rofi' whiteL blue n \
   && exa -la --group-directories-first --icons --grid \
   && lineacross | clr"
-alias nvic="cd $HOME/mydots/config/nvim/custom/ \
+alias nvicv="cd $HOME/mydots/config/nvim/lua/custom/ \
   && clear && smtermtitle 'Neovim' whiteL blue n \
   && exa -la --group-directories-first --icons --grid \
   && lineacross | clr"
-alias chac="cd $HOME/.config/nvim/lua/core/ \
-  && clear && smtermtitle 'NvChadCore' whiteL blue n \
-  && exa -la --group-directories-first --icons --grid \
+alias chacv="cd $HOME/mydots/config/nvim/lua/ \
+  && clear && smtermtitle 'NvChad' whiteL blue n \
+  && exa -T -L=2 --group-directories-first --icons \
   && lineacross | clr"
-alias basc="cd $HOME/mydots/bashconf/ \
+alias bascv="cd $HOME/mydots/bashconf/ \
   && clear && smtermtitle 'Bash Conf' whiteL blue \
   && exa -la --group-directories-first --icons --grid \
   && lineacross | clr"
-alias qtic="cd $HOME/mydots/config/qtile/ \
+alias qticv="cd $HOME/mydots/config/qtile/ \
   && clear && smtermtitle 'Qtile' whiteL blue \
   && exa -la --group-directories-first --icons --grid \
   && lineacross | clr"
-alias note="cd $HOME/documents/notes/ \
+alias notesv="cd $HOME/documents/notes/ \
   && clear && smtermtitle 'Notes' whiteL blue \
   && exa -aT --group-directories-first --icons \
   && lineacross | clr"
 
 # scripts
-alias scripts="cd $HOME/mydots/scripts/ \
+alias scripts="cd $HOME/mydots/scripts/ && clear && sparky | clr && lineacross | clr"
+alias scriptsv="cd $HOME/mydots/scripts/ \
   && clear && termtitle 'Scripts' whiteL whiteL blue \
   && exa -la --group-directories-first --icons --grid \
   && lineacross | clr"
 
 # wallpapers
-alias wapa="cd $HOME/mydots/wallpapers/ \
+alias wapa="cd $HOME/mydots/wallpapers/ && clear && sparky | clr && lineacross | clr"
+alias wapav="cd $HOME/mydots/wallpapers/ \
   && clear && termtitle 'Wallpapers' whiteL whiteL blue \
   && exa -la --group-directories-first --icons --grid \
   && lineacross | clr"
