@@ -183,7 +183,7 @@ alias dct="deactivate"
 
 # pacman
 alias pacman='pacman --color auto'
-alias spss='sudo pacman -Ss' # search for pkgs
+alias pss='pacman -Ss' # search for pkgs
 alias sps='sudo pacman -S' # isntall specified pkgs
 alias spr='sudo pacman -R' # remove a pkg, safer
 alias sprs='sudo pacman -Rs' # remove pkgs and depencies, can be dangerous
