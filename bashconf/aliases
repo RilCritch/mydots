@@ -255,7 +255,7 @@ alias vi='nvim'
 alias cat='ccat'
 
 # manpager
-alias man='batman'
+# alias man='batman'
 
 # images
 alias vimg='kitty +kitten icat'

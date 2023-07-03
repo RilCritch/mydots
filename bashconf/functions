@@ -77,3 +77,8 @@ pysrc () {
   
   source $envname/bin/activate
 }
+
+# man page replacement
+man () {
+  \man $1 | ccat --color="always" | less -R
+}
