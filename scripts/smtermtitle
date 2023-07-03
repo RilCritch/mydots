@@ -49,6 +49,6 @@ fi
 # output
 # lineacross | clr $lineacrosscolor
 
-figlet -w $(tput cols) -c "${title}" -f small $seperate | clr $figletcolor
+figlet -w $(tput cols) -c "${title}" -f smslant $seperate | clr $figletcolor
 
 lineacross | clr $lineacrosscolor
