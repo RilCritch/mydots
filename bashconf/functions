@@ -100,6 +100,11 @@ cdf () {
 
   if [ -n "$choice" ]; then
     cd $choice
+    clear
+    sparky | clr green
+    lineacross | clr
+    exa -l --group-directories-first --icons --grid
+    lineacross | clr
   fi
 }
 
