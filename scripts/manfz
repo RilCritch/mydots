@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# --------------------------------------------------------------------------- #
+#
+# description: simple bash script using fzf to search and view man pages
+#
+# author: RilCritch
+#  ____   ____
+# |  _ \ / ___|
+# | |_) | |    
+# |  _ <| |___ 
+# |_| \_\\____|
+#
+# updated: 07-03-23
+# \man ls | ccat --color="always" | less -R
+# --------------------------------------------------------------------------- #
+
+choice=$(apropos . | awk -F ' - ' '{print $1}' | fzf -q "$1" --prompt='Man Pages ▶ ' --header-first --reverse --color=16 --preview $'echo {} | tr -d \'()\' | awk \'{printf "%s ", $2} {print $1}\' | xargs -r man | ccat --color="always" | less -R' | tr -d ' ')
+
+if [ -n "$choice" ]; then
+  
+  \man $choice | ccat --color="always" | less -R
+
+fi
