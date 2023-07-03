@@ -101,6 +101,15 @@ spads = [
         True,
         # "floating",
     ),
+    # scratchgen( # runs command that prints qtile keybindings
+    #     "manpages",
+    #     SCRATCHTERM + "-e manf",
+    #     0.985,
+    #     window_info.calculate_size_percent(2250),
+    #     None,
+    #     None,
+    #     True,
+    # ),
     # scratchgen( # qutebrowser; not working correctly need to difure out the issue 
     #     "qutebrowser",
     #     "qutebrowser",
@@ -139,6 +148,11 @@ spad_keys = [
         lazy.group['scratchpad'].dropdown_toggle('moonlanderlayout'),
         desc="Launch moonlander layout pdf",
     ),
+    # Key(
+    #     [SUPER, SHIFT], 'm',
+    #     lazy.group['scratchpad'].dropdown_toggle('manpages'),
+    #     desc="Search and View man pages",
+    # ),
     # Key(
     #     [SUPER, SHIFT], 't', -- need to figure out issue
     #     lazy.group['scratchpad'].dropdown_toggle('qute'),
