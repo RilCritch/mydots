@@ -1,4 +1,4 @@
-config/nvim/
+# config/nvim/
 config/qtile/__pycache__/
 config/qtile/modules/__pycache__/
 config/qtile/modules/confutils/__pycache__/
