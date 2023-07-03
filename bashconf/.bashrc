@@ -37,19 +37,6 @@ if [ -d "$HOME/.cargo/bin" ]; then
 	PATH="$HOME/.cargo/bin:$PATH"
 fi
 
-# python path
-# if [ -z "$PYTHONPATH" ]; then
-# 	if [ -d "$HOME/.config/qtile" ]; then
-# 		export PYTHONPATH="$HOME/.config/qtile"
-# 	fi
-# 
-# else 
-# 	if [ -d "$HOME/.config/qtile/modules" ]; then
-# 		export PYTHONPATH="${PYTHONPATH}:$HOME/.config/qtile"
-# 	fi
-# fi
-PYTHONPATH=""
-
 #ignore upper and lowercase when TAB completion
 bind "set completion-ignore-case on"
 
