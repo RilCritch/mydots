@@ -3,7 +3,7 @@
 from libqtile.config import Group, Key
 from libqtile.lazy import lazy
 
-from settings import SUPER, SHIFT
+from modules.settings import SUPER, SHIFT
 
 # main group info
 group_names = [

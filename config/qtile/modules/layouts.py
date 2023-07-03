@@ -7,8 +7,6 @@ from libqtile.lazy import lazy
 
 # importlib.reload(lazy)
 
-from settings import SUPER, SHIFT, ALT, CONTROL, TERMINAL, BROWSER
-
 # default layout theme for every layout
 layout_theme = {
     "margin": 12,
@@ -119,18 +117,4 @@ base_float_rules = [
     Match(title="pinentry"),  # GPG key password entry
     Match(wm_class='archlinux-logout'),
     Match(wm_class="floating"),
-]
-
-# layout specific keys
-treetab_keys = [
-    Key(
-        [SUPER], "period",
-        lazy.layout.section_up(),
-        desc="Move window up a section in tree tab",
-    ),
-    Key(
-        [SUPER], "comma",
-        lazy.layout.section_down(),
-        desc="Move window down a section in tree tab",
-    ),
 ]

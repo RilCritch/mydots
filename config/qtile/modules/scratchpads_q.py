@@ -3,9 +3,9 @@
 from libqtile.config import DropDown, Key, Match
 from libqtile.lazy import lazy
 
-from settings import SUPER, SHIFT, TERMINAL
+from modules.settings import SUPER, SHIFT, TERMINAL
     
-from confutils import window_info
+from modules.confutils import window_info
 
 
 # functions for generating dropdown -- code from: https://github.com/ViperX7/qtile_config/blob/main/q_scratchpads.py

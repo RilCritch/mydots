@@ -7,7 +7,7 @@ import importlib
 from libqtile.config import Key
 from libqtile.lazy import lazy
 
-from settings import SUPER, SHIFT, ALT, CONTROL, TERMINAL, BROWSER
+from modules.settings import SUPER, SHIFT, ALT, CONTROL, TERMINAL, BROWSER
 
 window_keys = [
 # {{{

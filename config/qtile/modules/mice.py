@@ -3,7 +3,7 @@
 from libqtile.config import Drag, Click
 from libqtile.lazy import lazy
 
-from settings import SUPER
+from modules.settings import SUPER
 
 mouse_float = [
     Drag(
