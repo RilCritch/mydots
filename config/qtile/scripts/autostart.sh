@@ -29,10 +29,10 @@ function run {
 
 # systray #############
 
-run nm-applet
-run pamac-tray
-# run volumeicon
-# run blueberry-tray
+run nm-applet &
+run pamac-tray &
+run volumeicon &
+run blueberry-tray &
 
 #######################
 
@@ -40,11 +40,9 @@ run pamac-tray
 
 # utility #############
 
-run xfce4-power-manager
+run xfce4-power-manager &
 run xbindkeys
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-# run /home/rc/Documents/my_scripts/displaysetting.sh
-# run /home/rc/Documents/my_scripts/appimagehandler.sh -- Need to fix so it waits until the file is downloaded fully
 # run clipmenud
 
 #######################
@@ -52,17 +50,8 @@ run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # look and feel #######
 run picom --experimental-backends --config /home/rc/.config/qtile/specconfigs/picom.conf &
 run nitrogen --restore &
-# run conky -c /home/rc/.config/awesome/conky/systemoverview.config
-run caffeine -a &
+(conky -c $HOME/.config/qtile/specconfigs/system-overview) &
+/usr/lib/xfce4/notifyd/xfce4-notifyd &
+# run caffeine -a &
 
 #######################
-
-# applications ########
-# kitty -T "Welcome" -e cxxmatrix --frame-rate 20 -c black --no-diffuse --preserve-background -m "Welcome RC" -s banner
-# kitty -T "Welcome" -e cxxmatrix --frame-rate 40 -c black --no-diffuse --preserve-background -m "Welcome RC"
-# rofi -show drun
-# kitty --hold -e termtitle "Hello RilCritch" yellow whiteL blue
-
-#######################
-
-################################

@@ -49,13 +49,14 @@ screens = [
 # floating layout
 floating_layout = layout.Floating(base_float_rules, **layout_theme)
 
+# hooks
 # startup
 @hook.subscribe.startup_once
 def start_once():
     home = os.path.expanduser('~')
     subprocess.call([home + '/.config/qtile/scripts/autostart.sh'])
 
-# @hook.subscribe.startup
-# def start_every():
-#     home = os.path.expanduser('~')
-#     subprocess.call([home + '/.config/qtile/scripts/start.sh'])
+# set window  property for matching in picom
+@hook.subscribe.startup
+def _():
+    top_bar.window.window.set_property("QTILE_BAR", 1, "CARDINAL", 32)
