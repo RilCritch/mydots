@@ -9,7 +9,7 @@ from libqtile.lazy import lazy
 
 # default layout theme for every layout
 layout_theme = {
-    "margin": 12,
+    "margin": 15,
     "margin_on_single": 20,
     "border_width": 2,
     # "border_focus": "#ecd28b",
