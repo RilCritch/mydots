@@ -50,7 +50,7 @@ run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # look and feel #######
 run picom --experimental-backends --config /home/rc/.config/qtile/specconfigs/picom.conf &
 run nitrogen --restore &
-(conky -c $HOME/.config/qtile/specconfigs/system-overview) &
+(conky -c $HOME/.config/qtile/specconfigs/qtileconky) &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 # run caffeine -a &
 
