@@ -126,3 +126,15 @@ manf () {
     \man $choice | ccat --color="always" | less -R
   fi
 }
+
+# run alias - didnt work
+# aliasf () {
+#   alias_def=$(alias | sed 's/alias //g' | fzf)
+#   
+#   if [ -n "$alias_def" ]; then
+#     alias_to_run=$($alias_def | cut -d'=' -f1)
+#     echo "Running alias: $alias_to_run"
+#     exec $alias_to_run
+#   fi
+# }
+#
