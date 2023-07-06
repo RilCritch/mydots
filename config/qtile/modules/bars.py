@@ -10,7 +10,7 @@ colors = { # figure out how to place and set colors from json
     "bg": '#0c0e0f',
     # "barbg": '#0c0e0f9f', # blk
     # "barbg": '#6791c930', # blu
-    "barbg": '#1f212296', # gry
+    "barbg": '#343637a3', # gry
     # "barbg": '#78b89239', # grn
     "fg": '#edeff0',
     "lightgray": '#7d7f80',
@@ -26,7 +26,7 @@ colors = { # figure out how to place and set colors from json
     "acnt3grad": ['#e6c465','#ecd28b'],
     "alrt": '#df5b61',
     "alrtgrad": ['#d52a33','#df5b61'],
-    "transparent": "#00000000"
+    "transparent": "#fefefe00"
 }
 
 # defaults
@@ -35,18 +35,19 @@ widget_defaults = dict(
     fontsize = 16,
     padding = 7,
     foreground = colors["fg"],
+    background = colors["barbg"],
 )
 
 sep_theme = { # section seperator
     "size_percent": 100,
     "foreground": colors["bg"],
-    "background": colors["bg"],
+    "background": colors["transparent"],
     "linewidth": 0,
-    "padding": 5,
+    "padding": 6,
 }
 
 mini_sep = { # sep for within section
-    "size_percent": 60,
+    "size_percent": 50,
     "foreground": colors["gray"],
     # "background": colors["black"],
     "linewidth": 2,
@@ -85,13 +86,13 @@ def init_top_widgets():
         widget.TextBox( # date icon
             **icon_defaults,
             fmt = "󰸘",
-            foreground = colors["acnt3grad"],
+            foreground = colors["acnt2"],
             padding = 10,
             # mouse_callbacks = {}, # add mouse callback to open calender 
         ),
         widget.Clock( # date
             format = "%m/%d/%y",
-            foreground = colors["acnt3grad"],
+            foreground = colors["acnt2"],
             padding = 0,
             # mouse_callbacks = {}, # add mouse callback to open calender 
         ),
@@ -102,13 +103,13 @@ def init_top_widgets():
         widget.TextBox( # time icon
             **icon_defaults,
             fmt = "",
-            foreground = colors["acnt2grad"],
+            foreground = colors["acnt1"],
             padding = 10,
             # mouse_callbacks = {}, # add mouse callback to open up alarm/timer
         ),
         widget.Clock( # time
             format = "%I:%M:%S",
-            foreground = colors["acnt2grad"],
+            foreground = colors["acnt1"],
             padding = 0,
             # mouse_callbacks = {}, # add mouse callback to open up alarm/timer
         ),
@@ -119,12 +120,12 @@ def init_top_widgets():
         widget.TextBox(
             **icon_defaults,
             fmt = "󰓃",
-            foreground = colors["acnt1grad"],
+            foreground = colors["acnt2"],
             padding = 10,
             # mouse_callbacks = {}, # add mouse callback to open volume control
         ),
         widget.Volume(
-            foreground = colors["acnt1grad"],
+            foreground = colors["acnt2"],
             padding = 0,
             scrool_delay = 0,
         ),
@@ -139,7 +140,7 @@ def init_top_widgets():
             rounded = False,
             icon_size = 0,
             borderwidth = 0,
-            border = colors["acnt1"] + "39",
+            border = colors["acnt1"] + "49",
             foreground = colors["fg"] + "cc",
             margin_x = -3,
             margin_y = -1,
@@ -175,7 +176,7 @@ def init_top_widgets():
         widget.CurrentLayout(
             fontsize = 14,
             # background = colors["black"],
-            foreground = colors["acnt1grad"],
+            foreground = colors["acnt1"],
             padding = 10,
         ),
         widget.Sep(**mini_sep),
@@ -210,7 +211,7 @@ top_widgets = init_top_widgets()
 top_bar = bar.Bar(
     top_widgets,
     42,
-    background = colors["barbg"],
+    background = colors["transparent"],
     margin = [9, 9, 0, 9],
 )
 
@@ -219,7 +220,6 @@ bot_widgets = init_bot_widgets()
 bot_bar = bar.Bar(
     bot_widgets,
     20,
-    background = colors["barbg"],
-    opacity = 0.80,
+    background = colors["bg"],
 )
 
