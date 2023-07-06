@@ -156,6 +156,6 @@ modi: "window,drun,ssh,run,filebrowser";
 // @theme "/home/rc/.config/rofi/themes/powermenu.rasi"
 
 //My theme
-//@theme "/home/rc/.config/rofi/mythemes/rcminimal.rasi"
+@theme "/home/rc/.config/rofi/mythemes/rcminimal.rasi"
 //@theme "/home/rc/.config/rofi/themes/rctesting.rasi"
-@theme "/usr/share/rofi/themes/docu.rasi"
+//@theme "/usr/share/rofi/themes/docu.rasi"
