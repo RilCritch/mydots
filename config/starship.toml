@@ -152,7 +152,7 @@ home_symbol = ' '
 read_only = '  '
 truncation_length = 5
 before_repo_root_style = 'bright-white'
-repo_root_style = 'underline yellow'
+repo_root_style = 'underline green'
 repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($before_repo_root_style)[$read_only]($read_only_style) '
 
 [character]
@@ -170,7 +170,7 @@ format = '[ $time]($style)'
 use_12hr = true
 
 [username]
-style_user = 'yellow'
+style_user = 'green'
 format = '[ $user]($style) '
 show_always = true
 disabled = false
@@ -216,21 +216,21 @@ detect_files = ['.python-version',
 # detect_folders = ['']
 
 [lua]
-symbol = '[󰢱 ](blue)'
+symbol = '[󰢱 ](cyan)'
 style = 'bright-white'
 format = '[〜](bright-white) [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 
 [c]
-symbol = '[ ](blue)'
+symbol = '[ ](purple)'
 style = 'bright-white'
 format = '[〜](bright-white) [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 
 [java]
-symbol = '[ ](blue)'
+symbol = '[ ](red)'
 style = 'bright-white'
 format = '[〜](bright-white) [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 
 [rust]
-symbol = '[󱘗 ](blue)'
+symbol = '[󱘗 ](yellow)'
 style = 'bright-white'
 format = '[〜](bright-white) [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
