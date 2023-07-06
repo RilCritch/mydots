@@ -48,7 +48,7 @@ sep_theme = { # section seperator
 mini_sep = { # sep for within section
     "size_percent": 60,
     "foreground": colors["gray"],
-    "background": colors["black"],
+    # "background": colors["black"],
     "linewidth": 2,
     "padding": 3,
 }
@@ -72,7 +72,7 @@ def init_top_widgets():
             fmt = "󰌠",
             fontsize = 48,
             # background = colors["acnt2grad"],
-            foreground = colors["acnt2grad"],
+            foreground = colors["acnt1grad"],
             padding = 10,
             mouse_callbacks = {
                 "Button1": lazy.spawn("rofi -show run"), # eventually change to rofi script that has fave apps
@@ -107,14 +107,14 @@ def init_top_widgets():
             # mouse_callbacks = {}, # add mouse callback to open up alarm/timer
         ),
         widget.Clock( # time
-            format = "%I:%M",
+            format = "%I:%M:%S",
             foreground = colors["acnt2grad"],
             padding = 0,
             # mouse_callbacks = {}, # add mouse callback to open up alarm/timer
         ),
         # end of time
         widget.Spacer(**spacer_theme),
-        widget.Sep(**sep_theme),
+        widget.Sep(**mini_sep),
         # volume
         widget.TextBox(
             **icon_defaults,
@@ -177,14 +177,15 @@ def init_top_widgets():
         widget.CurrentLayout(
             fontsize = 14,
             # background = colors["black"],
-            foreground = colors["acnt2grad"],
+            foreground = colors["acnt1grad"],
             padding = 10,
         ),
-        widget.Sep(**sep_theme),
+        widget.Sep(**mini_sep),
+        widget.Spacer(length = 10),
         widget.CurrentLayoutIcon( # layout icon
             use_mask = True,
             # background = colors["black"],
-            foreground = colors["acnt2grad"],
+            foreground = colors["acnt1grad"],
             # background = colors["acnt2grad"],
             # foreground = colors["black"],
             scale = 1,
