@@ -71,8 +71,8 @@ def init_top_widgets():
             font = "Mononoki Nerd Font Mono",
             fmt = "󰌠",
             fontsize = 48,
-            background = colors["acnt2grad"],
-            foreground = colors["bg"],
+            # background = colors["acnt2grad"],
+            foreground = colors["acnt2grad"],
             padding = 10,
             mouse_callbacks = {
                 "Button1": lazy.spawn("rofi -show run"), # eventually change to rofi script that has fave apps
@@ -85,57 +85,51 @@ def init_top_widgets():
         widget.TextBox( # date icon
             **icon_defaults,
             fmt = "󰸘",
-            background = colors["black"],
             foreground = colors["acnt3grad"],
             padding = 10,
             # mouse_callbacks = {}, # add mouse callback to open calender 
         ),
         widget.Clock( # date
             format = "%m/%d/%y",
-            background = colors["black"],
             foreground = colors["acnt3grad"],
             padding = 0,
             # mouse_callbacks = {}, # add mouse callback to open calender 
         ),
         # end of date
-        widget.Spacer(**spacer_theme, background = colors["black"]), 
+        widget.Spacer(**spacer_theme), 
         widget.Sep(**mini_sep),
         # time
         widget.TextBox( # time icon
             **icon_defaults,
             fmt = "",
-            background = colors["black"],
             foreground = colors["acnt2grad"],
             padding = 10,
             # mouse_callbacks = {}, # add mouse callback to open up alarm/timer
         ),
         widget.Clock( # time
             format = "%I:%M",
-            background = colors["black"],
             foreground = colors["acnt2grad"],
             padding = 0,
             # mouse_callbacks = {}, # add mouse callback to open up alarm/timer
         ),
         # end of time
-        widget.Spacer(**spacer_theme, background = colors["black"]),
+        widget.Spacer(**spacer_theme),
         widget.Sep(**sep_theme),
         # volume
         widget.TextBox(
             **icon_defaults,
             fmt = "󰓃",
-            background = colors["black"],
             foreground = colors["acnt1grad"],
             padding = 10,
             # mouse_callbacks = {}, # add mouse callback to open volume control
         ),
         widget.Volume(
-            background = colors["black"],
             foreground = colors["acnt1grad"],
             padding = 0,
             scrool_delay = 0,
         ),
         # end of volume
-        widget.Spacer(**spacer_theme, background = colors["black"]),
+        widget.Spacer(**spacer_theme),
         widget.Sep(**sep_theme),
 
         # center of bar ---------------------------------------------------------------------------------- #
@@ -151,7 +145,6 @@ def init_top_widgets():
             margin_y = -1,
             padding_x = 20,
             padding_y = 12,
-            # markup_focused = "<span foreground='" + colors["bg"] + "'>{}</span>",
             txt_floating = "󰀜 ",
             txt_maximized = "󰊓 ",
             txt_minimized = "󱞞 ",
@@ -165,9 +158,10 @@ def init_top_widgets():
             fontsize = 40,
             highlight_method = "block",
             urgent_alert_method = "block",
-            background = colors["black"],
+            # background = colors["black"],
             block_highlight_text_color = colors["bg"],
-            this_current_screen_border = colors["acnt1grad"],
+            # this_current_screen_border = colors["acnt1grad"],
+            this_current_screen_border = colors["acnt1"] + "c5",
             active = colors["acnt2"] + "88",
             inactive = colors["darkgray"],
             margin_x = 0,
@@ -182,14 +176,14 @@ def init_top_widgets():
         # layout
         widget.CurrentLayout(
             fontsize = 14,
-            background = colors["black"],
+            # background = colors["black"],
             foreground = colors["acnt2grad"],
             padding = 10,
         ),
         widget.Sep(**sep_theme),
         widget.CurrentLayoutIcon( # layout icon
             use_mask = True,
-            background = colors["black"],
+            # background = colors["black"],
             foreground = colors["acnt2grad"],
             # background = colors["acnt2grad"],
             # foreground = colors["black"],
