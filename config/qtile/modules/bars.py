@@ -158,12 +158,10 @@ def init_top_widgets():
             fontsize = 40,
             highlight_method = "block",
             urgent_alert_method = "block",
-            # background = colors["black"],
-            block_highlight_text_color = colors["bg"],
-            # this_current_screen_border = colors["acnt1grad"],
+            block_highlight_text_color = colors["bg"] + "c5",
             this_current_screen_border = colors["acnt1"] + "c5",
             active = colors["acnt2"] + "88",
-            inactive = colors["darkgray"],
+            inactive = colors["gray"] + "8a",
             margin_x = 0,
             margin_y = 3,
             padding_x = 6,
@@ -213,7 +211,7 @@ top_bar = bar.Bar(
     top_widgets,
     42,
     background = colors["barbg"],
-    margin = [9, 6, 0, 6],
+    margin = [9, 9, 0, 9],
 )
 
 # bottom bar
@@ -221,7 +219,7 @@ bot_widgets = init_bot_widgets()
 bot_bar = bar.Bar(
     bot_widgets,
     20,
-    background = colors["bg"],
+    background = colors["barbg"],
     opacity = 0.80,
 )
 
