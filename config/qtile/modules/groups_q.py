@@ -19,7 +19,7 @@ group_names = [
 ]
 
 group_labels = [
-    "󰛨", # 1 - misc/random research
+    "", # 1 - misc/random research
     "󰠮", # 2 - notes
     "", # 3 - config editing
     "", # 4 - config editing 

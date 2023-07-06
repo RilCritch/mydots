@@ -8,8 +8,10 @@ from libqtile.lazy import lazy
 # colors
 colors = { # figure out how to place and set colors from json
     "bg": '#0c0e0f',
-    "barbg": ['#6791c944','#0c0e0f66','#0c0e0fbb','#0c0e0f66','#6791c944'],
-    # "barbg": '#0c0e0faa',
+    # "barbg": '#0c0e0f9f', # blk
+    # "barbg": '#6791c930', # blu
+    "barbg": '#1f212296', # gry
+    # "barbg": '#78b89239', # grn
     "fg": '#edeff0',
     "lightgray": '#7d7f80',
     "gray": '#505253',
@@ -24,32 +26,177 @@ colors = { # figure out how to place and set colors from json
     "acnt3grad": ['#e6c465','#ecd28b'],
     "alrt": '#df5b61',
     "alrtgrad": ['#d52a33','#df5b61'],
+    "transparent": "#00000000"
 }
 
 # defaults
 widget_defaults = dict(
-    font="JetBrainsMono Nerd Font",
-    fontsize=16,
-    padding=4,
-    foreground='#edeff0',
+    font = "JetBrainsMono Nerd Font",
+    fontsize = 16,
+    padding = 7,
+    foreground = colors["fg"],
 )
 
-sep_theme = {
-    "linewidth": 1,
-    "padding": 0,
-    "foreground": '#343637',
-    # "foreground": ['#e6c465','#ecd28b'],
+sep_theme = { # section seperator
     "size_percent": 100,
+    "foreground": colors["bg"],
+    "background": colors["bg"],
+    "linewidth": 0,
+    "padding": 5,
+}
+
+mini_sep = { # sep for within section
+    "size_percent": 60,
+    "foreground": colors["gray"],
+    "background": colors["black"],
+    "linewidth": 2,
+    "padding": 3,
+}
+
+spacer_theme = {
+    "length": 10,
 }
 
 icon_defaults = {
     "font": "Mononoki Nerd Font Mono",
+    "fontsize": 30,
 }
 
 # widgets
 def init_top_widgets():
     widgets = [
-        widget.Spacer(),
+        # right side of bar ------------------------------------------------------------------------------ #
+        # python logo that runs rofi and logout script
+        widget.TextBox( # ** maybe change to image and use mask
+            font = "Mononoki Nerd Font Mono",
+            fmt = "󰌠",
+            fontsize = 48,
+            background = colors["acnt2grad"],
+            foreground = colors["bg"],
+            padding = 10,
+            mouse_callbacks = {
+                "Button1": lazy.spawn("rofi -show run"), # eventually change to rofi script that has fave apps
+                "Button3": lazy.spawn("archlinux-logout"), # figure out how to make it floating
+            },
+        ),
+        # end of python logo
+        widget.Sep(**sep_theme), 
+        # date
+        widget.TextBox( # date icon
+            **icon_defaults,
+            fmt = "󰸘",
+            background = colors["black"],
+            foreground = colors["acnt3grad"],
+            padding = 10,
+            # mouse_callbacks = {}, # add mouse callback to open calender 
+        ),
+        widget.Clock( # date
+            format = "%m/%d/%y",
+            background = colors["black"],
+            foreground = colors["acnt3grad"],
+            padding = 0,
+            # mouse_callbacks = {}, # add mouse callback to open calender 
+        ),
+        # end of date
+        widget.Spacer(**spacer_theme, background = colors["black"]), 
+        widget.Sep(**mini_sep),
+        # time
+        widget.TextBox( # time icon
+            **icon_defaults,
+            fmt = "",
+            background = colors["black"],
+            foreground = colors["acnt2grad"],
+            padding = 10,
+            # mouse_callbacks = {}, # add mouse callback to open up alarm/timer
+        ),
+        widget.Clock( # time
+            format = "%I:%M",
+            background = colors["black"],
+            foreground = colors["acnt2grad"],
+            padding = 0,
+            # mouse_callbacks = {}, # add mouse callback to open up alarm/timer
+        ),
+        # end of time
+        widget.Spacer(**spacer_theme, background = colors["black"]),
+        widget.Sep(**sep_theme),
+        # volume
+        widget.TextBox(
+            **icon_defaults,
+            fmt = "󰓃",
+            background = colors["black"],
+            foreground = colors["acnt1grad"],
+            padding = 10,
+            # mouse_callbacks = {}, # add mouse callback to open volume control
+        ),
+        widget.Volume(
+            background = colors["black"],
+            foreground = colors["acnt1grad"],
+            padding = 0,
+            scrool_delay = 0,
+        ),
+        # end of volume
+        widget.Spacer(**spacer_theme, background = colors["black"]),
+        widget.Sep(**sep_theme),
+
+        # center of bar ---------------------------------------------------------------------------------- #
+        widget.TaskList(
+            highlight_method = "block",
+            title_width_method = "uniform",
+            rounded = False,
+            icon_size = 0,
+            borderwidth = 0,
+            border = colors["acnt1"] + "39",
+            foreground = colors["fg"] + "cc",
+            margin_x = -3,
+            margin_y = -1,
+            padding_x = 20,
+            padding_y = 12,
+            # markup_focused = "<span foreground='" + colors["bg"] + "'>{}</span>",
+            txt_floating = "󰀜 ",
+            txt_maximized = "󰊓 ",
+            txt_minimized = "󱞞 ",
+        ),
+        
+        # right side of bar ------------------------------------------------------------------------------ #
+        widget.Sep(**sep_theme),
+        # groups
+        widget.GroupBox(
+            font = "Mononoki Nerd Font Mono",
+            fontsize = 40,
+            highlight_method = "block",
+            urgent_alert_method = "block",
+            background = colors["black"],
+            block_highlight_text_color = colors["bg"],
+            this_current_screen_border = colors["acnt1grad"],
+            active = colors["acnt2"] + "88",
+            inactive = colors["darkgray"],
+            margin_x = 0,
+            margin_y = 3,
+            padding_x = 6,
+            padding_y = -3,
+            spacing = 3,
+            disable_drag = True,
+        ),
+        # end of groups
+        widget.Sep(**sep_theme),
+        # layout
+        widget.CurrentLayout(
+            fontsize = 14,
+            background = colors["black"],
+            foreground = colors["acnt2grad"],
+            padding = 10,
+        ),
+        widget.Sep(**sep_theme),
+        widget.CurrentLayoutIcon( # layout icon
+            use_mask = True,
+            background = colors["black"],
+            foreground = colors["acnt2grad"],
+            # background = colors["acnt2grad"],
+            # foreground = colors["black"],
+            scale = 1,
+            padding = 0,
+        ),
+        # end of layout
     ]
     return widgets
 
@@ -60,8 +207,7 @@ def init_bot_widgets():
             icon_size = 15,
         ),
         widget.Spacer(),
-        # widget.Sep(**sep_theme),
-        widget.CapsNumLockIndicator(font = 'Tinos bold', fontsize = 12),
+        widget.CapsNumLockIndicator(fontsize = 12),
     ]
     return widgets
 
@@ -73,11 +219,6 @@ top_bar = bar.Bar(
     42,
     background = colors["barbg"],
     margin = [9, 6, 0, 6],
-    # opacity = 0.8,
-    # border_width = [2, 0, 2, 0], 
-    border_width = 1,
-    # border_color = '#0c0e0f',
-    border_color = colors["darkgray"],
 )
 
 # bottom bar
@@ -85,7 +226,7 @@ bot_widgets = init_bot_widgets()
 bot_bar = bar.Bar(
     bot_widgets,
     20,
-    background = '#0c0e0f',
+    background = colors["bg"],
     opacity = 0.80,
 )
 
