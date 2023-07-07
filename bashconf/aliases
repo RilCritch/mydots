@@ -146,6 +146,7 @@ alias vi='nvim'
 
 # viewing text
 alias cat='ccat'
+alias man='batman'
 
 # images
 alias vimg='kitty +kitten icat'
