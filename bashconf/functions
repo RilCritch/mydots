@@ -78,24 +78,38 @@ pysrc () {
   source $envname/bin/activate
 }
 
-# man page replacement
-cman () {
-  if [ -z "$1" ]; then
-    echo "What manual page do you want?"
-    echo "For example, try 'man man'."
-  elif [ -n "$2" ]; then
-    echo "Please enter only one program"
-    echo "For example, try 'man man'."
-  elif \man -w $1 >/dev/null 2>&1; then
-    \man $1 | ccat --color="always" | less -R
-  else
-    echo "No manual entry for '$1'"
+# man page replacement - figure out better method
+# cman () {
+#   if [ -z "$1" ]; then
+#     echo "What manual page do you want?"
+#     echo "For example, try 'man man'."
+#   elif [ -n "$2" ]; then
+#     echo "Please enter only one program"
+#     echo "For example, try 'man man'."
+#   elif \man -w $1 >/dev/null 2>&1; then
+#     \man $1 | ccat --color="always" | less -R
+#   else
+#     echo "No manual entry for '$1'"
+#   fi
+# }
+
+## fzf functions {{{
+
+# fast cd - basic
+cdf () {
+  choice=$(find $HOME -type d | fzf --header-first --reverse --color=16 --prompt='▶ ' --pointer='󱦰' --preview 'exa --tree -la --icons -F -L=2 --group-directories-first --no-filesize --no-user --time-style='long-iso' {}')
+
+  if [ -n "$choice" ]; then
+    cd $choice
+    echo -n "Now in "
+    echo "'$(pwd)'" | clr yellow
+    lineacross | clr
+    exa -a --group-directories-first --icons
   fi
 }
 
-# fzf functions
-# fast cd
-cdf () {
+# fast cd - verbose and clear screen
+ccdf () {
   choice=$(find $HOME -type d | fzf --header-first --reverse --color=16 --prompt='▶ ' --pointer='󱦰' --preview 'exa --tree -la --icons -F -L=2 --group-directories-first --no-filesize --no-user --time-style='long-iso' {}')
 
   if [ -n "$choice" ]; then
@@ -103,12 +117,29 @@ cdf () {
     clear
     sparky | clr green
     lineacross | clr
-    exa -la --group-directories-first --icons --grid
+    echo -n "Now in "
+    echo "$(pwd)" | clr yellow
     lineacross | clr
+    exa -la --group-directories-first --icons --grid --no-user --no-filesize
   fi
 }
 
-cdfr () { # doesn't work due to sudo priveleages - find a way to ask for sudo before
+# fast cd on root - basic
+cdfr () {
+  sudo -v
+  choice=$(sudo find / -type d | fzf --header-first --reverse --color=16 --prompt='▶ ' --pointer='󱦰' --preview 'exa --tree -la --icons -F -L=2 --group-directories-first --no-filesize --no-user --time-style='long-iso' {}')
+
+  if [ -n "$choice" ]; then
+    cd $choice
+    echo -n "Now in "
+    echo "$(pwd)" | clr yellow
+    lineacross | clr
+    exa -a --group-directories-first --icons
+  fi
+}
+
+# fast cd on root - verbose and clear screen
+ccdfr () {
   sudo -v
   choice=$(sudo find / -type d | fzf --header-first --reverse --color=16 --prompt='▶ ' --pointer='󱦰' --preview 'exa --tree -la --icons -F -L=2 --group-directories-first --no-filesize --no-user --time-style='long-iso' {}')
 
@@ -117,8 +148,10 @@ cdfr () { # doesn't work due to sudo priveleages - find a way to ask for sudo be
     clear
     sparky | clr green
     lineacross | clr
-    exa -la --group-directories-first --icons --grid
+    echo -n "Now in "
+    echo "$(pwd)" | clr yellow
     lineacross | clr
+    exa -la --group-directories-first --icons --grid --no-user --no-filesize
   fi
 }
 
@@ -162,3 +195,5 @@ manf () {
 #   fi
 # }
 #
+
+# }}}

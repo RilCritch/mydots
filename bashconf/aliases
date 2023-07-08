@@ -21,15 +21,21 @@ alias spark='sparky | clr'
 ## list - exa {{{
 
 # base
-alias l='exa --group-directories-first --icons'
-alias la='exa -a --group-directories-first --icons'
+alias rls='exa --group-directories-first --icons'
+alias rlsa='exa -a --group-directories-first --icons'
+
+alias l='exa -l --group-directories-first --grid --no-filesize --icons --no-user --no-filesize'
+alias la='exa -la --group-directories-first --grid --no-filesize --icons --no-user --no-filesize'
+
+alias lt='exa -T -L=2 --icons'
+alias lr='exa -R -L=2 --icons'
 
 # pretty
 alias ls='lineacross | clr && exa --group-directories-first --icons && lineacross | clr'
 alias lsa='lineacross | clr && exa -a --group-directories-first --icons && lineacross | clr'
 
-alias ll='lineacross | clr && exa -l --group-directories-first --grid --no-filesize --icons && lineacross | clr'
-alias lla='lineacross | clr && exa -la --group-directories-first --grid --no-filesize --icons && lineacross | clr'
+alias ll='lineacross | clr && exa -l --group-directories-first --grid --no-filesize --icons --no-user && lineacross | clr'
+alias lla='lineacross | clr && exa -la --group-directories-first --grid --no-filesize --icons --no-user && lineacross | clr'
 
 alias lst='lineacross | clr && exa -T -L=2 --icons && lineacross | clr'
 alias lsr='lineacross | clr && exa -R -L=2 --icons && lineacross | clr'
@@ -149,7 +155,7 @@ alias cat='ccat'
 alias man='batman'
 
 # images
-alias vimg='kitty +kitten icat'
+alias vimg='echo && kitty +kitten icat'
 
 # edit files
 alias ebash="$EDITOR $HOME/mydots/bashconf/.bashrc"

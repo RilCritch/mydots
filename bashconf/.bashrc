@@ -80,4 +80,4 @@ export PATH="$PATH:/home/rc/.local/bin"
 #eval "$(register-python-argcomplete pipx)"
 #
 # startup
-cdf
+ccdf
