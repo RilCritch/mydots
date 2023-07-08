@@ -73,13 +73,14 @@ spads = [
         True,
     ),
     scratchgen( # runs command that prints qtile keybindings
-        "nvim",
-        SCRATCHTERM + "-e nvim",
+        "term2",
+        SCRATCHTERM,
         0.985,
         window_info.calculate_size_percent(1350),
         None,
         None,
         True,
+        "scratchterm",
     ),
     scratchgen(
         "nitrogen",
@@ -135,8 +136,8 @@ spad_keys = [
     ),
     Key(
         [SUPER, SHIFT], 'n',
-        lazy.group['scratchpad'].dropdown_toggle('nvim'),
-        desc="Launch nvim scratch",
+        lazy.group['scratchpad'].dropdown_toggle('term2'),
+        desc="Launch term typically for editing scratch",
     ),
     Key(
         [SUPER, SHIFT], 'w',
