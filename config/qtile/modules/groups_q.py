@@ -37,9 +37,9 @@ group_layouts = [
     "monadthreecol", 
     "monadthreecol", 
     "monadthreecol", 
-    "max",
-    "max",
-    "max",
+    "monadthreecol",
+    "monadthreecol",
+    "monadthreecol",
 ]
 
 # set up main group list

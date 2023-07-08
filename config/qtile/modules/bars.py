@@ -71,9 +71,10 @@ def init_top_widgets():
         widget.TextBox( # ** maybe change to image and use mask
             font = "Mononoki Nerd Font Mono",
             fmt = "󰌠",
-            fontsize = 48,
-            # background = colors["acnt2grad"],
-            foreground = colors["acnt1grad"],
+            fontsize = 51,
+            background = colors["acnt1"] + "d9",
+            foreground = colors["black"],
+            # foreground = colors["acnt1grad"],
             padding = 10,
             mouse_callbacks = {
                 "Button1": lazy.spawn("rofi -show run"), # eventually change to rofi script that has fave apps
@@ -152,6 +153,7 @@ def init_top_widgets():
             txt_floating = "󰀜 ",
             txt_maximized = "󰊓 ",
             txt_minimized = "󱞞 ",
+            markup_minimized="<span strikethrough='true'>󱞞 {}</span>",
         ),
         
         # right side of bar ------------------------------------------------------------------------------ #
@@ -175,15 +177,6 @@ def init_top_widgets():
         ),
         # end of groups
         widget.Sep(**sep_theme),
-        # layout
-        widget.CurrentLayout(
-            fontsize = 14,
-            # background = colors["black"],
-            foreground = colors["acnt1"],
-            padding = 10,
-        ),
-        widget.Sep(**mini_sep),
-        widget.Spacer(length = 10),
         widget.CurrentLayoutIcon( # layout icon
             use_mask = True,
             # background = colors["black"],
