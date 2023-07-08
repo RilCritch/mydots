@@ -17,6 +17,8 @@ export XDG_CACHE_HOME="$HOME/.cache"
 
 ## applications {{{
 
+export EXA_ICON_SPACING=1
+
 # }}}
 
 ## window managers {{{
