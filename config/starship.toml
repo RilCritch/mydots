@@ -143,20 +143,19 @@
 
 ## Custom format - basic
 format = """
-$git_branch\
-$git_status\
-$git_metrics\
+($git_branch$git_status$git_metrics\n)\
 $directory\
 $python\
 $c\
 $java\
 $lua\
 $rust\
-$character"""
+$character
+"""
 
 add_newline = true
 
-continuation_prompt = '[⇝ ❯❯](bright-white) '
+continuation_prompt = '[⇝ ❯](bright-white) '
 
 # right_format = '''$time'''
 
@@ -174,7 +173,7 @@ repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($re
 
 [character]
 # success_symbol = '[⇝ ](bright-white)[➤](green)'
-# success_symbol = '[⥽](green)'
+# success_symbol = '[](green)'
 success_symbol = '[❯](bold green)'
 # error_symbol = '[⇝ ](bright-white)[❯](red)'
 error_symbol = '[❯](bold red)'
@@ -203,8 +202,8 @@ style = 'yellow'
 format = '([\[$all_status$ahead_behind\]]($style) )'
 
 [git_branch]
-style = 'blue'
-format = '[$symbol$branch(:$remote_branch)]($style) '
+style = 'blue bold'
+format = '([$symbol$branch(:$remote_branch)]($style) )'
 
 [git_metrics]
 disabled = false
