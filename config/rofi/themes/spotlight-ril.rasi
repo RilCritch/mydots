@@ -29,6 +29,7 @@ window {
     location:       center;
     width:          640;
     border-radius:  8;
+    children: [ inputbar, listview, mode-switcher ];
 }
 
 inputbar {
@@ -54,6 +55,10 @@ entry {
 
     placeholder         : "Search";
     placeholder-color   : @fg2;
+}
+
+mode-switcher {
+
 }
 
 message {
