@@ -143,26 +143,28 @@
 
 ## Custom format - basic
 format = """
-($git_branch$git_status$git_metrics\n)\
-$directory\
+($git_branch$git_status$git_metrics\
 $python\
 $c\
 $java\
 $lua\
-$rust\
-$character
-"""
+$rust\n)\
+$time$directory\
+$character"""
 
 add_newline = false
 
-continuation_prompt = '[⇝ ❯](bright-white) '
+continuation_prompt = '[❯❯](bright-white) '
 
 # right_format = '''$time'''
 
 ## Modules
 [directory]
 style = 'blue'
-home_symbol = ' '
+# home_symbol = '󰜥 '
+home_symbol = 'rc'
+# home_symbol = '$HOME'
+# home_symbol = ' '
 # home_symbol = ' '
 truncate_to_repo = false
 read_only = '  '
@@ -172,11 +174,14 @@ repo_root_style = 'underline green'
 repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) '
 
 [character]
-# success_symbol = '[⇝ ](bright-white)[➤](green)'
-# success_symbol = '[](green)'
-success_symbol = '[❯](bold green)'
-# error_symbol = '[⇝ ](bright-white)[❯](red)'
-error_symbol = '[❯](bold red)'
+# success_symbol = '[❯](bold green)'
+# error_symbol = '[❯](bold red)'
+# success_symbol = '[](bold green)'
+# error_symbol = '[](bold red)'
+# success_symbol = '[ ](bold green)'
+# error_symbol = '[ ](bold red)'
+success_symbol = '[󰋇 ](green)'
+error_symbol = '[󰋇 ](red)'
 
 [fill]
 symbol = ' '
@@ -185,7 +190,8 @@ symbol = ' '
 disabled = false
 style = 'bright-white'
 time_format = '%I:%M'
-format = '[ $time]($style)'
+# format = '[ $time]($style)'
+format = '[$time]($style) '
 use_12hr = true
 
 [username]
