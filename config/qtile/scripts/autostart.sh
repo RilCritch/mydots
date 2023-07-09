@@ -41,8 +41,8 @@ run blueberry-tray &
 # utility #############
 
 run xfce4-power-manager &
-run xbindkeys
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+clipster -d &
 # run clipmenud
 
 #######################
