@@ -10,5 +10,6 @@
 choice=$(find $HOME -type d | fzf --header-first --reverse --color=16 --prompt='▶ ' --pointer='󱦰' --preview 'exa --tree -la --icons -F -L=2 --group-directories-first --no-filesize --no-user --time-style='long-iso' {}')
 
 if [ -n "$choice" ]; then
-    kitty -d $choice
+    # setsid kitty -d $choice
+    qtile cmd-obj -o cmd -f spawn -a "kitty -d $choice"
 fi
