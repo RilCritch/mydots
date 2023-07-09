@@ -154,7 +154,7 @@ $character"""
 
 add_newline = false
 
-continuation_prompt = '[❯❯](bright-white) '
+continuation_prompt = '[   ](bright-white) '
 
 # right_format = '''$time'''
 
@@ -162,7 +162,8 @@ continuation_prompt = '[❯❯](bright-white) '
 [directory]
 style = 'blue'
 # home_symbol = '󰜥 '
-home_symbol = 'rc'
+# home_symbol = 'rc'
+home_symbol = 'rilliam'
 # home_symbol = '$HOME'
 # home_symbol = ' '
 # home_symbol = ' '
@@ -180,8 +181,16 @@ repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($re
 # error_symbol = '[](bold red)'
 # success_symbol = '[ ](bold green)'
 # error_symbol = '[ ](bold red)'
-success_symbol = '[󰋇 ](green)'
-error_symbol = '[󰋇 ](red)'
+# success_symbol = '[󰋇 ](green)'
+# error_symbol = '[󰋇 ](red)'
+# success_symbol = '[ ](bold green)'
+# error_symbol = '[ ](bold red)'
+# success_symbol = '[\$](bold green)'
+# error_symbol = '[\$](bold red)'
+# success_symbol = '[ ](bold green)'
+# error_symbol = '[ ](bold red)'
+success_symbol = '[ ](bold green)'
+error_symbol = '[ ](bold red)'
 
 [fill]
 symbol = ' '
