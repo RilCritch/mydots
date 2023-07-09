@@ -90,6 +90,11 @@ alias calc="bc"
 alias lines="wc -l"
 alias words="wc -w"
 
+# common flags
+alias cp="cp -i"
+alias rm="rm -I"
+alias mv="mv -i"
+
 # }}}
 
 ## programming {{{
