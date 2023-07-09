@@ -155,13 +155,13 @@ system_keys = [
     ),
     Key(
         [SUPER, CONTROL], "x", 
-        lazy.spawn("archlinux-logout"), 
+        lazy.spawn("/home/rc/mydots/scripts/rofiscripts/powermenu.sh"),
         desc="Logout popup",
     ),
     Key(
         [SUPER, CONTROL], "a", 
         lazy.spawn("archlinux-tweak-tool"), 
-        desc="Logout popup",
+        desc="Launch arch linux tweak tool",
     ),
 ]
 # }}}

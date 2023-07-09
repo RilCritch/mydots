@@ -67,7 +67,7 @@ spads = [
         "qtilekeys",
         SCRATCHTERM + " --hold -e /home/rc/mydots/scripts/qtilekeys",
         0.985,
-        window_info.calculate_size_percent(1100),
+        window_info.calculate_size_percent(1450),
         None,
         None,
         True,

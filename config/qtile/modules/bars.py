@@ -78,7 +78,7 @@ def init_top_widgets():
             padding = 10,
             mouse_callbacks = {
                 "Button1": lazy.spawn("rofi -show run"), # eventually change to rofi script that has fave apps
-                "Button3": lazy.spawn("archlinux-logout"), # figure out how to make it floating
+                "Button3": lazy.spawn("/home/rc/mydots/scripts/rofiscripts/powermenu.sh"), # figure out how to make it floating
             },
         ),
         # end of python logo
