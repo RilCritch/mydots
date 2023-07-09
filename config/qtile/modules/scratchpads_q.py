@@ -41,15 +41,6 @@ def scratchgen(name, spawn, h, w, x=None, y=None, autohide=False, res="", opacit
         )
     return spad
 
-# default layout?
-# scratchpad_layout = {
-#         "width": 0.8,
-#         "height": 0.8,
-#         "x": 0.1,
-#         "y": 0.1,
-#         "opacity": 1
-#     }
-
 # list of dropdowns
 SCRATCHTERM = TERMINAL + " --class=scratchterm"
 spads = [
@@ -91,35 +82,6 @@ spads = [
         None,
         True,
     ),
-    scratchgen(
-        "moonlanderlayout",
-        "evince /home/rc/documents/hardware/moonlander/MoonlanderLayout6-25-23.pdf",
-        # SCRATCHTERM + " --hold -e mupdf /home/rc/documents/hardware/moonlander/MoonlanderLayout6-25-23.pdf",
-        0.985,
-        window_info.calculate_size_percent(2000),
-        None,
-        None,
-        True,
-        # "floating",
-    ),
-    # scratchgen( # runs command that prints qtile keybindings
-    #     "manpages",
-    #     SCRATCHTERM + "-e manf",
-    #     0.985,
-    #     window_info.calculate_size_percent(2250),
-    #     None,
-    #     None,
-    #     True,
-    # ),
-    # scratchgen( # qutebrowser; not working correctly need to difure out the issue 
-    #     "qutebrowser",
-    #     "qutebrowser",
-    #     0.8,
-    #     0.8,
-    #     None,
-    #     None,
-    #     False,
-    # ),
 ]
 
 # scratchpad keybindings
@@ -130,7 +92,7 @@ spad_keys = [
         desc="Launch terminal scratch",
     ),
     Key(
-        [SUPER, SHIFT], 'q',
+        [SUPER], 'b',
         lazy.group['scratchpad'].dropdown_toggle('qtilekeys'),
         desc="Launch qtile keybindings scratch",
     ),
@@ -144,19 +106,4 @@ spad_keys = [
         lazy.group['scratchpad'].dropdown_toggle('nitrogen'),
         desc="Launch nitrogen scratch",
     ),
-    Key(
-        [SUPER, SHIFT], 'z',
-        lazy.group['scratchpad'].dropdown_toggle('moonlanderlayout'),
-        desc="Launch moonlander layout pdf",
-    ),
-    # Key(
-    #     [SUPER, SHIFT], 'm',
-    #     lazy.group['scratchpad'].dropdown_toggle('manpages'),
-    #     desc="Search and View man pages",
-    # ),
-    # Key(
-    #     [SUPER, SHIFT], 't', -- need to figure out issue
-    #     lazy.group['scratchpad'].dropdown_toggle('qute'),
-    #     desc="Launch qutebrowser",
-    # ),
 ]
