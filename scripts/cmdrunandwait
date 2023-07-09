@@ -35,9 +35,7 @@ then
   errmessage
   exit 1
 else
-  eval $lineacross | $clr
   eval $cmd | ccat
-  eval $lineacross | $clr
 fi
 
 # wait for user to quit
