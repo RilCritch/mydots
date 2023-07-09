@@ -96,23 +96,18 @@ window_keys = [
         desc="Reset all window sizes",
     ),
     Key(
-        [SUPER, SHIFT], "c", 
+        [SUPER, SHIFT], "q", 
         lazy.window.kill(), 
         desc="Kill focused window",
     ),
     Key(
-        [SUPER, CONTROL], "f", 
-        lazy.window.toggle_fullscreen(), 
-        desc="Make focused window fullscreen",
-    ),
-    Key(
         [SUPER], "Down", 
         lazy.window.toggle_minimize(), 
-        desc="Make focused window fullscreen",
+        desc="Make focused window hidden",
     ),
     Key(
         [SUPER], "Up", 
-        lazy.window.toggle_maximize(), 
+        lazy.window.toggle_fullscreen(), 
         desc="Make focused window fullscreen",
     ),
     Key(
@@ -142,13 +137,8 @@ system_keys = [
         lazy.reload_config(), 
         desc="Reload the config",
     ),
-    Key(
-        [SUPER, CONTROL], "q", 
-        lazy.shutdown(), 
-        desc="Shutdown qtile",
-    ),
     # system management
-    Key(
+    Key( # change to somthing better for power management
         [SUPER, CONTROL], "p", 
         lazy.spawn("xfce4-power-manager -c"), 
         desc="Launch xfce power manager",
@@ -156,6 +146,11 @@ system_keys = [
     Key(
         [SUPER, CONTROL], "x", 
         lazy.spawn("/home/rc/mydots/scripts/rofiscripts/powermenu.sh"),
+        desc="Logout popup",
+    ),
+    Key(
+        [SUPER, SHIFT], "c", 
+        lazy.spawn("/home/rc/mydots/scripts/rofiscripts/clipboard.sh"),
         desc="Logout popup",
     ),
     Key(
@@ -171,18 +166,13 @@ app_keys = [
 # {{{    
     # rofi
     Key(
-        [SUPER], "r", 
-        lazy.spawn("rofi -show run"), 
-        desc="Launch rofi run",
-    ),
-    Key(
         [SUPER, SHIFT], "r", 
-        lazy.spawn("rofi -show drun"), 
-        desc="Launch rofi drun",
+        lazy.spawn("rofi -modes 'run,drun' -show drun"), 
+        desc="Launch rofi",
     ),
     # browser
     Key(
-        [SUPER], "b", 
+        [SUPER], "q", 
         lazy.spawn("qutebrowser"), 
         desc="Launch qutebrowser",
     ),
