@@ -32,16 +32,6 @@ window_keys = [
         lazy.layout.up(), 
         desc="Move focus up",
     ),
-    Key(
-        [SUPER], "n", 
-        lazy.layout.next(), 
-        desc="Move to next window",
-    ),
-    Key(
-        [SUPER], "m", 
-        lazy.layout.previous(), 
-        desc="Move to previous window",
-    ),
     # window move
     Key(
         [SUPER, SHIFT], "h", 
@@ -89,11 +79,6 @@ window_keys = [
         lazy.layout.grow_up(), 
         lazy.layout.grow(),
         desc="Grow window up"
-    ),
-    Key(
-        [SUPER, CONTROL], "n", 
-        lazy.layout.normalize(), 
-        desc="Reset all window sizes",
     ),
     Key(
         [SUPER, SHIFT], "q", 
@@ -170,18 +155,17 @@ app_keys = [
         lazy.spawn("rofi -modes 'run,drun' -show drun"), 
         desc="Launch rofi",
     ),
-    # browser
-    Key(
-        [SUPER], "q", 
-        lazy.spawn("qutebrowser"), 
-        desc="Launch qutebrowser",
-    ),
     Key(
         [SUPER, SHIFT], "b", 
         lazy.spawn(BROWSER), 
         desc="Launch browser",
     ),
     # terminal
-    Key([SUPER], "Return", lazy.spawn(TERMINAL), desc="Launch terminal"),
+    Key(
+        [SUPER], 
+        "Return", 
+        lazy.spawn(TERMINAL), 
+        desc="Launch terminal"
+    ),
 ]
 # }}}
