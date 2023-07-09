@@ -86,6 +86,9 @@ alias calc="bc"
 
 # clipboard manager
 
+# counts - pipe stuff into these
+alias lines="wc -l"
+alias words="wc -w"
 
 # }}}
 
