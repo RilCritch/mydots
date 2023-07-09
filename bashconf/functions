@@ -165,6 +165,16 @@ pacf () {
   fi
 }
 
+# AUR searching
+aurf () {
+  choice=$(yay -a -Slq | fzf --header-first --reverse --color=16 --prompt='▶ ' --pointer='󱦰' --preview 'yay -Si {}')
+
+  if [ -n "$choice" ]; then
+    echo "Installing $choice" | clr green
+    yay $choice
+  fi
+}
+
 # flatpak searching
 flatf () {
   choice=$(flatpak remote-ls flathub | awk '{ printf "%s %s\n", $1, $2, $3 }' | fzf --header-first --reverse --color=16 --prompt='▶ ' --pointer='󱦰' --preview $'flatpak remote-info flathub "$(echo {} | awk \'{printf "%s", $2}\')"')
