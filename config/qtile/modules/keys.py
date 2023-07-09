@@ -117,31 +117,25 @@ window_keys = [
 system_keys = [
 # {{{
     # qtile
-    Key(
-        [SUPER, CONTROL], "r", 
-        lazy.reload_config(), 
-        desc="Reload the config",
-    ),
-    # system management
-    Key( # change to somthing better for power management
-        [SUPER, CONTROL], "p", 
-        lazy.spawn("xfce4-power-manager -c"), 
-        desc="Launch xfce power manager",
-    ),
+    # Key(
+    #     [SUPER, CONTROL], "r", 
+    #     lazy.reload_config(), 
+    #     desc="Reload the config",
+    # ),
     Key(
         [SUPER, CONTROL], "x", 
         lazy.spawn("/home/rc/mydots/scripts/rofiscripts/powermenu.sh"),
-        desc="Logout popup",
+        desc="Launch logout",
     ),
     Key(
         [SUPER, SHIFT], "c", 
         lazy.spawn("/home/rc/mydots/scripts/rofiscripts/clipboard.sh"),
-        desc="Logout popup",
+        desc="View clipboard history",
     ),
     Key(
-        [SUPER, CONTROL], "a", 
-        lazy.spawn("archlinux-tweak-tool"), 
-        desc="Launch arch linux tweak tool",
+        [SUPER, SHIFT], "s", 
+        lazy.spawn("/home/rc/mydots/scripts/rofiscripts/sysopts-qtile.sh"),
+        desc="Select system options",
     ),
 ]
 # }}}

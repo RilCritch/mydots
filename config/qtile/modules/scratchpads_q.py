@@ -47,7 +47,7 @@ spads = [
     scratchgen( # basic terminal
         "term",
         SCRATCHTERM,
-        0.985,
+        0.9,
         window_info.calculate_size_percent(1350),
         None,
         None,
@@ -57,8 +57,8 @@ spads = [
     scratchgen( # runs command that prints qtile keybindings
         "qtilekeys",
         SCRATCHTERM + " --hold -e /home/rc/mydots/scripts/qtilekeys",
-        0.985,
-        window_info.calculate_size_percent(1450),
+        0.9,
+        window_info.calculate_size_percent(1500),
         None,
         None,
         True,
@@ -66,8 +66,18 @@ spads = [
     scratchgen( # runs command that prints qtile keybindings
         "term2",
         SCRATCHTERM,
-        0.985,
+        0.9,
         window_info.calculate_size_percent(1350),
+        None,
+        None,
+        True,
+        "scratchterm",
+    ),
+    scratchgen(
+        "cdopen",
+        SCRATCHTERM + " -e /home/rc/mydots/scripts/openterm",
+        0.9,
+        window_info.calculate_size_percent(1800),
         None,
         None,
         True,
@@ -76,7 +86,7 @@ spads = [
     scratchgen(
         "nitrogen",
         "nitrogen",
-        0.985,
+        0.9,
         window_info.calculate_size_percent(2250),
         None,
         None,
@@ -102,8 +112,13 @@ spad_keys = [
         desc="Launch term typically for editing scratch",
     ),
     Key(
-        [SUPER, SHIFT], 'w',
-        lazy.group['scratchpad'].dropdown_toggle('nitrogen'),
-        desc="Launch nitrogen scratch",
+        [SUPER, SHIFT], 'Return',
+        lazy.group['scratchpad'].dropdown_toggle('cdopen'),
+        desc="Launch terminal in specified directory",
     ),
+    # Key(
+    #     [SUPER, SHIFT], 'w',
+    #     lazy.group['scratchpad'].dropdown_toggle('nitrogen'),
+    #     desc="Launch nitrogen scratch",
+    # ),
 ]
