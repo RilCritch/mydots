@@ -60,7 +60,7 @@ alias ca="clear && sparky | clr green &&"
 ## directory navigation {{{
 
 # cd utils
-alias cb='cd -'
+# alias cb='cd -'
 
 # }}}
 
@@ -80,6 +80,12 @@ alias gl="glow"
 
 # neovim
 alias rmswap="rm $HOME/.local/state/nvim/swap/*"
+
+# calculator
+alias calc="bc"
+
+# clipboard manager
+
 
 # }}}
 
