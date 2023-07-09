@@ -78,6 +78,3 @@ export PATH="$PATH:/home/rc/.local/bin"
 
 # adding pipx autocompletion
 #eval "$(register-python-argcomplete pipx)"
-#
-# startup
-ccdf
