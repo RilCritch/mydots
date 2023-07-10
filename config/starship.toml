@@ -143,16 +143,16 @@
 
 ## Custom format - basic
 format = """
-($git_branch$git_status$git_metrics\
+$time$git_branch$git_status\
 $python\
 $c\
 $java\
 $lua\
-$rust\n)\
-$time$directory\
+$rust
+$directory\
 $character"""
 
-add_newline = false
+add_newline = true
 
 continuation_prompt = '[   ](bright-white) '
 
@@ -163,10 +163,15 @@ continuation_prompt = '[   ](bright-white) '
 style = 'blue'
 # home_symbol = '󰜥 '
 # home_symbol = 'rc'
-home_symbol = 'rilliam'
+# home_symbol = ' '
+# home_symbol = '󱑽 '
+# home_symbol = '󰼮 '
+# home_symbol = '󰞍 '
+# home_symbol = 'rilliam'
 # home_symbol = '$HOME'
 # home_symbol = ' '
-# home_symbol = ' '
+home_symbol = ' RC'
+# format = ''
 truncate_to_repo = false
 read_only = '  '
 truncation_length = 5
@@ -213,11 +218,12 @@ disabled = false
 ahead = '⇡${count}'
 diverged = '⇕⇡${ahead_count}⇣${behind_count}'
 behind = '⇣${count}'
-style = 'yellow'
+style = 'bold yellow'
 format = '([\[$all_status$ahead_behind\]]($style) )'
 
 [git_branch]
-style = 'blue bold'
+# style = 'blue bold'
+style = 'green bold'
 format = '([$symbol$branch(:$remote_branch)]($style) )'
 
 [git_metrics]
@@ -226,13 +232,14 @@ format = '([\(](bright-white)[+$added]($added_style)[/](bright-white)[-$deleted]
 
 [cmd_duration]
 show_milliseconds = false
-format = '[󰔚 ](purple)[$duration](bright-white) '
-min_time = 5000
+format = '[󰔚 ](purple)[$duration](bright-white)'
+min_time = 1000
 
 [shell]
 disabled = false
 style = 'bright-white'
 
+# languages
 [python]
 symbol = '[ ](blue)'
 style = 'bright-white'
