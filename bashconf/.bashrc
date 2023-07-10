@@ -48,9 +48,6 @@ bind "set completion-ignore-case on"
 export FZF_DEFAULT_COMMAND="fd"
 export RANGER_LOAD_DEFAULT_RC=FALSE
 
-#starship
-eval "$(starship init bash)"
-
 #shopt
 shopt -s autocd  # change to named directory
 shopt -s cdspell # autocorrects cd misspellings
@@ -80,5 +77,5 @@ shopt -s expand_aliases # expand aliases
 # Created by `pipx` on 2023-06-25 22:48:45
 export PATH="$PATH:/home/rc/.local/bin"
 
-# adding pipx autocompletion
-#eval "$(register-python-argcomplete pipx)"
+#starship
+eval "$(starship init bash)"
