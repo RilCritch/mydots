@@ -60,6 +60,7 @@ shopt -s expand_aliases # expand aliases
 [[ -f $HOME/mydots/bashconf/aliases ]] && . $HOME/mydots/bashconf/aliases
 [[ -f $HOME/mydots/bashconf/envvars ]] && . $HOME/mydots/bashconf/envvars
 [[ -f $HOME/mydots/bashconf/functions ]] && . $HOME/mydots/bashconf/functions
+[[ -f $HOME/mydots/bashconf/ansi_escape_sequences.sh ]] && . $HOME/mydots/bashconf/ansi_escape_sequences.sh
 
 #Generic color list
 {
