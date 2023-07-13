@@ -28,7 +28,7 @@ else
 fi
 }
 
-reminders_file_check
+# reminders_file_check
 
 
 # echo
@@ -66,8 +66,8 @@ done
 
 }
 
-echo
-add_reminders
+# echo
+# add_reminders
 
 
 # print out reminders
@@ -98,12 +98,12 @@ print_reminders () {
 
 }
 
-echo
-print_reminders "Reminders"
+# echo
+# print_reminders "Reminders"
 
 # removing reminders
 # by number - for interactive prompt
-echo
+# echo
 
 
 remove_reminders () { # need to figure out good ux for this
@@ -141,6 +141,63 @@ done
 
 }
 
-remove_reminders
+# remove_reminders
 
 # by reminder - fzf method?
+
+
+# Main program
+echo -e "Checking for \e[4;1;32m$USER's\e[0m reminders..."
+echo "..." | clr
+echo
+reminders_file_check
+lineacross | clr
+
+while true; do
+  
+# prompt user
+echo "What would you like to do?"
+echo "    1. Add reminders"
+echo "    2. Remove reminders"
+echo "    3. View Reminders"
+echo "    4. exit (type 4 of exit)"
+read -p ">>> " option
+
+# test for user input and perform specific actions
+if [[ $option =~ ^[0-9]+$ ]]; then
+  if [ $option -eq 1 ]; then
+    echo
+    add_reminders
+    lineacross | clr
+  elif [ $option -eq 2 ]; then
+    echo
+    remove_reminders  
+    lineacross | clr
+  elif [ $option -eq 3 ]; then
+    echo
+    print_reminders "Reminders"
+    lineacross | clr
+  elif [ $option -eq 4]; then
+    echo
+    echo "Goodbye $USER"
+    lineacross | clr
+    break
+  else
+    echo
+    echo "Error... invalid input" | clr red
+    lineacross | clr
+  fi
+else 
+  if [ "$option" = "exit" ]; then
+    echo
+    echo "Goodbye $USER"
+    lineacross | clr
+    break
+  else
+    echo
+    echo "Error... invalid input" | clr red
+    lineacross | clr
+  fi
+fi
+
+done
