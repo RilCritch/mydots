@@ -81,7 +81,9 @@ export PATH="$PATH:/home/rc/.local/bin"
 eval "$(starship init bash)"
 
 # Start up -- used as reminders (create a script to add and remove reminders)
-echo "Reminders:" | clr blue
-echo "----------" | clr
-echo "1. Looking into xonsh - a shell that is also a python interpreter" | clr green
-echo "2. Create script for handling reminders and and editing and adding them" | clr green
+# echo "Reminders:" | clr blue
+# echo "----------" | clr
+# echo "1. Looking into xonsh - a shell that is also a python interpreter" | clr green
+# echo "2. Create script for handling reminders and and editing and adding them" | clr green
+
+print-reminders.sh

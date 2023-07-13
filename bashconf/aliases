@@ -16,6 +16,10 @@ alias cs='colorscript -e'
 alias line='lineacross | clr'
 alias spark='sparky | clr'
 
+# reminders
+alias rsh="reminders.sh"
+alias prsh="print-reminders.sh"
+
 # }}}
 
 ## list - exa {{{
