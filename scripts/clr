@@ -107,6 +107,6 @@ case $coloroption in
 esac
 
 while IFS= read -r line; do
-  echo -e "${color}$line${reset}"
+  echo -e "${color}$line"
 done
-# echo -e -n "${reset}"
+echo -e -n "${reset}"
