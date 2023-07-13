@@ -101,6 +101,7 @@ cdf () {
 
   if [ -n "$choice" ]; then
     cd $choice
+    echo
     echo -n "Now in "
     echo "'$(pwd)'" | clr yellow
     lineacross | clr
@@ -120,7 +121,7 @@ ccdf () {
     echo -n "Now in "
     echo "$(pwd)" | clr yellow
     lineacross | clr
-    exa -la --group-directories-first --icons --grid --no-user --no-filesize
+    exa -la --group-directories-first --icons --grid --no-user --no-filesize --no-permissions
   fi
 }
 
