@@ -59,6 +59,7 @@ b_l_white='\e[107m'
 
 reset='\e[0m'
 bold='\e[1m'
+dim='\e[2m'
 italic='\e[3m'
 underline='\e[4m'
 blink='\e[5m'
