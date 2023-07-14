@@ -7,12 +7,14 @@
 * {
     font:   "JetBrainsMono Nerd Font 12";
 
-    bg0:    #242424E6;
-    bg1:    #7E7E7E80;
-    bg2:    #0860f2E6;
+    bg0:    #0c0e0fbf;
+    bg0-n:    #0c0e0f;
+    bg1:    #34363780;
+    bg2:    #78b892f6;
+    bg2-a:    #6791c9f6;
 
-    fg0:    #DEDEDE;
-    fg1:    #FFFFFF;
+    fg0:    #edeff0;
+    fg1:    #7d7f80;
     fg2:    #DEDEDE80;
 
     background-color:   transparent;
@@ -27,15 +29,18 @@ window {
     background-color:   @bg0;
 
     location:       center;
-    width:          640;
-    border-radius:  8;
-    children: [ inputbar, listview, mode-switcher ];
+    width:          1350;
+    border-radius:  6;
+    border: 1px;
+    border-color: @bg2;
+    children: [inputbar, listview, mode-switcher];
 }
 
 inputbar {
-    font:       "JetBrainsMono Nerd Font 16";
+    font:       "JetBrainsMono Nerd Font 14";
     padding:    12px;
     spacing:    12px;
+    background-color: @bg1;
     children:   [ textbox-search, entry ];
 }
 
@@ -44,6 +49,7 @@ textbox-search {
     expand:     false;
     content:   "";
     width: 25;
+    text-color: @bg2-a;
 }
 
 textbox-search, entry, element-icon, element-text {
@@ -63,7 +69,7 @@ mode-switcher {
 
 message {
     border:             2px 0 0;
-    border-color:       @bg1;
+    border-color:       @fg1;
     background-color:   @bg1;
 }
 
@@ -73,11 +79,12 @@ textbox {
 
 listview {
     lines:      10;
-    columns:    1;
+    columns:    3;
 
     fixed-height:   false;
     border:         1px 0 0;
-    border-color:   @bg1;
+    border-color:   @bg2;
+    padding: 4px;
 }
 
 element {
@@ -87,12 +94,12 @@ element {
 }
 
 element normal active {
-    text-color: @bg2;
+    text-color: @bg0;
 }
 
 element selected normal, element selected active {
     background-color:   @bg2;
-    text-color:         @fg1;
+    text-color:         @bg0-n;
 }
 
 element-icon {
@@ -101,4 +108,20 @@ element-icon {
 
 element-text {
     text-color: inherit;
+}
+
+mode-switcher {
+    //background-color: @bg1;
+    border: 1px 0 0;
+    border-color: @bg2;
+}
+
+button {
+    text-color: @fg1;
+    padding: 8px;
+    cursor: pointer;
+}
+
+button selected.normal {
+    background-color: @bg1;
 }
