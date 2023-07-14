@@ -2,7 +2,7 @@
 
 
 # title
-figlet -f small "Reminders" | clr blue
+figlet -k -f shadow "Reminders" | clr blue
 
 # reminders
 userfile="$HOME/documents/testing/$USER-reminders.txt"
