@@ -9,7 +9,7 @@
 # Dependencies:
 
 # script options - add more system like apps/commands as needed
-options=("Reload Qtile" "Restart Qtile" "Set Wallpaper" "Power Manager" "Archlinux Tweak Tool")
+options=("Reload Qtile" "Restart Qtile" "Set Wallpaper" "Power Manager" "Archlinux Tweak Tool" "Refresh Conky")
 
 # run rofi with specified options and retrieve selection
 selection=$(printf '%s\n' "${options[@]}" | rofi -dmenu -p 'system shit')
@@ -30,6 +30,9 @@ case "$selection" in
         ;;
     "Archlinux Tweak Tool")
         att
+        ;;
+    "Refresh Conky")
+        ~/mydots/scripts/refreshing/conky_refresh.sh
         ;;
     *)
         # action when no/non-exsistent option selected
