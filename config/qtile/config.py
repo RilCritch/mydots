@@ -5,6 +5,7 @@ import subprocess
 
 from libqtile import layout, hook
 from libqtile.config import Screen, ScratchPad
+from libqtile import bar
 
 from modules.settings import *
  
@@ -41,8 +42,11 @@ keys.extend(spad_keys)
 extension_defaults = widget_defaults.copy()
 screens = [
     Screen(
-        top=top_bar,
-        bottom=bot_bar,
+        top = top_bar,
+        bottom = bot_bar,
+        right = bar.Gap(
+            size = 280,
+        ),
     ),
 ]
 
