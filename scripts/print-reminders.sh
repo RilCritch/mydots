@@ -1,9 +1,18 @@
 #!/usr/bin/env bash
 
+# dependencies: figlet; clr (my script); lineacross (my script)
 
-# title
-figlet -k -f shadow "Reminders" | clr blue
+userfile="${HOME}/.local/share/reminders/${USER}-reminders.txt"
 
-# reminders
-userfile="$HOME/documents/testing/$USER-reminders.txt"
-\cat -n $userfile | clr green
+if [ -f $userfile ]; then
+  # title
+  lineacross | clr blue
+  figlet -k -f shadow "Reminders" | clr blue
+  lineacross | clr blue
+  
+  # reminders
+  \cat -n $userfile | clr green
+else
+  echo "Error... user '${USER}' does not have a reminders file." | clr red
+  echo "Please run 'reminders.sh' to create reminders file"
+fi

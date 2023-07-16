@@ -3,155 +3,106 @@
 # here I am testing different fundtionality I want the the script to have
 # eventually I would like to set flags, so you can do different things without interactive propmt
 
-# depencies: clr(my script)
+# depencies: clr (my script); lineacross (my script)
 
 
 # user reminders file name file
-userfile="$HOME/documents/testing/$USER-reminders.txt"
+userdir="${HOME}/.local/share/reminders"
+userfile="${userdir}/${USER}-reminders.txt"
 
-
-# creating a file that holds the reminders
-# func form
-
-reminders_file_check () {
-
-if [ ! -f $userfile ]; then
-  echo "No reminders found for user '$USER'" | clr yellow
-  
-  echo -n "creating file at " 
-  echo "'$userfile'" | clr blue
-
-  touch $userfile
-else
-  echo "Reminders found for user '$USER'" | clr green
-  # print reminders?
-fi
-}
-
-# reminders_file_check
-
-
-# echo
-# # retrieve reminders as an array if it exsists
-# if [ -f $userfile ]; then
-#   readarray -t reminders_array < "$userfile"
-#   echo "Reminders loaded successfully" | clr green
-#   
-# else
-#   echo "Error... failed to load reminders" | clr red
-# fi
-
-
-# adding reminders to file
-add_reminders () {
-
-echo "Adding reminders: Each line is a single reminder (type 'exit' to quit)"
-
-while true; do
-  # echo -n "Reminder to add: " # eventually add reminder number or something
-  read -p "New entry: " choice
-
-  if [ "$choice" = "exit" ]; then
-    echo "Exiting..." | clr yellow
-    break
-  fi
-
-  if [ -z "$choice" ]; then
-    echo "Error... no input. To stop adding reminders type 'exit'" | clr red
-    continue
-  fi
-  
-  echo "$choice" >> $userfile
-done
-
-}
-
-# echo
-# add_reminders
-
-
-# print out reminders
-# method one - no numbers
-# for reminder in "${reminders_array[@]}"; do
-#   echo "Reminder: $reminder"
-# done
-
-# method two - numbers *** better option -- manually needs array
-# print_reminders () {
-# for ((i=0; i<${#reminders_array[@]}; i++)); do
-#   reminder_number=$((i+1))
-#   reminder="${reminders_array[i]}"
-#
-#   echo "$reminder_number. $reminder" | clr green
-# done
-# }
 
 # menthod thee - nummbers *** best option -- with cat doesnt need array
 print_reminders () {
-
-  # header text?
-  if [ ! -z $1 ]; then
-    echo "$1" | clr blue
-  fi
-
+  # # header text?
+  # if [ ! -z $1 ]; then
+  #   echo "$1" | clr blue
+  # fi
+  #
   \cat -n $userfile | clr green
-
 }
 
-# echo
-# print_reminders "Reminders"
-
-# removing reminders
-# by number - for interactive prompt
-# echo
-
-
-remove_reminders () { # need to figure out good ux for this
-
-echo "Remove a reminder: Enter reminder number to remove (type 'exit' to quit)"
-
-while true; do
-  print_reminders
-
-  read -p "Number to remove: " choice
-
-  if [ "$choice" = "exit" ]; then
-    echo "Exiting..." | clr yellow
-    break
-  fi
-
-  if [ -z "$choice" ]; then
-    echo "Error... no input. To stop removing reminders type 'exit'" | clr red
-    continue
-  fi
-
-  if [[ ! $choice =~ ^[0-9]+$ ]]; then
-    echo "Error... please enter a positive integer" | clr red 
-    continue
-  fi
-
-  line_count=$(wc -l < $userfile)
-  if [ "$choice" -gt "$line_count" ]; then
-    echo "Error... this reminder does not exsist" | clr red
-    continue
+# check for user file
+reminders_file_check () {
+  if [ ! -d "$userdir" ]; then
+    echo "'${USER}' has no reminders directory" | clr yellow
+    echo -n "creating directory at "
+    echo "'$userdir'" | clr blue
+    echo
   fi
   
-  sed -i "${choice}d" $userfile
-done
-
+  if [ ! -f $userfile ]; then
+    echo "No reminders found for user '$USER'" | clr yellow
+    
+    echo -n "creating file at " 
+    echo "'$userfile'" | clr blue
+  
+    touch $userfile
+  else
+    lineacross | clr
+    echo "Reminders" | clr blue
+    print_reminders
+    lineacross | clr
+  fi
 }
 
-# remove_reminders
+# adding reminders to file
+add_reminders () {
+  echo "Adding reminders: Each line is a single reminder (type 'exit' to adding)"
+  
+  while true; do
+    # echo -n "Reminder to add: " # eventually add reminder number or something
+    read -p "New entry: " choice
+  
+    if [ "$choice" = "exit" ]; then
+      echo "Exiting..." | clr yellow
+      break
+    fi
+  
+    if [ -z "$choice" ]; then
+      echo "Error... no input. To stop adding reminders type 'exit'" | clr red
+      continue
+    fi
+    
+    echo "$choice" >> $userfile
+  done
+}
 
-# by reminder - fzf method?
+remove_reminders () { # need to figure out good ux for this
+  echo "Remove a reminder: Enter reminder number to remove (type 'exit' to stop removing)"
+  
+  while true; do
+    print_reminders
+  
+    read -p "Number to remove: " choice
+  
+    if [ "$choice" = "exit" ]; then
+      echo "Exiting..." | clr yellow
+      break
+    fi
+  
+    if [ -z "$choice" ]; then
+      echo "Error... no input. To stop removing reminders type 'exit'" | clr red
+      continue
+    fi
+  
+    if [[ ! $choice =~ ^[0-9]+$ ]]; then
+      echo "Error... please enter a positive integer" | clr red 
+      continue
+    fi
+  
+    line_count=$(wc -l < $userfile)
+    if [ "$choice" -gt "$line_count" ]; then
+      echo "Error... this reminder does not exsist" | clr red
+      continue
+    fi
+    
+    sed -i "${choice}d" $userfile
+  done
+}
 
 
 # Main program
-echo -e "Checking for \e[4;1;32m$USER's\e[0m reminders..."
-echo "..." | clr
-echo
 reminders_file_check
-lineacross | clr
 
 while true; do
   
@@ -160,7 +111,7 @@ echo "What would you like to do?"
 echo "    1. Add reminders"
 echo "    2. Remove reminders"
 echo "    3. View Reminders"
-echo "    4. exit (type 4 of exit)"
+echo "    4. Exit program (type 4 or exit)"
 read -p ">>> " option
 
 # test for user input and perform specific actions
@@ -175,27 +126,28 @@ if [[ $option =~ ^[0-9]+$ ]]; then
     lineacross | clr
   elif [ $option -eq 3 ]; then
     echo
-    print_reminders "Reminders"
+    echo "Reminders" | clr blue
+    print_reminders
     lineacross | clr
-  elif [ $option -eq 4]; then
+  elif [ $option -eq 4 ]; then
     echo
-    echo "Goodbye $USER"
+    echo "Goodbye $USER" | clr yellow
     lineacross | clr
     break
   else
     echo
-    echo "Error... invalid input" | clr red
+    echo "Error... invalid input: option doesn't exsist (enter 4 or 'exit' to close program)" | clr red
     lineacross | clr
   fi
 else 
   if [ "$option" = "exit" ]; then
     echo
-    echo "Goodbye $USER"
+    echo "Goodbye $USER" | clr yellow
     lineacross | clr
     break
   else
     echo
-    echo "Error... invalid input" | clr red
+    echo "Error... invalid input: please (enter 4 or 'exit' to close program)" | clr red
     lineacross | clr
   fi
 fi
