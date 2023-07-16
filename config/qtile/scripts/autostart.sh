@@ -50,7 +50,7 @@ clipster -d &
 # look and feel #######
 run picom --experimental-backends --config /home/rc/.config/qtile/specconfigs/picom.conf &
 run nitrogen --restore &
-(conky -c $HOME/.config/qtile/specconfigs/qtileconky) &
+(conky -c $HOME/.config/conky/qtileconky.lua) &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 # run caffeine -a &
 
