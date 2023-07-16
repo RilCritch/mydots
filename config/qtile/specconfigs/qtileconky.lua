@@ -10,6 +10,7 @@
 
 ]]
 
+
 conky.config = {
 
 	--Various settings
