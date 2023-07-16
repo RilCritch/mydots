@@ -57,10 +57,10 @@ shopt -s histappend     # do not overwrite history
 shopt -s expand_aliases # expand aliases
 
 # import bash configurations files
+[[ -f $HOME/mydots/bashconf/ansi_escape_sequences ]] && . $HOME/mydots/bashconf/ansi_escape_sequences
 [[ -f $HOME/mydots/bashconf/aliases ]] && . $HOME/mydots/bashconf/aliases
 [[ -f $HOME/mydots/bashconf/envvars ]] && . $HOME/mydots/bashconf/envvars
 [[ -f $HOME/mydots/bashconf/functions ]] && . $HOME/mydots/bashconf/functions
-[[ -f $HOME/mydots/bashconf/ansi_escape_sequences ]] && . $HOME/mydots/bashconf/ansi_escape_sequences
 
 #Generic color list
 {
