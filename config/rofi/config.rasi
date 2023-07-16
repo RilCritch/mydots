@@ -1,5 +1,5 @@
 configuration {
-modi: "window,drun,run,filebrowser";
+modi: "window,drun,run,filebrowser,dmenu";
 /*  width: 50;*/
 /*  lines: 15;*/
 /*  columns: 2;*/
@@ -29,7 +29,7 @@ modi: "window,drun,run,filebrowser";
 /*  ignored-prefixes: "";*/
 /*  sort: false;*/
 /*  sorting-method: "normal";*/
-/*  case-sensitive: false;*/
+no-case-sensitive: true;
 /*  cycle: true;*/
 /*  sidebar-mode: false;*/
 /*  eh: 1;*/
@@ -37,7 +37,7 @@ modi: "window,drun,run,filebrowser";
 /*  parse-hosts: false;*/
 /*  parse-known-hosts: true;*/
 /*  combi-modi: "window,run";*/
-/*  matching: "normal";*/
+matching: "fuzzy";
 /*  tokenize: true;*/
 /*  m: "-5";*/
 /*  line-margin: 2;*/

@@ -25,14 +25,14 @@ columns_opts = {
 }
 
 max_opts = {
-    "margin": [12, 1350, 12, 1350],
+    "margin": [15, 1350, 15, 1350],
     "border_width": 2,
     "border_focus": '#78b892',
     "border_normal": ['#374041','#505253'],
 }
 
 three_col_opts = {
-    "single_margin": [12, 1350, 12, 1350],
+    "single_margin": [15, 1350, 15, 1350],
     "ratio": 0.45,
 }
 
