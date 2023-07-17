@@ -170,21 +170,15 @@ ${color6}Root ${color2}(${fs_type})${alignr}${color2}${fs_used /}/${fs_size /}
 ${color2}${voffset 1}${fs_bar /}
 
 
-${color6}${voffset 0}${font Ubuntu:style=Medium:pixelsize=45}Qtile${voffset -5}${font}
-${voffset -1}
-${color7}${offset 4}Python 3.11.3
-${color2}${offset 4}${font Ubuntu:pixelsize=14}${voffset 3}A tiling wm configured in Python
-
-
 ${color7}${font Mononoki Nerd Font :size=20} ${offset 6}${voffset 2}${font Ubuntu:style=Medium:pixelsize=22}Keybindings  ${color2}${voffset 3}${hr}${font}
 ${font Ubuntu:pixelsize=15}${voffset -10}
 ${color2}[S] + [Shift] + r${alignr}${color6}Application Menu
 ${voffset -10}
+${color2}[S] + [Shift]+ q${alignr}${color6}Kill Focused App
+${voffset -10}
 ${color2}[S] + [Shift] + b${alignr}${color6}Open Browser
 ${voffset -10}
 ${color2}[S] + enter${alignr}${color6}Open Terminal
-${voffset -10}
-${color2}[S] + [Shift]+ q${alignr}${color6}Kill Focues App
 #
 ${color4}${hr 1}
 ${voffset 2}${color2}[S] + [Shift] + s${alignr}${color6}System Options
@@ -197,6 +191,11 @@ ${color4}${hr 1}
 ${voffset 2}${color2}[S] + [Shift] + f${alignr}${color6}Scratch Terminal
 ${voffset -10}
 ${color2}[S] + b${alignr}${color6}All Keybindings
+
+
+${color7}${voffset 5}${font Ubuntu:style=Medium:pixelsize=45}Qtile${alignr -5}${color6}${voffset -25}${font}${font Mononoki Nerd Font:size=60} ${font}
+${voffset -35}
+${color3}${offset 4}${font Ubuntu:pixelsize=14}${voffset 6}Configured in Python
 ${voffset -50}
 ]];
 
