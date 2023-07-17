@@ -45,7 +45,7 @@ screens = [
         top = top_bar,
         bottom = bot_bar,
         right = bar.Gap(
-            size = 275,
+            size = 280,
         ),
     ),
 ]
