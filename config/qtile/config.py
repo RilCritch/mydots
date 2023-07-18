@@ -64,3 +64,10 @@ def start_once():
 @hook.subscribe.startup
 def _():
     top_bar.window.window.set_property("QTILE_BAR", 1, "CARDINAL", 32)
+
+# stuff to do after qtile has completely started
+@hook.subscribe.startup_complete
+def _():
+    home = os.path.expanduser('~')
+    subprocess.call([home + '/.config/qtile/scripts/start.sh'])
+    

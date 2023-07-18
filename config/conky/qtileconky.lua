@@ -107,6 +107,7 @@ conky.config = {
 
 };
 conky.text = [[
+# --------------------------------------------------------------------- date/time
 ${voffset -15}
 ${color7}${alignr}${font Ubuntu:style=Medium:pixelsize=55}${time %I:%M}${font}
 ${voffset -10}
@@ -115,26 +116,64 @@ ${color2}${voffset 3}${alignr}${time %B %d, %Y}
 #${color7}${hr}
 
 
-${color7}${font Mononoki Nerd Font :size=20} ${offset 6}${voffset 2}${font Ubuntu:style=Medium:pixelsize=22}System  ${color2}${voffset 3}${hr}${font}
+# --------------------------------------------------------------------- general system info
+${color7}${font Mononoki Nerd Font :size=20} \
+${offset 6}${voffset 2}${font Ubuntu:style=Medium:pixelsize=22}System  \
+${color4}${voffset 3}${hr 2}${font}
+#
 ${font Ubuntu:pixelsize=15}${voffset -10}
-${color6}${nodename} ${color2}(${machine})${alignr}${color2}$kernel${color}
+#
+${color6}${nodename} ${color2}(${machine})\
+${alignr}${color2}$kernel${color}
+#
 ${voffset -15}
+#
 ${color2}Uptime:${color2}${alignr}${uptime}${color}
+#
 ${voffset -15}
-${color2}Processes:${color2}${alignr}${running_processes}/${processes}${color}
 
 
-${color7}${font Mononoki Nerd Font :size=20} ${offset 6}${voffset 2}${font Ubuntu:style=Medium:pixelsize=22}CPU  ${color2}${voffset 3}${hr}${font}
+# --------------------------------------------------------------------- general keybindings
+${color7}${font Mononoki Nerd Font :size=20} \
+${offset 6}${voffset 2}${font Ubuntu:style=Medium:pixelsize=22}General Use  \
+${color4}${voffset 3}${hr 2}${font}
+#
 ${font Ubuntu:pixelsize=15}${voffset -10}
-${color6}AMD Ryzen 9 6900HX${alignr}${if_match ${cpu cpu0}<50}${color2}\
+#
+${color2}[S] + [Shift] + r${alignr}${color6}Application Menu
+${voffset -10}
+${color2}[S] + [Shift]+ q${alignr}${color6}Kill Focused App
+#
+${color4}${hr 1}
+${voffset 2}${color2}[S] + [Shift] + s${alignr}${color6}System Options
+${voffset -10}
+${color2}[S] + [Ctrl] + x${alignr}${color6}Loguout Menu
+#
+${color4}${hr 1}
+${voffset 2}${color2}[S] + b${alignr}${color6}All Keybindings
+
+
+# --------------------------------------------------------------------- cpu information
+${color7}${font Mononoki Nerd Font :size=20} \
+${offset 6}${voffset 2}${font Ubuntu:style=Medium:pixelsize=22}CPU  \
+${color4}${voffset 3}${hr 2}${font}
+#
+${font Ubuntu:pixelsize=15}${voffset -10}
+#
+${color6}AMD Ryzen 9 6900HX${alignr}\
+${if_match ${cpu cpu0}<50}${color2}\
 ${else}${if_match ${cpu cpu0}>=50}${color8}\
-${else}${if_match ${cpu cpu0}>=90}${color9}${endif}${cpu cpu0}%${color}
+${else}${if_match ${cpu cpu0}>=90}${color9}${endif}\
+${cpu cpu0}%${color}
+#
 ${voffset -15}
+#
 ${if_match ${cpu cpu0}<100}${color2}\
 ${else}${if_match ${cpu cpu0 }==100}${color9}${endif}\
-${cpugraph cpu0 -l}${color}${font}
+${cpugraph cpu0 -l}${color}
 #
 ${voffset -3}${color6}process${alignr}${color2}cpu
+#
 ${font Ubuntu:pixelsize=14}${voffset 2}${template7 1}
 ${template7 2}
 ${template7 3}
@@ -144,17 +183,26 @@ ${template7 6}
 ${template7 7}
 
 
-${color7}${font Mononoki Nerd Font :size=20} ${offset 6}${voffset 2}${font Ubuntu:style=Medium:pixelsize=22}Memory  ${color2}${voffset 3}${hr}${font}
+# --------------------------------------------------------------------- ram information
+${color7}${font Mononoki Nerd Font :size=20} \
+${offset 6}${voffset 2}${font Ubuntu:style=Medium:pixelsize=22}Memory  \
+${color4}${voffset 3}${hr 2}${font}
+#
 ${font Ubuntu:pixelsize=15}${voffset -10}
-${color6}Used${alignr}${color2}${mem}/${memmax}
+#
+${color6}${mem}${alignr}${color2}${memmax}
 #
 ${voffset -15}
-${color2}${voffset 1}${membar}
+#
+#${color2}${voffset 1}${membar}
+${color2}${memgraph}$color{}
 #
 ${color2}Swap${color3}${offset 10}${voffset 1}${swapbar}
 #
 ${voffset -10}
+#
 ${color6}process${alignr}${color2}mem
+#
 ${font Ubuntu:pixelsize=14}${voffset 3}${template8 1}
 ${template8 2}
 ${template8 3}
@@ -162,40 +210,42 @@ ${template8 4}
 ${template8 5}
 ${template8 6}
 ${template8 7}
-
-
-${color7}${font Mononoki Nerd Font :size=20}󰋊 ${offset 6}${offset -8}${voffset 2}${font Ubuntu:style=Medium:pixelsize=22}Storage  ${color2}${voffset 3}${hr}${font}
-${font Ubuntu:pixelsize=15}${voffset -10}
-${color6}Root ${color2}(${fs_type})${alignr}${color2}${fs_used /}/${fs_size /}
-${color2}${voffset 1}${fs_bar /}
-
-
-${color7}${font Mononoki Nerd Font :size=20} ${offset 6}${voffset 2}${font Ubuntu:style=Medium:pixelsize=22}Keybindings  ${color2}${voffset 3}${hr}${font}
-${font Ubuntu:pixelsize=15}${voffset -10}
-${color2}[S] + [Shift] + r${alignr}${color6}Application Menu
-${voffset -10}
-${color2}[S] + [Shift]+ q${alignr}${color6}Kill Focused App
-${voffset -10}
-${color2}[S] + [Shift] + b${alignr}${color6}Open Browser
-${voffset -10}
-${color2}[S] + enter${alignr}${color6}Open Terminal
 #
-${color4}${hr 1}
-${voffset 2}${color2}[S] + [Shift] + s${alignr}${color6}System Options
-${voffset -10}
-${color2}[S] + [Shift] + c${alignr}${color6}Clipboard View
-${voffset -10}
-${color2}[S] + [Ctrl] + x${alignr}${color6}Power Menu
 #
-${color4}${hr 1}
-${voffset 2}${color2}[S] + [Shift] + f${alignr}${color6}Scratch Terminal
-${voffset -10}
-${color2}[S] + b${alignr}${color6}All Keybindings
+#${color7}${font Mononoki Nerd Font :size=20}󰋊 ${offset 6}${offset -8}${voffset 2}${font Ubuntu:style=Medium:pixelsize=22}Storage  ${color4}${voffset 3}${hr 2}${font}
+#${font Ubuntu:pixelsize=15}${voffset -10}
+#${color6}Root ${color2}(${fs_type})${alignr}${color2}${fs_used /}/${fs_size /}
+#${color2}${voffset 1}${fs_bar /}
 
+# add shit here
 
-${color7}${voffset 5}${font Ubuntu:style=Medium:pixelsize=45}Qtile${alignr -5}${color6}${voffset -25}${font}${font Mononoki Nerd Font:size=60} ${font}
-${voffset -35}
-${color3}${offset 4}${font Ubuntu:pixelsize=14}${voffset 6}Configured in Python
-${voffset -50}
+${color7}${font Mononoki Nerd Font :size=20}󰂖 \
+${offset 6}${offset -8}${voffset 2}${font Ubuntu:style=Medium:pixelsize=22}Testing  \
+${color4}${voffset 3}${hr 2}${font}
+#
+${font Ubuntu:pixelsize=15}${voffset -10}
+#
+# ------------- Keeper
+${color6}${font Mononoki Nerd Font :size=16}\
+${if_pa_sink_muted} \
+${else} \
+${endif}\
+${offset 6}${voffset 2}\
+${if_match ${pa_sink_volume}==100}${color9}\
+${else}${if_match ${pa_sink_volume}<100}${color8}\
+${else}${if_match ${pa_sink_volume}<80}${color7}\
+${else}${if_match ${pa_sink_volume}<40}${color2}\
+${endif}\
+${pa_sink_volumebar 15,180}\
+${font Ubuntu:pixelsize=16}\
+${alignr}${voffset -1}\
+${if_match ${pa_sink_volume}==100}${color9}\
+${else}${if_match ${pa_sink_volume}<100}${color8}\
+${else}${if_match ${pa_sink_volume}<80}${color7}\
+${else}${if_match ${pa_sink_volume}<40}${color2}\
+${endif}\
+${if_match ${pa_sink_volume}==0}mute\
+${else}${pa_sink_volume}%\
+${endif}
 ]];
 
