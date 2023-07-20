@@ -25,24 +25,24 @@ alias prsh="print-reminders.sh"
 ## list - exa {{{
 
 # base
-alias rls='exa --group-directories-first --icons'
-alias rlsa='exa -a --group-directories-first --icons'
+alias ls='exa --group-directories-first --icons'
+alias lsa='exa -a --group-directories-first --icons'
 
-alias l='exa -l --group-directories-first --grid --no-filesize --icons --no-user --no-filesize'
-alias la='exa -la --group-directories-first --grid --no-filesize --icons --no-user --no-filesize'
+alias ll='exa -l --group-directories-first --grid --no-filesize --icons --no-user --no-filesize'
+alias lla='exa -la --group-directories-first --grid --no-filesize --icons --no-user --no-filesize'
 
-alias lt='exa -T -L=2 --icons'
-alias lr='exa -R -L=2 --icons'
+alias lst='exa -T -L=2 --icons'
+alias lsr='exa -R -L=2 --icons'
 
 # pretty
-alias ls='lineacross | clr && exa --group-directories-first --icons && lineacross | clr'
-alias lsa='lineacross | clr && exa -a --group-directories-first --icons && lineacross | clr'
+alias sls='lineacross | clr && exa --group-directories-first --icons && lineacross | clr'
+alias slsa='lineacross | clr && exa -a --group-directories-first --icons && lineacross | clr'
 
-alias ll='lineacross | clr && exa -l --group-directories-first --grid --no-filesize --icons --no-user && lineacross | clr'
-alias lla='lineacross | clr && exa -la --group-directories-first --grid --no-filesize --icons --no-user && lineacross | clr'
+alias sll='lineacross | clr && exa -l --group-directories-first --grid --no-filesize --icons --no-user && lineacross | clr'
+alias slla='lineacross | clr && exa -la --group-directories-first --grid --no-filesize --icons --no-user && lineacross | clr'
 
-alias lst='lineacross | clr && exa -T -L=2 --icons && lineacross | clr'
-alias lsr='lineacross | clr && exa -R -L=2 --icons && lineacross | clr'
+alias slst='lineacross | clr && exa -T -L=2 --icons && lineacross | clr'
+alias slsr='lineacross | clr && exa -R -L=2 --icons && lineacross | clr'
 
 # }}}
 
@@ -56,8 +56,8 @@ alias cca='clear &&'
 alias ccda='clear && pwd &&'
 
 # pretty
-alias c="clear && sparky | clr green && line | clr"
-alias ca="clear && sparky | clr green &&" 
+alias c="clear && sparky | clr green && lineacross | clr"
+alias ca="clear && sparky | clr green && lineacross | clr &&" 
 
 # }}}
 
