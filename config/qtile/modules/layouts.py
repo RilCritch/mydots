@@ -33,7 +33,7 @@ max_opts = {
 
 three_col_opts = {
     "single_margin": [15, 1350, 15, 1350],
-    "ratio": 0.45,
+    "ratio": 0.40,
 }
 
 # monadtall_opts = {
