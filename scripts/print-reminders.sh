@@ -6,9 +6,9 @@ userfile="${HOME}/.local/share/reminders/${USER}-reminders.txt"
 
 if [ -f $userfile ]; then
   # title
-  lineacross | clr blue
+  # lineacross | clr blue
   figlet -k -f shadow "Reminders" | clr blue
-  lineacross | clr blue
+  # lineacross | clr blue
   
   # reminders
   \cat -n $userfile | clr green
