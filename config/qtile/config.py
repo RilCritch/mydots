@@ -47,6 +47,9 @@ screens = [
         right = bar.Gap(
             size = 280,
         ),
+        left = bar.Gap(
+            size = 280,
+        ),
     ),
 ]
 
