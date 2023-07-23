@@ -89,13 +89,11 @@ conky.config = {
 	color8 = '#ecd28b',  						--orange
 	color9 = '#df5b61',  						--firebrick
 
+  -- templates
 
-	--Lua
-  template7 = [[${voffset -3}${color3}${top name \1}${alignr}${top cpu \1}%]],
-  template8 = [[${voffset -3}${color3}${top_mem name \1}${alignr}${top_mem mem_res \1}]],
-
-
+  -- lua
 };
+
 conky.text = [[
 # --------------------------------------------------------------------- date/time
 ${voffset -15}
@@ -104,6 +102,16 @@ ${voffset -10}
 ${color6}${offset 5}${time %A}${font}
 ${color2}${offset 5}${voffset 3}${time %B %d, %Y}
 #${color7}${hr}
+#
+#
+# Calendar# -- works but needs work
+#${voffset -12}${font DejaVu Sans Mono:style=Bold:pixelsize=10}
+#${color #91EEFF}${execp cal | sed s/`echo "\x5f\x08\(.\)\x5f\x08\(.\)"`/'${color #FFFF40}\1\2${color #FFA0F3}'/}
+#${voffset -12}${offset 1}${font Sans:style=Bold:pixelsize=10}${color FF0000}________________________
+#${voffset -6}${offset 1}${font Sans:style=Bold:pixelsize=10}${color FF0000}________________________
+
+${font JetBrainsMono Nerd Font:Medium:size=16}\
+${execpi 1800 cal | tail -n +2 | while IFS= read -r line; do echo "${alignc}${line}"; done }
 
 ]];
 
