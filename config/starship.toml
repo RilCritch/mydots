@@ -152,7 +152,7 @@ $rust
 $directory\
 $character"""
 
-add_newline = true
+add_newline = false
 
 continuation_prompt = '[   ](bright-white) '
 
