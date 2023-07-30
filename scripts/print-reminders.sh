@@ -12,6 +12,7 @@ if [ -f $userfile ]; then
   
   # reminders
   \cat -n $userfile | clr green
+  echo
 else
   echo "Error... user '${USER}' does not have a reminders file." | clr red
   echo "Please run 'reminders.sh' to create reminders file"
