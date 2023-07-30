@@ -31,7 +31,7 @@ alias lsa='exa -a --group-directories-first --icons'
 alias ll='exa -l --group-directories-first --grid --no-filesize --icons --no-user --no-filesize'
 alias lla='exa -la --group-directories-first --grid --no-filesize --icons --no-user --no-filesize'
 
-alias lst='exa -T --icons'
+alias lst='exa --icons && exa -T --icons'
 alias lsr='exa -R --icons'
 
 # pretty
