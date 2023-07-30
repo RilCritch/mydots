@@ -7,39 +7,42 @@ from modules.settings import SUPER, SHIFT
 
 # main group info
 group_names = [
-    "1", # 1 - misc stuff
-    "2", # 2 - misc stuff
-    "3", # 3 - misc stuff
-    "4", # 4 - browser 
-    "5", # 5 - wm config
-    "6", # 6 - nvim config
-    "7", # 7 - coding
+    "1", # 1 - misc
+    "2", # 2 - notes
+    "3", # 3 - config editing
+    "4", # 4 - config editing
+    "5", # 5 - browser
+    "6", # 6 - misc terminal
+    "7", # 7 - streaming
     "8", # 8 - music
     "9", # 9 - discord
+    # "b",
 ]
 
 group_labels = [
-    "", # 1 - misc/random research
+    "", # 1 - misc
     "󰠮", # 2 - notes
     "", # 3 - config editing
     "", # 4 - config editing 
     "󰖟", # 5 - browser
-    "", # 6 - terminal
+    "", # 6 - misc terminal
     "", # 7 - streaming
     "󰓇", # 8 - music
     "󰙯", # 9 - discord
+    # "", # $ - buying stuff
 ]
 
 group_layouts = [
-    "monadthreecol", 
-    "monadthreecol", 
-    "monadthreecol", 
-    "monadthreecol", 
-    "monadthreecol", 
-    "monadthreecol", 
+    "monadthreecol",
+    "monadthreecol",
+    "monadthreecol",
+    "monadthreecol",
+    "monadthreecol",
+    "monadthreecol",
     "monadthreecol",
     "columns",
     "monadthreecol",
+    # "monadthreecol",
 ]
 
 # set up main group list

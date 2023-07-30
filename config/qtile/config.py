@@ -44,12 +44,13 @@ screens = [
     Screen(
         top = top_bar,
         bottom = bot_bar,
-        right = bar.Gap(
-            size = 280,
-        ),
-        left = bar.Gap(
-            size = 280,
-        ),
+        # gaps to show conky if i want that
+        # right = bar.Gap(
+        #     size = 280,
+        # ),
+        # left = bar.Gap(
+        #     size = 280,
+        # ),
     ),
 ]
 
