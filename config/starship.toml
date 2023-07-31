@@ -154,13 +154,13 @@ $character"""
 
 add_newline = false
 
-continuation_prompt = '[   ](bright-white) '
+continuation_prompt = '[   ](black) '
 
 # right_format = '''$time'''
 
 ## Modules
 [directory]
-style = 'blue'
+style = 'bright-white'
 # home_symbol = '󰜥 '
 # home_symbol = 'rc'
 # home_symbol = ' '
@@ -175,8 +175,8 @@ home_symbol = ' RC'
 truncate_to_repo = false
 read_only = '  '
 truncation_length = 5
-before_repo_root_style = 'bright-white'
-repo_root_style = 'underline green'
+before_repo_root_style = 'bright-black'
+repo_root_style = 'underline purple'
 repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) '
 
 [character]
@@ -194,7 +194,7 @@ repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($re
 # error_symbol = '[\$](bold red)'
 # success_symbol = '[ ](bold green)'
 # error_symbol = '[ ](bold red)'
-success_symbol = '[ ](bold green)'
+success_symbol = '[ ](bold blue)'
 error_symbol = '[ ](bold red)'
 
 [fill]
@@ -209,7 +209,7 @@ format = '[$time]($style) '
 use_12hr = true
 
 [username]
-style_user = 'green'
+style_user = 'blue'
 format = '[ $user]($style) '
 show_always = true
 disabled = false
@@ -218,12 +218,12 @@ disabled = false
 ahead = '⇡${count}'
 diverged = '⇕⇡${ahead_count}⇣${behind_count}'
 behind = '⇣${count}'
-style = 'bold yellow'
+style = 'bold red'
 format = '([\[$all_status$ahead_behind\]]($style) )'
 
 [git_branch]
 # style = 'blue bold'
-style = 'green bold'
+style = 'blue bold'
 format = '([$symbol$branch(:$remote_branch)]($style) )'
 
 [git_metrics]
