@@ -24,7 +24,7 @@ conky.config = {
 	--gap_x = -1910,
 	gap_x = 16,   		        -- pixels between right or left border
 	gap_y = 76,						    -- pixels between bottom or left border
-	minimum_height = 1320,    -- minimum height of window
+	minimum_height = 0,    -- minimum height of window
 	minimum_width = 260,			-- minimum height of window
 	maximum_width = 260,		  -- maximum height of window
 
@@ -52,7 +52,7 @@ conky.config = {
 	format_human_readable = true,				-- KiB, MiB rather then number of bytes
 	-- font = 'Noto Mono:size=11:regular',  			-- font for complete conky unless in code defined
 	-- font = 'JetBrainsMono Nerd Font Mono:size=12',  			-- font for complete conky unless in code defined
-	font = 'Ubuntu:pixelsize=16',  			-- font for complete conky unless in code defined
+	font = 'Ubuntu:pixelsize=35',  			-- font for complete conky unless in code defined
 	max_text_width = 0,							-- 0 will make sure line does not get broken if width too smal
 	max_user_text = 16384,						-- max text in conky default 16384
 	override_utf8_locale = true,				-- force UTF8 requires xft
@@ -96,22 +96,15 @@ conky.config = {
 
 conky.text = [[
 # --------------------------------------------------------------------- date/time
-${voffset -15}
-${color7}${font Ubuntu:style=Medium:pixelsize=55}${time %I:%M}${font}
-${voffset -10}
-${color6}${offset 5}${time %A}${font}
-${color2}${offset 5}${voffset 3}${time %B %d, %Y}
-#${color7}${hr}
-#
-#
+${color7}${alignc}${offset 5}${time %A}${font}
+${color3}${voffset -15}${hr}${voffset -15}
 # Calendar# -- works but needs work
 #${voffset -12}${font DejaVu Sans Mono:style=Bold:pixelsize=10}
 #${color #91EEFF}${execp cal | sed s/`echo "\x5f\x08\(.\)\x5f\x08\(.\)"`/'${color #FFFF40}\1\2${color #FFA0F3}'/}
 #${voffset -12}${offset 1}${font Sans:style=Bold:pixelsize=10}${color FF0000}________________________
 #${voffset -6}${offset 1}${font Sans:style=Bold:pixelsize=10}${color FF0000}________________________
-
-${font JetBrainsMono Nerd Font:Medium:size=16}\
-${execpi 1800 cal | tail -n +2 | while IFS= read -r line; do echo "${alignc}${line}"; done }
-
+${font JetBrainsMono Nerd Font:Medium:size=16}${color2}\
+${execpi 1800 cal | tail -n +2 | while IFS= read -r line; do echo "${alignc}${line}"; done }${color}${font}
+${color3}${voffset -30}${hr}${voffset -15}
 ]];
 
