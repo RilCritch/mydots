@@ -5,27 +5,45 @@ from qtile_extras import widget
 from qtile_extras.widget.decorations import BorderDecoration, PowerLineDecoration, RectDecoration
 from libqtile.lazy import lazy
 
+# yoru = { # figure out how to place and set colors from json
+#     "bg": '#0c0e0f',
+#     "barbg": '#343637a3',
+#     "fg": '#edeff0',
+#     "lightgray": '#7d7f80',
+#     "gray": '#505253',
+#     "graygrad": ['#374041','#505253'],
+#     "darkgray": '#343637',
+#     "black": '#1f2122',
+#     "acnt1": '#78b892',
+#     "acnt1grad": ['#58a779', '#78b892'],
+#     "acnt2": '#6791c9',
+#     "acnt2grad": ['#4277bd','#6791c9'],
+#     "acnt3": '#ecd28b',
+#     "acnt3grad": ['#e6c465','#ecd28b'],
+#     "alrt": '#df5b61',
+#     "alrtgrad": ['#d52a33','#df5b61'],
+#     "transparent": "#fefefe00"
+# }
+
 # colors
+# catppuccin-mocha
 colors = { # figure out how to place and set colors from json
-    "bg": '#0c0e0f',
-    # "barbg": '#0c0e0f9f', # blk
-    # "barbg": '#6791c930', # blu
-    "barbg": '#343637a3', # gry
-    # "barbg": '#78b89239', # grn
-    "fg": '#edeff0',
-    "lightgray": '#7d7f80',
-    "gray": '#505253',
-    "graygrad": ['#374041','#505253'],
-    "darkgray": '#343637',
-    "black": '#1f2122',
-    "acnt1": '#78b892',
-    "acnt1grad": ['#58a779', '#78b892'],
-    "acnt2": '#6791c9',
-    "acnt2grad": ['#4277bd','#6791c9'],
-    "acnt3": '#ecd28b',
-    "acnt3grad": ['#e6c465','#ecd28b'],
-    "alrt": '#df5b61',
-    "alrtgrad": ['#d52a33','#df5b61'],
+    "bg": '#11111b',
+    "barbg": '#313244a3',
+    "fg": '#cdd6f4',
+    "lightgray": '#7f849c',
+    "gray": '#585b70',
+    "graygrad": ['#313244','#585b70'],
+    "darkgray": '#313244',
+    "black": '#181825',
+    "acnt2": '#f5c2e7',
+    "acnt2grad": ['#ed91d5', '#f5c2e7'],
+    "acnt1": '#89b4fa',
+    "acnt1grad": ['#5493f8','#89b4fa'],
+    "acnt3": '#94e2d5',
+    "acnt3grad": ['#4bceb8','#94e2d5'],
+    "alrt": '#f38ba8',
+    "alrtgrad": ['#ec4675','#f38ba8'],
     "transparent": "#fefefe00"
 }
 
@@ -72,9 +90,8 @@ def init_top_widgets():
             font = "Mononoki Nerd Font Mono",
             fmt = "󰌠",
             fontsize = 51,
-            background = colors["acnt1"] + "d9",
+            background = colors["acnt1grad"],
             foreground = colors["black"],
-            # foreground = colors["acnt1grad"],
             padding = 10,
             mouse_callbacks = {
                 "Button1": lazy.spawn("rofi -show run"), # eventually change to rofi script that has fave apps
@@ -155,7 +172,7 @@ def init_top_widgets():
             txt_minimized = "󱞞 ",
             markup_minimized="<span strikethrough='true'>󱞞 {}</span>",
         ),
-        
+
         # right side of bar ------------------------------------------------------------------------------ #
         widget.Sep(**sep_theme),
         # groups

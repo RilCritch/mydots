@@ -13,8 +13,8 @@ layout_theme = {
     "margin_on_single": 20,
     "border_width": 2,
     # "border_focus": "#ecd28b",
-    "border_focus": '#78b892',
-    "border_normal": ['#374041','#505253'],
+    "border_focus": '#f5c2e7',
+    "border_normal": '#313244',
     "border_on_single": True,
 }
 
