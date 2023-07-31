@@ -4,7 +4,7 @@
 conky.config = {
 
 	--Various settings
-	background = false, 							    -- forked to background
+	background = true, 							    -- forked to background
 	cpu_avg_samples = 2,						    -- The number of samples to average for CPU monitoring.
 	diskio_avg_samples = 10,		  	    -- The number of samples to average for disk I/O monitoring.
 	double_buffer = true,						    -- Use the Xdbe extension? (eliminates flicker)
@@ -96,7 +96,7 @@ conky.config = {
 
 conky.text = [[
 # --------------------------------------------------------------------- date/time
-${color7}${alignc}${offset 5}${time %A}${font}
+${color7}${alignc}${offset 5}${time %B}${font}
 ${color3}${voffset -15}${hr}${voffset -15}
 # Calendar# -- works but needs work
 #${voffset -12}${font DejaVu Sans Mono:style=Bold:pixelsize=10}
