@@ -180,12 +180,13 @@ manf () {
 #
 alias nva="NVIM_APPNAME=astro-nvim nvim"
 alias nvc="NVIM_APPNAME=nv-chad nvim"
+alias nvl="NVIM_APPNAME=lazy-nvim nvim"
 
-nvims() {
-  items=("default" "astro-nvim" "nv-chad")
+snv() {
+  items=("default" "lazy-nvim" "astro-nvim" "nv-chad" "cosmic-nvim")
   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0 --color='border:8,pointer:2,hl+:4,fg:7,fg+:2')
   if [[ -z $config ]]; then
-    echo "Nothing selected"
+    # echo "Nothing selected"
     return 0
   elif [[ $config == "default" ]]; then
     config=""
