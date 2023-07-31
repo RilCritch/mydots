@@ -7,14 +7,25 @@
 * {
     font:   "JetBrainsMono Nerd Font 12";
 
-    bg0:    #0c0e0fbf;
-    bg0-n:    #0c0e0f;
-    bg1:    #34363780;
-    bg2:    #78b892f6;
-    bg2-a:    #6791c9f6;
+    // yoru
+    // bg0:    #0c0e0fbf;
+    // bg0-n:    #0c0e0f;
+    // bg1:    #34363780;
+    // bg2:    #78b892f6;
+    // bg2-a:    #6791c9f6;
 
-    fg0:    #edeff0;
-    fg1:    #7d7f80;
+    // fg0:    #edeff0;
+    // fg1:    #7d7f80;
+    // fg2:    #DEDEDE80;
+
+    bg0:    #11111bbf;
+    bg0-n:    #11111b;
+    bg1:    #31324480;
+    bg2:    #f5c2e7f6;
+    bg2-a:    #6c7086f6;
+
+    fg0:    #cdd6f4;
+    fg1:    #a6adc8;
     fg2:    #DEDEDE80;
 
     background-color:   transparent;
