@@ -3,4 +3,4 @@
 # rofi -show drun
 
 (conky -c $HOME/.config/conky/calander.conkyrc) &
-(conky -c $HOME/.config/conky/general.conkyrc) &
+# (conky -c $HOME/.config/conky/general.conkyrc) &
