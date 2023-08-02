@@ -39,7 +39,7 @@ colors = { # figure out how to place and set colors from json
     "acnt2": '#f5c2e7',
     "acnt2grad": ['#ed91d5', '#f5c2e7'],
     "acnt1": '#89b4fa',
-    "acnt1grad": ['#5493f8','#89b4fa'],
+    "acnt1grad": ['#6ca2f9','#89b4fa'],
     "acnt3": '#94e2d5',
     "acnt3grad": ['#4bceb8','#94e2d5'],
     "alrt": '#f38ba8',
