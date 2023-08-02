@@ -1,6 +1,5 @@
 #!/usr/bin/env lua
 
-
 -- local variables - from luasnip docs
 local ls = require("luasnip")
 local s = ls.snippet
@@ -31,7 +30,6 @@ local ms = ls.multi_snippet
 local k = require("luasnip.nodes.key_indexer").new_key
 local add = ls.add_snippets
 
-
 ----------------------------------------------------------- help {{{
 --[[ multiline text 
 	-- use a list
@@ -41,21 +39,23 @@ local add = ls.add_snippets
 --]]
 --- }}}
 
-
 ----------------------------------------------------------- global snippets {{{
 add("all", {
 	s("bang", {
-		t({"#!/usr/bin/env "}), i(0),
-    })
+		t({ "#!/usr/bin/env " }),
+		i(0),
+	}),
 })
 -- }}}
 
 add("lua", {
-    s("header", {
-        t({"-- Description: "}), i(1),
-        t({"", "--", "--"}),
-        t({"", "-- Author: RilCritch"}),
-        t({"", "--", "--"}),
-        t({"", "-- Date Created: "}), i(0), -- figure out good way to do manually
-    })
+	s("header", {
+		t({ "-- Description: " }),
+		i(1),
+		t({ "", "--", "--" }),
+		t({ "", "-- Author: RilCritch" }),
+		t({ "", "--", "--" }),
+		t({ "", "-- Date Created: " }),
+		i(0), -- figure out good way to do manually
+	}),
 })
