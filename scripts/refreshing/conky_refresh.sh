@@ -4,6 +4,5 @@
 
 pkill conky
 
-(conky -c $HOME/.config/conky/qtile.conkyrc) &
-(conky -c $HOME/.config/conky/general.conkyrc) &
-
+# (conky -c $HOME/.config/conky/qtile.conkyrc) &
+(conky -c $HOME/.config/conky/calander.conkyrc) &
