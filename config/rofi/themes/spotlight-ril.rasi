@@ -123,8 +123,8 @@ element-text {
 
 mode-switcher {
     //background-color: @bg1;
-    border: 1px 0 0;
-    border-color: @bg2;
+    //border: 1px 0 0;
+    //border-color: @bg2;
 }
 
 button {
