@@ -97,5 +97,5 @@ conky.text = [[
 ${color7}${alignc}${offset 5}${time %B}${font}
 ${color3}${voffset -15}${hr}${voffset -15}
 ${font JetBrainsMono Nerd Font:Medium:size=16}${color2}\
-${execpi 1800 cal | tail -n +2 | while IFS= read -r line; do echo "${alignc}${line}"; done }${color}${font}${voffset -15}
+${execpi 1800 cal | tail -n +2 | while IFS= read -r line; do echo "${alignc}${line}"; done }${color}${font}${voffset -40}
 ]]
