@@ -56,8 +56,8 @@ alias cca='clear &&'
 alias ccda='clear && pwd &&'
 
 # pretty
-alias c="clear && sparky | clr magenta && lineacross | clr"
-alias ca="clear && sparky | clr magenta && lineacross | clr &&"
+alias c="clear && sparky | clr blue && lineacross | clr"
+alias ca="clear && sparky | clr blue && lineacross | clr &&"
 
 # }}}
 
@@ -98,6 +98,7 @@ alias words="wc -w"
 alias cp="cp -i"
 alias rm="rm -I"
 alias mv="mv -i"
+alias mkdir="mkdir -p"
 
 # }}}
 

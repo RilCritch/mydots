@@ -94,7 +94,7 @@ ccdf() {
 	if [ -n "$choice" ]; then
 		cd $choice
 		clear
-		sparky | clr magenta
+		sparky | clr blue
 		lineacross | clr
 		echo -n "Now in "
 		echo "$(pwd)" | clr cyan
@@ -125,7 +125,7 @@ ccdfr() {
 	if [ -n "$choice" ]; then
 		cd $choice
 		clear
-		sparky | clr magenta
+		sparky | clr blue
 		lineacross | clr
 		echo -n "Now in "
 		echo "$(pwd)" | clr cyan

@@ -38,7 +38,7 @@ if [ -d "$HOME/.cargo/bin" ]; then
 fi
 
 if which ruby >/dev/null && which gem >/dev/null; then
-    PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+	PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
 #ignore upper and lowercase when TAB completion
