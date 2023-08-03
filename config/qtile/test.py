@@ -30,7 +30,7 @@ print("group keys:")
 for item in group_keys:
     print(f"{item.modifiers} + {item.key} -- {item.desc}")
 
-    
+
 print()
 print("spad keys:")
 for item in spad_keys:
