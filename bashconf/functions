@@ -75,7 +75,7 @@ palette() {
 
 # fast cd - basic
 cdf() {
-	choice=$(find $HOME -type d | fzf --header-first --reverse --color=16 --prompt='▶ ' --pointer='󱦰' --preview 'exa --tree -la --icons -F -L=2 --group-directories-first --no-filesize --no-user --time-style='long-iso' {}')
+	choice=$(find $HOME -type d | fzf --header-first --reverse --prompt='▶ ' --pointer='󱦰' --preview 'exa --tree -la --icons -F -L=2 --group-directories-first --no-filesize --no-user --time-style='long-iso' {}')
 
 	if [ -n "$choice" ]; then
 		cd $choice
@@ -89,7 +89,7 @@ cdf() {
 
 # fast cd - verbose and clear screen
 ccdf() {
-	choice=$(find $HOME -type d | fzf --header-first --reverse --color=16 --prompt='▶ ' --pointer='󱦰' --preview 'exa --tree -la --icons -F -L=2 --group-directories-first --no-filesize --no-user --time-style='long-iso' {}')
+	choice=$(find $HOME -type d | fzf --header-first --reverse --prompt='▶ ' --pointer='󱦰' --preview 'exa --tree -la --icons -F -L=2 --group-directories-first --no-filesize --no-user --time-style='long-iso' {}')
 
 	if [ -n "$choice" ]; then
 		cd $choice
@@ -106,7 +106,7 @@ ccdf() {
 # fast cd on root - basic
 cdfr() {
 	sudo -v
-	choice=$(sudo find / -type d | fzf --header-first --reverse --color=16 --prompt='▶ ' --pointer='󱦰' --preview 'exa --tree -la --icons -F -L=2 --group-directories-first --no-filesize --no-user --time-style='long-iso' {}')
+	choice=$(sudo find / -type d | fzf --header-first --reverse --prompt='▶ ' --pointer='󱦰' --preview 'exa --tree -la --icons -F -L=2 --group-directories-first --no-filesize --no-user --time-style='long-iso' {}')
 
 	if [ -n "$choice" ]; then
 		cd $choice
@@ -120,7 +120,7 @@ cdfr() {
 # fast cd on root - verbose and clear screen
 ccdfr() {
 	sudo -v
-	choice=$(sudo find / -type d | fzf --header-first --reverse --color=16 --prompt='▶ ' --pointer='󱦰' --preview 'exa --tree -la --icons -F -L=2 --group-directories-first --no-filesize --no-user --time-style='long-iso' {}')
+	choice=$(sudo find / -type d | fzf --header-first --reverse --prompt='▶ ' --pointer='󱦰' --preview 'exa --tree -la --icons -F -L=2 --group-directories-first --no-filesize --no-user --time-style='long-iso' {}')
 
 	if [ -n "$choice" ]; then
 		cd $choice
@@ -136,7 +136,7 @@ ccdfr() {
 
 # pacman searching
 pacf() {
-	choice=$(pacman -Slq | fzf --header-first --reverse --color=16 --prompt='▶ ' --pointer='󱦰' --preview 'pacman -Si {}')
+	choice=$(pacman -Slq | fzf --header-first --reverse --prompt='▶ ' --pointer='󱦰' --preview 'pacman -Si {}')
 
 	if [ -n "$choice" ]; then
 		echo "Installing $choice" | clr green
@@ -146,7 +146,7 @@ pacf() {
 
 # AUR searching
 aurf() {
-	choice=$(yay -a -Slq | fzf --header-first --reverse --color=16 --prompt='▶ ' --pointer='󱦰' --preview 'yay -Si {}')
+	choice=$(yay -a -Slq | fzf --header-first --reverse --prompt='▶ ' --pointer='󱦰' --preview 'yay -Si {}')
 
 	if [ -n "$choice" ]; then
 		echo "Installing $choice" | clr green
@@ -156,7 +156,7 @@ aurf() {
 
 # flatpak searching
 flatf() {
-	choice=$(flatpak remote-ls flathub | awk '{ printf "%s %s\n", $1, $2, $3 }' | fzf --header-first --reverse --color=16 --prompt='▶ ' --pointer='󱦰' --preview $'flatpak remote-info flathub "$(echo {} | awk \'{printf "%s", $2}\')"')
+	choice=$(flatpak remote-ls flathub | awk '{ printf "%s %s\n", $1, $2, $3 }' | fzf --header-first --reverse --prompt='▶ ' --pointer='󱦰' --preview $'flatpak remote-info flathub "$(echo {} | awk \'{printf "%s", $2}\')"')
 
 	if [ -n "$choice" ]; then
 		echo "Installing $choice" | clr green
@@ -166,7 +166,7 @@ flatf() {
 
 # man page searching
 manf() {
-	choice=$(\man -k . | awk -F ' - ' '{print $1}' | fzf -q "$1" --prompt='Man Pages ▶ ' --pointer='󱦰' --header-first --reverse --color=16 --preview $'echo {} | tr -d \'()\' | awk \'{printf "%s ", $2} {print $1}\' | xargs -r man | ccat --color="always" | less -R' | tr -d ' ')
+	choice=$(\man -k . | awk -F ' - ' '{print $1}' | fzf -q "$1" --prompt='Man Pages ▶ ' --pointer='󱦰' --header-first --reverse --preview $'echo {} | tr -d \'()\' | awk \'{printf "%s ", $2} {print $1}\' | xargs -r man | ccat --color="always" | less -R' | tr -d ' ')
 
 	if [ -n "$choice" ]; then
 		\man $choice | ccat --color="always" | less -R
@@ -185,7 +185,7 @@ alias nvf="NVIM_APPNAME=from-scratch nvim"
 
 snv() {
 	items=("default" "from-scratch" "lazy-nvim" "astro-nvim" "nv-chad" "cosmic-nvim")
-	config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0 --color='border:8,pointer:5,hl+:4,fg:7,fg+:5')
+	config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --exit-0)
 	if [[ -z $config ]]; then
 		# echo "Nothing selected"
 		return 0
