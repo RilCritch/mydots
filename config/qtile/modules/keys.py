@@ -9,8 +9,8 @@ from libqtile.lazy import lazy
 
 from modules.settings import SUPER, SHIFT, ALT, CONTROL, TERMINAL, BROWSER
 
+# windows {{{
 window_keys = [
-# {{{
     # window focus
     Key(
         [SUPER], "h", 
@@ -113,9 +113,8 @@ window_keys = [
 ]
 # }}}
 
-# system
+# system {{{
 system_keys = [
-# {{{
     # qtile
     # Key(
     #     [SUPER, CONTROL], "r", 
@@ -140,9 +139,8 @@ system_keys = [
 ]
 # }}}
 
-# applications
+# applications {{{
 app_keys = [
-# {{{    
     # rofi
     Key(
         [SUPER, SHIFT], "r", 
