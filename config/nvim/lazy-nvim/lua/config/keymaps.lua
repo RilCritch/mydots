@@ -33,3 +33,6 @@ map("n", ";", ":", { desc = "Quick command mode" })
 -- colorizer
 map("n", "<leader>cc", "<cmd>ColorizerToggle<cr>", { desc = "Toggle color highlighting" })
 map("n", "<leader>ce", "<cmd>ColorizerAttachToBuffer<cr>", { desc = "Enable color highlighting" })
+
+-- windows
+map("n", "<leader>wo", "<C-W>o", { desc = "Close all other windows", remap = true })
