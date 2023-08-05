@@ -22,4 +22,9 @@ return {
       require("modicator").setup()
     end,
   },
+
+  { -- making delimiters easier to distinguish
+    "HiPhish/rainbow-delimiters.nvim",
+    -- extra configuration here if needed
+  },
 }
