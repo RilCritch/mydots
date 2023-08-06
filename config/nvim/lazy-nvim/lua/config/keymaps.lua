@@ -23,9 +23,8 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
--- LazyVim overrides {{{
---
--- }}}
+--  overrides
+map("n", ",", "")
 
 -- utility
 map("n", ";", ":", { desc = "Quick command mode" })
@@ -41,4 +40,4 @@ map("n", "<leader>wo", "<C-W>o", { desc = "Close all other windows", remap = tru
 map("n", "<leader>mc", "<cmd>MdEval<cr>", { desc = "Run code block", silent = true, noremap = true })
 
 -- user interface
-map("n", "<leader>ua", "<cmd>AerialToggle<cr>", { desc = "Toggle aerial", silent = true, noremap = true }) -- code overview
+map("n", "<leader>ma", "<cmd>AerialToggle<cr>", { desc = "Toggle aerial", silent = true, noremap = true }) -- code overview
