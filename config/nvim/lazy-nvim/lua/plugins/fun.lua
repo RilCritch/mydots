@@ -3,8 +3,8 @@ return {
     "tamton-aquib/zone.nvim",
     config = function()
       require("zone").setup({
-        style = "treadmill",
-        after = 600, -- Idle timeout
+        style = "epilepsy",
+        after = 1200, -- Idle timeout
         exclude_filetypes = { "TelescopePrompt", "NvimTree", "neo-tree", "dashboard", "lazy" },
         -- More options to come later
 
@@ -15,8 +15,8 @@ return {
           -- Opts for Treadmill style
         },
         epilepsy = {
-          stage = "aura", -- "aura" or "ictal"
-          tick_time = 100,
+          stage = "ictal", -- "aura" or "ictal"
+          tick_time = 200,
         },
         dvd = {
           -- text = {"line1", "line2", "line3", "etc"}

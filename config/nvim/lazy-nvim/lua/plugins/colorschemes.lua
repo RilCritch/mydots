@@ -1,23 +1,4 @@
 return {
-  -- {  -- tokyonight
-  --   "folke/tokyonight.nvim",
-  --   lazy = false,
-  --   priority = 1000,
-  --   opts = {
-  --     style = "night",
-  --     -- transparent = true,
-  --   },
-  -- },
-  --
-  -- { -- nordic
-  --   "AlexvZyl/nordic.nvim",
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --     require("nordic").load()
-  --   end,
-  -- },
-
   {
     "catppuccin/nvim",
     name = "catppuccin",
@@ -29,6 +10,9 @@ return {
           base = "#181825",
           mantle = "#1e1e2e",
         },
+      },
+      integrations = {
+        aerial = true,
       },
     },
   },
