@@ -13,6 +13,7 @@ return {
       },
       integrations = {
         aerial = true,
+        markdown = true,
       },
     },
   },
