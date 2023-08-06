@@ -40,5 +40,5 @@ map("n", "<leader>wo", "<C-W>o", { desc = "Close all other windows", remap = tru
 -- markdown
 map("n", "<leader>mc", "<cmd>MdEval<cr>", { desc = "Run code block", silent = true, noremap = true })
 
--- minimap
-map("n", "<leader>mm", require("codewindow").toggle_minimap, { desc = "Toggle minimap", silent = true, noremap = true })
+-- user interface
+map("n", "<leader>ua", "<cmd>AerialToggle<cr>", { desc = "Toggle aerial", silent = true, noremap = true }) -- code overview
