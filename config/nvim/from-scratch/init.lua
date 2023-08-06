@@ -89,7 +89,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 -- }}}
 
------------------------------------------------------------ themeimg {{{
+----------------------------------------------------------- themimg {{{
 -- Theme
 local theme = {
 	bg = "#0c0e0f",
