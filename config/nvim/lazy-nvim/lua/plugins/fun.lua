@@ -26,20 +26,4 @@ return {
       })
     end,
   },
-
-  -- { -- needs a newer version of neovim unfortunately
-  --   "lewis6991/satellite.nvim",
-  --   config = function()
-  --     require("satellite").setup()
-  --   end,
-  -- },
-
-  -- {
-  --   "gorbit99/codewindow.nvim",
-  --   config = function()
-  --     local codewindow = require("codewindow")
-  --     codewindow.setup()
-  --     codewindow.apply_default_keybinds()
-  --   end,
-  -- },
 }
