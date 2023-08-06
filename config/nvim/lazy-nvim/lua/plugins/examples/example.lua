@@ -10,7 +10,7 @@ if true then return {} end
 -- * override the configuration of LazyVim plugins
 
 -- May be useful for creating my own colorscheme
-  --[[ require("lazy.core.util").try(function()
+--[[ require("lazy.core.util").try(function()
     if type(M.colorscheme) == "function" then
       M.colorscheme()
     else
