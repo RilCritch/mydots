@@ -36,3 +36,6 @@ map("n", "<leader>ce", "<cmd>ColorizerAttachToBuffer<cr>", { desc = "Enable colo
 
 -- windows
 map("n", "<leader>wo", "<C-W>o", { desc = "Close all other windows", remap = true })
+
+-- markdown
+map("n", "<leader>mc", "<cmd>MdEval<cr>", { desc = "Run code block", silent = true, noremap = true })
