@@ -33,7 +33,7 @@ return {
     opts = {},
   },
 
-  {
+  { -- TODO: Look into disabling oil in the bufferline
     "stevearc/oil.nvim",
     init = function() end,
     opts = {
