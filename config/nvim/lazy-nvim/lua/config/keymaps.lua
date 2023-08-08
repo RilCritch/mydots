@@ -41,4 +41,7 @@ map("n", "<leader>mc", "<cmd>MdEval<cr>", { desc = "Run code block", silent = tr
 map("n", "<leader>nn", "<cmd>Neorg workspace notes<cr>", { desc = "Notes", silent = true, noremap = true })
 
 -- user interface
-map("n", "<leader>ma", "<cmd>AerialToggle<cr>", { desc = "Toggle aerial", silent = true, noremap = true }) -- code overview
+map("n", "<leader>cv", "<cmd>AerialToggle<cr>", { desc = "Toggle aerial", silent = true, noremap = true }) -- code overview
+map("n", "<leader>e", function() -- toggle oil
+  require("oil").toggle_float(nil)
+end, { desc = "Toggle oil", silent = true })

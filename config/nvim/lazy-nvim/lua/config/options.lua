@@ -60,3 +60,9 @@ end
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
+
+-- This for some reason doesn't work. Where is NormalFloat getting set?
+-- local mocha = require("catppuccin.palettes").get_palette("mocha") -- retrieving catppuccin colors
+-- local hl = vim.api.nvim_set_hl
+--
+-- hl(0, "NormalFloat", { fg = mocha.text, bg = mocha.surface0 }) -- Figure out what it is using for bg

@@ -12,11 +12,30 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     init = function() end, -- disabling neo-tree when nvim is called on directories
+    keys = function() -- overiding <leader>e and <leader>E
+      return {
+        {
+          "<leader>fe",
+          function()
+            require("neo-tree.command").execute({ toggle = true, dir = require("lazyvim.util").get_root() })
+          end,
+          desc = "Explorer NeoTree (root dir)",
+        },
+        {
+          "<leader>fE",
+          function()
+            require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
+          end,
+          desc = "Explorer NeoTree (cwd)",
+        },
+      }
+    end,
     opts = {},
   },
 
   {
     "stevearc/oil.nvim",
+    init = function() end,
     opts = {
       -- Id is automatically added at the beginning, and name at the end
       -- See :help oil-columns
@@ -35,7 +54,7 @@ return {
       win_options = {
         wrap = false,
         signcolumn = "no",
-        cursorcolumn = false,
+        cursorcolumn = true,
         foldcolumn = "0",
         spell = false,
         list = false,
@@ -92,12 +111,13 @@ return {
       -- Configuration for the floating window in oil.open_float
       float = {
         -- Padding around the floating window
-        padding = 2,
+        padding = 10,
+        margin = 20,
         max_width = 0,
         max_height = 0,
-        border = "rounded",
+        border = "none",
         win_options = {
-          winblend = 10,
+          winblend = 0,
         },
         -- This is the config that will be passed to nvim_open_win.
         -- Change values here to customize the layout
