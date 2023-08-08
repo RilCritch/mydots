@@ -36,8 +36,9 @@ map("n", "<leader>ce", "<cmd>ColorizerAttachToBuffer<cr>", { desc = "Enable colo
 -- windows
 map("n", "<leader>wo", "<C-W>o", { desc = "Close all other windows", remap = true })
 
--- markdown
+-- notes/documents
 map("n", "<leader>mc", "<cmd>MdEval<cr>", { desc = "Run code block", silent = true, noremap = true })
+map("n", "<leader>nn", "<cmd>Neorg workspace notes<cr>", { desc = "Notes", silent = true, noremap = true })
 
 -- user interface
 map("n", "<leader>ma", "<cmd>AerialToggle<cr>", { desc = "Toggle aerial", silent = true, noremap = true }) -- code overview
