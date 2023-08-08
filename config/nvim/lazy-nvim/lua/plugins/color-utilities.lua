@@ -16,7 +16,7 @@ return {
       hl(0, "InsertMode", { fg = mocha.green })
       hl(0, "VisualMode", { fg = mocha.mauve })
       hl(0, "CommandMode", { fg = mocha.peach })
-      hl(0, "ReplaceMode", { fg = mocha.red })
+      hl(0, "ReplaceMode", { fg = mocha.pink })
       hl(0, "SelectMode", { fg = mocha.blue })
       hl(0, "TerminalMode", { fg = mocha.blue })
       hl(0, "TerminalNormalMode", { fg = mocha.blue })
