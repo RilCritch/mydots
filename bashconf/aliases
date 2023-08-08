@@ -61,10 +61,12 @@ alias ca="clear && sparky | clr blue && lineacross | clr &&"
 
 # }}}
 
-## directory navigation {{{
+## directory/filemanagement {{{
 
-# cd utils
-# alias cb='cd -'
+# Check out functions for cool cd fuzzy find
+
+# Use neovim and oil.nvim as a file manager
+alias fm="nvim -c Oil"
 
 # }}}
 
