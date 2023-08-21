@@ -10,6 +10,7 @@ CONTROL = "control"
 # applications
 TERMINAL = "kitty"
 BROWSER = "firefox"
+EDITOR = "kitty -e nvim"
 
 # qtile configuration options {{{
 

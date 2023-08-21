@@ -3,7 +3,7 @@
 from libqtile.config import DropDown, Key, Match
 from libqtile.lazy import lazy
 
-from modules.settings import SUPER, SHIFT, TERMINAL
+from modules.settings import SUPER, SHIFT, TERMINAL, BROWSER
     
 from modules.confutils import window_info
 
@@ -58,7 +58,7 @@ spads = [
         "qtilekeys",
         SCRATCHTERM + " --hold -e /home/rc/mydots/scripts/qtilekeys",
         0.9,
-        window_info.calculate_size_percent(1500),
+        window_info.calculate_size_percent(1700),
         None,
         None,
         True,
@@ -92,6 +92,16 @@ spads = [
         None,
         True,
     ),
+    # scratchgen(
+    #     "browser",
+    #     "/usr/bin/" + BROWSER,
+    #     0.9,
+    #     window_info.calculate_size_percent(2250),
+    #     None,
+    #     None,
+    #     True,
+    #     "floating",
+    # ),
 ]
 
 # scratchpad keybindings
@@ -102,7 +112,7 @@ spad_keys = [
         desc="Launch terminal scratch",
     ),
     Key(
-        [SUPER], 'b',
+        [SUPER, SHIFT], 'b',
         lazy.group['scratchpad'].dropdown_toggle('qtilekeys'),
         desc="Launch qtile keybindings scratch",
     ),
@@ -116,6 +126,11 @@ spad_keys = [
         lazy.group['scratchpad'].dropdown_toggle('cdopen'),
         desc="Launch terminal in specified directory",
     ),
+    # Key(
+    #     [SUPER, SHIFT], 'w',
+    #     lazy.group['scratchpad'].dropdown_toggle('browser'),
+    #     desc="Launch browser scratch",
+    # ),
     # Key(
     #     [SUPER, SHIFT], 'w',
     #     lazy.group['scratchpad'].dropdown_toggle('nitrogen'),

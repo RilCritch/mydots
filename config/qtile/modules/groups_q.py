@@ -3,7 +3,7 @@
 from libqtile.config import Group, Key
 from libqtile.lazy import lazy
 
-from modules.settings import SUPER, SHIFT
+from modules.settings import SUPER, SHIFT, CONTROL
 
 # main group info
 group_names = [
@@ -61,23 +61,23 @@ group_keys = []
 for i in main_groups:
     group_keys.extend(
         [
-            # mod1 + letter of group = switch to group
-            Key(
+            Key( # switch to group
                 [SUPER],
                 i.name,
                 lazy.group[i.name].toscreen(),
                 desc="Switch to group {}".format(i.name),
                 ),
-            # mod1 + shift + letter of group = switch to & move focused window to group
-            Key(
+            Key( # move focused window to specified group
                 [SUPER, SHIFT],
+                i.name,
+                lazy.window.togroup(i.name, switch_group=False),
+                desc="Switch to & move focused window to group {}".format(i.name),
+                ),
+            Key( # move focused window to specified group and your focus to that group
+                [SUPER, CONTROL],
                 i.name,
                 lazy.window.togroup(i.name, switch_group=True),
                 desc="Switch to & move focused window to group {}".format(i.name),
                 ),
-            # Or, use below if you prefer not to switch to that group.
-            # # mod1 + shift + letter of group = move focused window to group
-            # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-            #     desc="move focused window to group {}".format(i.name)),
             ]
         )

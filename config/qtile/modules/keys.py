@@ -7,7 +7,7 @@ import importlib
 from libqtile.config import Key
 from libqtile.lazy import lazy
 
-from modules.settings import SUPER, SHIFT, ALT, CONTROL, TERMINAL, BROWSER
+from modules.settings import SUPER, SHIFT, ALT, CONTROL, TERMINAL, BROWSER, EDITOR
 
 # windows {{{
 window_keys = [
@@ -34,25 +34,25 @@ window_keys = [
     ),
     # window move
     Key(
-        [SUPER, SHIFT], "h", 
+        [ALT], "h", 
         lazy.layout.shuffle_left(), 
         lazy.layout.move_left(),
         desc="Move window to the left",
     ),
     Key(
-        [SUPER, SHIFT], "l", 
+        [ALT], "l", 
         lazy.layout.shuffle_right(), 
         lazy.layout.move_right(),
         desc="Move window to the right",
     ),
     Key(
-        [SUPER, SHIFT], "j", 
+        [ALT], "j", 
         lazy.layout.shuffle_down(), 
         lazy.layout.move_down(),
         desc="Move window down",
     ),
     Key(
-        [SUPER, SHIFT], "k", 
+        [ALT], "k", 
         lazy.layout.shuffle_up(), 
         lazy.layout.move_up(),
         desc="Move window up",
@@ -81,35 +81,35 @@ window_keys = [
         desc="Grow window up"
     ),
     Key(
-        [SUPER, SHIFT], "q", 
+        [SUPER, CONTROL], "c", 
         lazy.window.kill(), 
         desc="Kill focused window",
     ),
     Key(
-        [SUPER], "Down", 
-        lazy.window.toggle_minimize(), 
+        [SUPER], "minus",
+        lazy.window.toggle_minimize(),
         desc="Make focused window hidden",
     ),
     Key(
-        [SUPER], "Up", 
-        lazy.window.toggle_fullscreen(), 
+        [SUPER], "equal",
+        lazy.window.toggle_fullscreen(),
         desc="Make focused window fullscreen",
     ),
-    Key(
-        [SUPER], "f", 
-        lazy.window.toggle_floating(), 
+    Key( # rarely need
+        [SUPER, CONTROL, SHIFT, ALT], "f",
+        lazy.window.toggle_floating(),
         desc="Make focused window floating",
     ),
     Key(
-        [SUPER], "space", 
-        lazy.next_layout(), 
+        [SUPER], "tab",
+        lazy.next_layout(),
         desc="Switch to next layout",
     ),
-    Key(
-        [SUPER, SHIFT], "space", 
-        lazy.prev_layout(), 
-        desc="Switch to previous layout",
-    ),
+    # Key( # don't need
+    #     [SUPER, SHIFT], "tab",
+    #     lazy.prev_layout(),
+    #     desc="Switch to previous layout",
+    # ),
 ]
 # }}}
 
@@ -143,21 +143,27 @@ system_keys = [
 app_keys = [
     # rofi
     Key(
-        [SUPER, SHIFT], "r", 
-        lazy.spawn("rofi -modes 'run,drun' -show drun"), 
+        [SUPER], "r",
+        lazy.spawn("rofi -modes 'run,drun' -show drun"),
         desc="Launch rofi",
     ),
+    # browser
     Key(
-        [SUPER, SHIFT], "b", 
-        lazy.spawn(BROWSER), 
+        [SUPER], "w",
+        lazy.spawn(BROWSER),
         desc="Launch browser",
     ),
     # terminal
     Key(
-        [SUPER], 
-        "Return", 
-        lazy.spawn(TERMINAL), 
+        [SUPER],
+        "Return",
+        lazy.spawn(TERMINAL),
         desc="Launch terminal"
+    ),
+    Key(
+        [SUPER], "e",
+        lazy.spawn(EDITOR),
+        desc="Launch editor"
     ),
 ]
 # }}}

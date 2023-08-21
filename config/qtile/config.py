@@ -5,11 +5,10 @@ import subprocess
 
 from libqtile import layout, hook
 from libqtile.config import Screen, ScratchPad
-from libqtile import bar
 
 from modules.settings import *
  
-from modules.layouts import layout_theme, base_layouts, base_float_rules
+from modules.layouts import  base_layouts, base_float_rules, floating_opts
 from modules.keys import window_keys, system_keys, app_keys
 from modules.groups_q import main_groups, group_keys
 from modules.scratchpads_q import spads, spad_keys
@@ -21,7 +20,7 @@ keys = []
 keys.extend(window_keys)
 keys.extend(system_keys)
 keys.extend(app_keys)
-    
+
 # main layouts
 layouts = base_layouts
 
@@ -34,7 +33,7 @@ groups = []
 groups.extend(main_groups)
 keys.extend(group_keys)
 
-# Scratchpads 
+# Scratchpads
 groups.append(ScratchPad("scratchpad", spads))
 keys.extend(spad_keys)
 
@@ -55,7 +54,7 @@ screens = [
 ]
 
 # floating layout
-floating_layout = layout.Floating(base_float_rules, **layout_theme)
+floating_layout = layout.Floating(base_float_rules, **floating_opts)
 
 # hooks
 # startup

@@ -12,7 +12,6 @@ layout_theme = {
     "margin": 15,
     "margin_on_single": 20,
     "border_width": 2,
-    # "border_focus": "#ecd28b",
     "border_focus": '#f5c2e7',
     "border_normal": '#313244',
     "border_on_single": True,
@@ -34,6 +33,14 @@ max_opts = {
 three_col_opts = {
     "single_margin": [15, 1350, 15, 1350],
     "ratio": 0.40,
+}
+
+floating_opts = {
+    "border_focus": '#89b4fa',
+    "border_normal": '#313244',
+    "border_width": 3,
+    "fullscreen_border_width": 0,
+    "max_border_width": 1,
 }
 
 # monadtall_opts = {
