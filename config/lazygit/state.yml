@@ -1,11 +1,13 @@
 lastupdatecheck: 0
 recentrepos:
-    - /home/rc/mydots
-    - /home/rc/.config/cosmic-nvim
-    - /home/rc/.config/nv-chad/lua/custom
-    - /home/rc/pictures/images
+- /home/rc/mydots
+- /home/rc/.config/qmk
+- /home/rc/.config/cosmic-nvim
+- /home/rc/.config/nv-chad/lua/custom
+- /home/rc/pictures/images
 startuppopupversion: 5
 customcommandshistory:
-    - q
-    - wq
+- q
+- wq
 hidecommandlog: false
+ignorewhitespaceindiffview: false
