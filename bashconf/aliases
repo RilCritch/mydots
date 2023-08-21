@@ -26,6 +26,7 @@ alias prsh="print-reminders.sh"
 
 # base
 alias ls='exa --group-directories-first --icons'
+alias sl='exa --group-directories-first --icons'
 alias lsa='exa -a --group-directories-first --icons'
 
 alias ll='exa -l --group-directories-first --grid --no-filesize --icons --no-user --no-filesize'
@@ -61,12 +62,15 @@ alias ca="clear && sparky | clr blue && lineacross | clr &&"
 
 # }}}
 
-## directory/filemanagement {{{
+## directory / file management {{{
 
 # Check out functions for cool cd fuzzy find
 
 # Use neovim and oil.nvim as a file manager
 alias fm="nvim -c Oil"
+
+# my corne firmware
+alias keeb="cd /home/rc/.config/qmk/keyboards/crkbd/rev1/keymaps/RilCritch/"
 
 # }}}
 
@@ -102,6 +106,9 @@ alias rm="rm -I"
 alias mv="mv -i"
 alias mkdir="mkdir -p"
 
+# dmenu
+alias dmenu_run='dmenu_run -fn "MononokiNerdFont-32" -nb "#1e1e2e" -nf "#cdd6f4" -sb "#f5c2e7" -sf "#1e1e2e"'
+
 # }}}
 
 ## programming {{{
@@ -131,7 +138,7 @@ alias sprs='sudo pacman -Rs'                     # remove pkgs and depencies, ca
 alias spqo='sudo pacman -Qo'                     # determines which pkgs owns a specific file
 alias psyu='sudo pacman -Syu'                    # update only standard pkgs
 alias update='sudo pacman -Syyu'                 # refresh pkg list and update standard pkgs
-alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' #remove orphan pkgs
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' # remove orphan pkgs
 
 # yay
 alias yss='yay -Ss'   # search for AUR pkgs
@@ -140,7 +147,7 @@ alias ysyu='yay -Syu' # update standard and AUR pkgs
 
 # paru
 alias pass='paru -Ss'       # search for aur pkgs
-alias pasua='paru -Sua'     #update only AUR pkgs
+alias pasua='paru -Sua'     # update only AUR pkgs
 alias updateall='paru -Syu' # updates standard and AUR pkgs
 
 # info
@@ -168,6 +175,7 @@ alias okolors='/home/rc/mydots/applications/okolors -n 3 -l 10,30,50,70 -s l'
 alias nv='nvim'
 alias vim='vim'
 alias vi='nvim'
+alias sudonv='sudo -E -s nvim' # edit root protected files with nvim configuration
 
 # viewing text
 alias cat='ccat'
