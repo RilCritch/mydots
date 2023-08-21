@@ -25,6 +25,7 @@ end
 
 --  overrides
 map("n", ",", "")
+map("n", "<leader>qq", "")
 
 -- utility
 map("n", ";", ":", { desc = "Quick command mode" })
@@ -45,3 +46,8 @@ map("n", "<leader>cv", "<cmd>AerialToggle<cr>", { desc = "Toggle aerial", silent
 map("n", "<leader>e", function() -- toggle oil
   require("oil").toggle_float(nil)
 end, { desc = "Toggle oil", silent = true })
+
+-- vim control
+map("n", "<leader>vc", "<cmd>qa<cr>", { desc = "Quit all" })
+map("n", "<leader>vs", "<cmd>w<cr><esc>", { desc = "Save file" })
+-- look into making keybinding for wq
