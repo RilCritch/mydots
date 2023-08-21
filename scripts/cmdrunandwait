@@ -34,7 +34,7 @@ if [ -z "$1" ] || [ -n "$2" ]; then
 	errmessage
 	exit 1
 else
-	eval $cmd | ccat
+	eval $cmd | bat -l 'py'
 fi
 
 # wait for user to quit
