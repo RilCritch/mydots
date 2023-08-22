@@ -14,6 +14,10 @@ return {
       integrations = {
         aerial = true,
         markdown = true,
+        nvimtree = true,
+        rainbow_delimiters = true,
+        telescope = true,
+        bufferline = true,
       },
     },
   },
