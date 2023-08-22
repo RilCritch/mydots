@@ -12,7 +12,7 @@ layout_theme = {
     "margin": 15,
     "margin_on_single": 20,
     "border_width": 2,
-    "border_focus": '#f5c2e7',
+    "border_focus": '#89b4fa',
     "border_normal": '#313244',
     "border_on_single": True,
 }
