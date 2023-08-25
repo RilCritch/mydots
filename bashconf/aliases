@@ -160,6 +160,11 @@ alias listpkgsize="expac -H M '%m\t%n' | sort -h | nl" # reads out pkgs and thei
 alias pxi='pipx install'
 alias pxs='pypisearch'
 
+# nala | apt
+alias apti='sudo nala install'
+alias apts='sudo nala search'
+alias aptup='sudo aptitude update && sudo aptitude full-upgrade'
+
 # }}}
 
 ## linux customization {{{
