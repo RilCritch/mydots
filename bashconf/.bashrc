@@ -37,6 +37,14 @@ if [ -d "$HOME/.cargo/bin" ]; then
 	PATH="$HOME/.cargo/bin:$PATH"
 fi
 
+if [ -d "/usr/local/go/bin" ]; then
+	PATH="/usr/local/go/bin:$PATH"
+fi
+
+if [ -d "$HOME/go/bin" ]; then
+	PATH="$HOME/go/bin:$PATH"
+fi
+
 if which ruby >/dev/null && which gem >/dev/null; then
 	PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
