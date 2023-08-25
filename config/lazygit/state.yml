@@ -7,7 +7,7 @@ recentrepos:
 - /home/rc/pictures/images
 startuppopupversion: 5
 customcommandshistory:
-- q
 - wq
+- q
 hidecommandlog: false
 ignorewhitespaceindiffview: false
