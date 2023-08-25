@@ -12,7 +12,7 @@ layout_theme = {
     "margin": 15,
     "margin_on_single": 20,
     "border_width": 2,
-    "border_focus": '#89b4fa',
+    "border_focus": '#F5C2E7',
     "border_normal": '#313244',
     "border_on_single": True,
 }
@@ -25,9 +25,9 @@ columns_opts = {
 
 max_opts = {
     "margin": [15, 1350, 15, 1350],
-    "border_width": 2,
-    "border_focus": '#78b892',
-    "border_normal": ['#374041','#505253'],
+    "border_width": 3,
+    "border_focus": '#7F849C',
+    "border_normal": '#313244',
 }
 
 three_col_opts = {
@@ -36,9 +36,9 @@ three_col_opts = {
 }
 
 floating_opts = {
-    "border_focus": '#89b4fa',
+    "border_focus": '#B4BEFE',
     "border_normal": '#313244',
-    "border_width": 3,
+    "border_width": 2,
     "fullscreen_border_width": 0,
     "max_border_width": 1,
 }
@@ -92,13 +92,13 @@ treetab_opts = {
 # defining layouts that are available on my system - eventually I will create dicts for each layout
 base_layouts = [
     # ones i use
-    layout.Columns(**layout_theme, **columns_opts), # favorite
-    layout.Max(**max_opts),
-    layout.MonadTall(**layout_theme),
-    layout.MonadWide(**layout_theme),
+    layout.MonadThreeCol(**layout_theme, **three_col_opts), # pyright: ignore
+    layout.Max(**max_opts), # pyright: ignore
+    layout.Columns(**layout_theme, **columns_opts), # pyright: ignore
+    layout.MonadTall(**layout_theme), # pyright: ignore
+    layout.MonadWide(**layout_theme), # pyright: ignore
     # need to look into
-    layout.TreeTab(**layout_theme, **treetab_opts), # interesting, look into configuration
-    layout.MonadThreeCol(**layout_theme, **three_col_opts), # great for ultrawide
+    # layout.TreeTab(**layout_theme, **treetab_opts), # interesting, look into configuration
     # layout.Bsp(**layout_theme), # interesting for ultrawide
     # layout.Stack(**layout_theme), # may find useful for something
     # no use case for/ don't like right now
@@ -115,7 +115,7 @@ base_layouts = [
 # floating layout shit
 base_float_rules = [
     # Run the utility of `xprop` to see the wm class and name of an X client.
-    *layout.Floating.default_float_rules,
+    *layout.Floating.default_float_rules, # pyright: ignore
     Match(wm_class="confirmreset"),  # gitk
     Match(wm_class="makebranch"),  # gitk
     Match(wm_class="maketag"),  # gitk

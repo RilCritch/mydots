@@ -121,21 +121,21 @@ system_keys = [
     #     lazy.reload_config(), 
     #     desc="Reload the config",
     # ),
-    Key(
-        [SUPER, CONTROL], "x", 
-        lazy.spawn("/home/rc/mydots/scripts/rofiscripts/powermenu.sh"),
-        desc="Launch logout",
-    ),
-    Key(
-        [SUPER, SHIFT], "c", 
-        lazy.spawn("/home/rc/mydots/scripts/rofiscripts/clipboard.sh"),
-        desc="View clipboard history",
-    ),
-    Key(
-        [SUPER, SHIFT], "s", 
-        lazy.spawn("/home/rc/mydots/scripts/rofiscripts/sysopts-qtile.sh"),
-        desc="Select system options",
-    ),
+    # Key(
+    #     [SUPER, CONTROL], "x", 
+    #     lazy.spawn("/home/rc/mydots/scripts/rofiscripts/powermenu.sh"),
+    #     desc="Launch logout",
+    # ),
+    # Key(
+    #     [SUPER, SHIFT], "c", 
+    #     lazy.spawn("/home/rc/mydots/scripts/rofiscripts/clipboard.sh"),
+    #     desc="View clipboard history",
+    # ),
+    # Key(
+    #     [SUPER, SHIFT], "s", 
+    #     lazy.spawn("/home/rc/mydots/scripts/rofiscripts/sysopts-qtile.sh"),
+    #     desc="Select system options",
+    # ),
 ]
 # }}}
 

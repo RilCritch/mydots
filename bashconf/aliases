@@ -151,10 +151,10 @@ alias pasua='paru -Sua'     # update only AUR pkgs
 alias updateall='paru -Syu' # updates standard and AUR pkgs
 
 # info
-alias listpkg='sudo pacman -Q'                         # list standard packages
-alias listorph='sudo pacman -Qtd'                      # list orphaned pkgs
-alias listaur='sudo pacman -Qm'                        # list AUR pkgs
-alias listpkgsize="expac -H M '%m\t%n' | sort -h | nl" # reads out pkgs and their sizes
+alias listpkg='sudo pacman -Q | fzf'                         # list standard packages
+alias listorph='sudo pacman -Qtd | fzf'                      # list orphaned pkgs
+alias listaur='sudo pacman -Qm | fzf'                        # list AUR pkgs
+alias listpkgsize="expac -H M '%m\t%n' | sort -h | nl | fzf" # reads out pkgs and their sizes
 
 # python
 alias pxi='pipx install'
@@ -178,7 +178,7 @@ alias vi='nvim'
 alias sudonv='sudo -E -s nvim' # edit root protected files with nvim configuration
 
 # viewing text
-alias cat='ccat'
+alias cat='bat'
 alias man='batman'
 
 # images
@@ -206,7 +206,7 @@ alias qtilelogs="cd $HOME/.local/share/qtile/"
 ## searching {{{
 
 # fzf
-alias fzf="fzf --color='border:0,pointer:5,bg+:-1,hl:7,hl+:4,fg:8,fg+:7,info:15,header:4,spinner:6' --header-first --reverse --prompt='▶ ' --pointer='󱦰' --no-scrollbar" # defualts to make fzf look better
+alias fzf="fzf --color='border:0,pointer:5,bg+:-1,hl:7,hl+:4,fg:8,fg+:7,info:15,header:4,spinner:6' --header-first --reverse --prompt='▶ ' --pointer='󱦰' --no-scrollbar --height=~50% --layout=reverse --border" # defualts to make fzf look better
 alias fzfonts="fc-list | fzf"
 alias fzfall="find / -type f 2>/dev/null | fzf --preview 'bat --style=numbers --color=always {}' --header 'All Files' --header-first --reverse" # fzf all files
 

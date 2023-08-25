@@ -49,8 +49,8 @@ colors = { # figure out how to place and set colors from json
 
 # defaults
 widget_defaults = dict(
-    font = "Mononoki Nerd Font",
-    fontsize = 18,
+    font = "JetBrainsMono Nerd Font",
+    fontsize = 16,
     padding = 7,
     foreground = colors["fg"],
     background = colors["barbg"],
@@ -67,6 +67,7 @@ sep_theme = { # section seperator
 mini_sep = { # sep for within section
     "size_percent": 50,
     "foreground": colors["gray"],
+    # "background": colors["black"],
     "linewidth": 2,
     "padding": 3,
 }
@@ -84,24 +85,21 @@ icon_defaults = {
 def init_top_widgets():
     widgets = [
         # right side of bar ------------------------------------------------------------------------------ #
-
         # python logo that runs rofi and logout script
         widget.TextBox( # ** maybe change to image and use mask
             font = "Mononoki Nerd Font Mono",
             fmt = "󰌠",
             fontsize = 51,
             background = colors["acnt1grad"],
-            foreground = colors["bg"] + "df",
+            foreground = colors["black"],
             padding = 10,
             mouse_callbacks = {
-                "Button1": lazy.spawn("rofi -modes 'run,drun' -show drun"), # eventually change to rofi script that has fave apps
+                "Button1": lazy.spawn("rofi -show run"), # eventually change to rofi script that has fave apps
                 "Button3": lazy.spawn("/home/rc/mydots/scripts/rofiscripts/powermenu.sh"), # figure out how to make it floating
             },
         ),
         # end of python logo
-
-        widget.Sep(**sep_theme),
-
+        widget.Sep(**sep_theme), 
         # date
         widget.TextBox( # date icon
             **icon_defaults,
@@ -118,9 +116,7 @@ def init_top_widgets():
         ),
         # end of date
         widget.Spacer(**spacer_theme), 
-
         widget.Sep(**mini_sep),
-
         # time
         widget.TextBox( # time icon
             **icon_defaults,
@@ -137,9 +133,7 @@ def init_top_widgets():
         ),
         # end of time
         widget.Spacer(**spacer_theme),
-
         widget.Sep(**mini_sep),
-
         # volume
         widget.TextBox(
             **icon_defaults,
@@ -155,15 +149,33 @@ def init_top_widgets():
         ),
         # end of volume
         widget.Spacer(**spacer_theme),
-
-        widget.Sep(**sep_theme),
-
-        widget.Spacer(background = colors["acnt2"] + "65"),
-
         widget.Sep(**sep_theme),
 
         # center of bar ---------------------------------------------------------------------------------- #
+        widget.TaskList(
+            highlight_method = "block",
+            title_width_method = "uniform",
+            rounded = False,
+            icon_size = 0,
+            borderwidth = 0,
+            background = colors["transparent"],
+            border = colors["lightgray"] + "79",
+            unfocused_border = colors["barbg"],
+            foreground = colors["fg"] + "cc",
+            margin_x = 0,
+            margin_y = -1,
+            padding_x = 12,
+            padding_y = 12,
+            spacing = 6,
+            txt_floating = "󰀜 ",
+            txt_maximized = "󰊓 ",
+            txt_minimized = "󱞞 ",
+            markup_minimized="<span strikethrough='true'>󱞞 {}</span>",
+        ),
 
+        # right side of bar ------------------------------------------------------------------------------ #
+        widget.Sep(**sep_theme),
+        # groups
         widget.GroupBox(
             font = "Mononoki Nerd Font Mono",
             fontsize = 40,
@@ -171,8 +183,8 @@ def init_top_widgets():
             urgent_alert_method = "block",
             block_highlight_text_color = colors["bg"] + "c5",
             this_current_screen_border = colors["acnt2"] + "c5",
-            active = colors["acnt2"] + "85",
-            inactive = colors["lightgray"] + "65",
+            active = colors["acnt2"] + "c5",
+            inactive = colors["gray"] + "8a",
             margin_x = 0,
             margin_y = 3,
             padding_x = 6,
@@ -180,38 +192,9 @@ def init_top_widgets():
             spacing = 3,
             disable_drag = True,
         ),
-
+        # end of groups
         widget.Sep(**sep_theme),
-
-        # right side of bar ------------------------------------------------------------------------------ #
-
-        # windowname start
-        widget.Spacer(
-            **spacer_theme,
-            background = colors["acnt2"] + "65"
-        ),
-        widget.WindowName(
-            empty_group_string = "RilCritch's Desktop",
-            # font = "Mononoki Nerd Font Bold",
-            fontsize = 20,
-            foreground = colors["black"],
-            background = colors["acnt2"] + "65"
-        ),
-        # windoname end
-
-        # current layout
-        widget.Sep(**sep_theme),
-
-        widget.Spacer(**spacer_theme),
-        widget.CurrentLayout(
-            foreground = colors["acnt2"],
-        ),
-        widget.Spacer(**spacer_theme),
-
-        widget.Sep(**sep_theme),
-
-        # current layout icon
-        widget.CurrentLayoutIcon(
+        widget.CurrentLayoutIcon( # layout icon
             use_mask = True,
             # background = colors["black"],
             foreground = colors["acnt1grad"],
@@ -220,7 +203,7 @@ def init_top_widgets():
             scale = 1,
             padding = 0,
         ),
-        # end of layout icon
+        # end of layout
     ]
     return widgets
 

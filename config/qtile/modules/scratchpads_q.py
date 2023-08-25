@@ -3,7 +3,7 @@
 from libqtile.config import DropDown, Key, Match
 from libqtile.lazy import lazy
 
-from modules.settings import SUPER, SHIFT, TERMINAL, BROWSER
+from modules.settings import CONTROL, SUPER, SHIFT, TERMINAL, BROWSER
     
 from modules.confutils import window_info
 
@@ -20,13 +20,13 @@ def scratchgen(name, spawn, h, w, x=None, y=None, autohide=False, res="", opacit
         spad = DropDown(
             name,
             spawn,
-            match=Match(wm_class=res),
+            match=Match(wm_class=res), # pyright: ignore
             width=w,
             height=h,
             x=x,
             y=y,
-            opacity=opacity,
-            on_focus_lost_hide=autohide,
+            opacity=opacity, # pyright: ignore
+            on_focus_lost_hide=autohide, # pyright: ignore
         )
     else:
         spad = DropDown(
@@ -36,8 +36,8 @@ def scratchgen(name, spawn, h, w, x=None, y=None, autohide=False, res="", opacit
             height=h,
             x=x,
             y=y,
-            opacity=opacity,
-            on_focus_lost_hide=autohide,
+            opacity=opacity, # pyright: ignore
+            on_focus_lost_hide=autohide, # pyright: ignore
         )
     return spad
 
@@ -81,7 +81,6 @@ spads = [
         None,
         None,
         True,
-        "scratchterm",
     ),
     scratchgen(
         "nitrogen",
@@ -90,6 +89,42 @@ spads = [
         window_info.calculate_size_percent(2250),
         None,
         None,
+        True,
+    ),
+    scratchgen(
+        "fzf-run",
+        SCRATCHTERM + "--title='Run Programs' --config='/home/rc/mydots/config/kitty/specialconfigs/menu.conf' -e '/home/rc/mydots/scripts/menus/fzf-dmenu.sh'",
+        0.375,
+        window_info.calculate_size_percent(1150),
+        None,
+        0.025,
+        True,
+    ),
+    scratchgen(
+        "fzf-clip",
+        SCRATCHTERM + "--title='Run Programs' --config='/home/rc/mydots/config/kitty/specialconfigs/menu.conf' -e '/home/rc/mydots/scripts/menus/fzf-clip.sh'",
+        0.375,
+        window_info.calculate_size_percent(1500),
+        None,
+        0.025,
+        True,
+    ),
+    scratchgen(
+        "fzf-sysopts",
+        SCRATCHTERM + "--title='Run Programs' --config='/home/rc/mydots/config/kitty/specialconfigs/menu.conf' -e '/home/rc/mydots/scripts/menus/fzf-sysopts-q.sh'",
+        0.225,
+        window_info.calculate_size_percent(600),
+        None,
+        0.025,
+        True,
+    ),
+    scratchgen(
+        "fzf-powermenu",
+        SCRATCHTERM + "--title='Run Programs' --config='/home/rc/mydots/config/kitty/specialconfigs/menu.conf' -e '/home/rc/mydots/scripts/menus/fzf-powermenu-q.sh'",
+        0.225,
+        window_info.calculate_size_percent(250),
+        None,
+        0.025,
         True,
     ),
     # scratchgen(
@@ -119,12 +154,32 @@ spad_keys = [
     Key(
         [SUPER, SHIFT], 'n',
         lazy.group['scratchpad'].dropdown_toggle('term2'),
-        desc="Launch term typically for editing scratch",
+        desc="Launch secondary terminal scratch",
     ),
     Key(
         [SUPER, SHIFT], 'Return',
         lazy.group['scratchpad'].dropdown_toggle('cdopen'),
         desc="Launch terminal in specified directory",
+    ),
+    Key(
+        [SUPER, SHIFT], 'r',
+        lazy.group['scratchpad'].dropdown_toggle('fzf-run'),
+        desc="Launch programs",
+    ),
+    Key(
+        [SUPER, SHIFT], 'c',
+        lazy.group['scratchpad'].dropdown_toggle('fzf-clip'),
+        desc="View clipboard history",
+    ),
+    Key(
+        [SUPER, SHIFT], 's',
+        lazy.group['scratchpad'].dropdown_toggle('fzf-sysopts'),
+        desc="Select system options",
+    ),
+    Key(
+        [SUPER, CONTROL], 'x',
+        lazy.group['scratchpad'].dropdown_toggle('fzf-powermenu'),
+        desc="Launch power menu",
     ),
     # Key(
     #     [SUPER, SHIFT], 'w',

@@ -16,5 +16,5 @@ selection=$(printf '%s\n' "${options[@]}" | rofi -dmenu -p 'clippy')
 
 # if there was a selection add it to front of clipboard history
 if [ -n "$selection" ]; then
-    echo -n "$selection" | xclip -selection clipboard 
+	echo -n "$selection" | xclip -selection clipboard
 fi

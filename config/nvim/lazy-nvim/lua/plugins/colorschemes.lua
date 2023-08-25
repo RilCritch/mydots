@@ -16,7 +16,6 @@ return {
         markdown = true,
         nvimtree = true,
         rainbow_delimiters = true,
-        telescope = true,
         bufferline = true,
       },
     },
