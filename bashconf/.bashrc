@@ -53,7 +53,7 @@ fi
 bind "set completion-ignore-case on"
 
 ### TEMP STUFF TO ADD TO MY BASH CONFIG FILES ###
-export FZF_DEFAULT_COMMAND="fd"
+export FZF_DEFAULT_COMMAND="fdfind"
 export RANGER_LOAD_DEFAULT_RC=FALSE
 
 #shopt

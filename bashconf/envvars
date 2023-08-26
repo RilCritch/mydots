@@ -18,7 +18,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 ## applications {{{
 
 export EXA_ICON_SPACING=1
-export FZF_DEFAULT_OPTS="--height=~50% --layout=reverse --border"
+export FZF_DEFAULT_OPTS="--color='border:0,pointer:5,bg+:-1,hl:7,hl+:4,fg:8,fg+:7,info:15,header:4,spinner:6' --header-first --prompt='▶ ' --pointer='󱦰' --no-scrollbar --height=~50% --layout=reverse --border"
 
 # }}}
 

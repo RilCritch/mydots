@@ -183,7 +183,8 @@ alias vi='nvim'
 alias sudonv='sudo -E -s nvim' # edit root protected files with nvim configuration
 
 # viewing text
-alias cat='ccat'
+alias cat='batcat'
+alias ct='\cat'
 alias man='batman'
 
 # images
