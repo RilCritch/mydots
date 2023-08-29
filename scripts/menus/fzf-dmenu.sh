@@ -26,6 +26,6 @@
 # cat >$input
 # cat $output
 #
-program=$(compgen -c | uniq | \fzf --color='border:0,label:5,pointer:5,bg+:-1,gutter:-1,hl:7,hl+:4,fg:8,fg+:7,info:0,header:4,spinner:6' --header-first --reverse --prompt='  ' --pointer='󰮺' --no-scrollbar --layout=reverse --border=double --border-label=' Run Programs ' --height=100% --separator='󰇼')
+program=$(dmenu_path | \fzf --color='border:0,label:5,pointer:5,bg+:-1,gutter:-1,hl:7,hl+:4,fg:8,fg+:7,info:0,header:4,spinner:6' --header-first --reverse --prompt='  ' --pointer='󰮺' --no-scrollbar --layout=reverse --border=double --border-label=' Run Programs ' --height=100% --separator='󰇼')
 
 eval systemd-run --user $program
