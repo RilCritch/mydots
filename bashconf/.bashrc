@@ -87,4 +87,5 @@ eval "$(starship init bash)"
 # echo "1. Looking into xonsh - a shell that is also a python interpreter" | clr green
 # echo "2. Create script for handling reminders and and editing and adding them" | clr green
 
-print-reminders.sh
+# print-reminders.sh
+print-reminders.sh && lineacross | clr blackL && pfetch
