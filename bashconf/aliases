@@ -176,6 +176,7 @@ alias nv='nvim'
 alias vim='vim'
 alias vi='nvim'
 alias sudonv='sudo -E -s nvim' # edit root protected files with nvim configuration
+alias nvimtutor="nvim -c Tutor"
 
 # viewing text
 alias cat='bat'
