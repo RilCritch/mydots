@@ -6,3 +6,6 @@ These are my dotfiles for an archlinux system. I am using ArcoLinuxB AwesomeWM v
 
 ## Info
 I plan to add info of what applicatons and software I using in these dots. Also, I will add explanations of how everything works together and how I set stuff up. This will act as semi documentation to help me remeber how to set everything up.
+
+## NO LONGER IN USE
+I've split my configurations up into more repositories, so this repository is no deprecated
