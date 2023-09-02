@@ -1,9 +1,10 @@
 lastupdatecheck: 0
 recentrepos:
 - /home/rc/mydots
+- /home/rc/ril-repos/scripts-ril
+- /home/rc/pictures/images
 - /home/rc/ril-repos/awesome-ril
 - /home/rc/ril-repos/templates-ril
-- /home/rc/ril-repos/scripts-ril
 - /home/rc/ril-repos/qtile-ril
 - /home/rc/ril-repos/nvim-ril
 - /home/rc/ril-repos/lazyvim-ril
@@ -12,7 +13,6 @@ recentrepos:
 - /home/rc/.config/qmk
 - /home/rc/.config/cosmic-nvim
 - /home/rc/.config/nv-chad/lua/custom
-- /home/rc/pictures/images
 startuppopupversion: 5
 customcommandshistory:
 - q
