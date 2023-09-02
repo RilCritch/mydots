@@ -1,13 +1,21 @@
 lastupdatecheck: 0
 recentrepos:
 - /home/rc/mydots
+- /home/rc/ril-repos/awesome-ril
+- /home/rc/ril-repos/templates-ril
+- /home/rc/ril-repos/scripts-ril
+- /home/rc/ril-repos/qtile-ril
+- /home/rc/ril-repos/nvim-ril
+- /home/rc/ril-repos/lazyvim-ril
+- /home/rc/ril-repos/configs-ril
+- /home/rc/ril-repos/bash-ril
 - /home/rc/.config/qmk
 - /home/rc/.config/cosmic-nvim
 - /home/rc/.config/nv-chad/lua/custom
 - /home/rc/pictures/images
 startuppopupversion: 5
 customcommandshistory:
-- wq
 - q
+- wq
 hidecommandlog: false
 ignorewhitespaceindiffview: false
